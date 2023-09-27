@@ -15,10 +15,12 @@ public class Player : MonoBehaviour
     private bool onGround;
     private bool jump = false;
     private bool doubleJump;
+    private Animator anim;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         speed = maxSpeed;
+        anim = GetComponent<Animator>();
         
     }
 
@@ -28,6 +30,7 @@ public class Player : MonoBehaviour
         onGround = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));
         if (onGround)
         {
+            anim.SetTrigger("OnGround");
             doubleJump = false;
         }
 
@@ -47,7 +50,7 @@ public class Player : MonoBehaviour
         float h = Input.GetAxisRaw("Horizontal");
         rb.velocity = new Vector2(h * speed, rb.velocity.y);
 ;
-
+        anim.SetFloat("Speed", Mathf.Abs(h));
         if ((h > 0 && !facingRight) || (h < 0 && facingRight))
         {
             Flip();
@@ -55,6 +58,7 @@ public class Player : MonoBehaviour
 
         if (jump)
         {
+            anim.SetTrigger("Jump");
             rb.velocity = Vector2.zero;
             rb.AddForce(Vector2.up * jumpForce);
             jump = false;
