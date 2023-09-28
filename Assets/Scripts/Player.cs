@@ -16,6 +16,19 @@ public class Player : MonoBehaviour
     private bool jump = false;
     private bool doubleJump;
     private Animator anim;
+
+    //Atack1
+    private bool canAttack1 = true;
+    private float lastAttack1Time;
+
+    //Attack2
+    private bool canAttack2 = true;
+    private float lastAttack2Time;
+
+    //Attack3
+    private bool canAttack3 = true;
+    private float lastAttack3Time;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -34,6 +47,41 @@ public class Player : MonoBehaviour
             doubleJump = false;
         }
 
+        if (canAttack1 && Input.GetKeyDown(KeyCode.Z))
+        {
+            rb.velocity = Vector2.zero;
+            anim.SetTrigger("Attack1");
+            canAttack1 = false;
+            lastAttack1Time = Time.time;
+        }
+        if (!canAttack1 && Time.time - lastAttack1Time >= 0.6f)
+        {
+            canAttack1 = true;
+        }
+
+        if (canAttack2 && Input.GetKeyDown(KeyCode.X))
+        {
+            rb.velocity = Vector2.zero;
+            anim.SetTrigger("Attack2");
+            canAttack2 = false;
+            lastAttack2Time = Time.time;
+        }
+        if (!canAttack2 && Time.time - lastAttack2Time >= 0.8f)
+        {
+            canAttack2 = true;
+        }
+
+        if (canAttack3 && Input.GetKeyDown(KeyCode.C))
+        {
+            rb.velocity = Vector2.zero;
+            anim.SetTrigger("Attack3");
+            canAttack3 = false;
+            lastAttack3Time = Time.time;
+        }
+        if (!canAttack3 && Time.time - lastAttack3Time >= 0.2f)
+        {
+            canAttack3 = true;
+        }
 
         if (Input.GetButtonDown("Jump") && (onGround || !doubleJump))
         {
@@ -49,7 +97,7 @@ public class Player : MonoBehaviour
     {
         float h = Input.GetAxisRaw("Horizontal");
         rb.velocity = new Vector2(h * speed, rb.velocity.y);
-;
+
         anim.SetFloat("Speed", Mathf.Abs(h));
         if ((h > 0 && !facingRight) || (h < 0 && facingRight))
         {

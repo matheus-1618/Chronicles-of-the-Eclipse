@@ -454,7 +454,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxSpeed: 5
   groundCheck: {fileID: 1774156941}
-  jumpForce: 700
+  jumpForce: 500
 --- !u!50 &822216291
 Rigidbody2D:
   serializedVersion: 4
