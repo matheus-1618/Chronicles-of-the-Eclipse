@@ -31,9 +31,20 @@ public class Attack2 : MonoBehaviour
         }
     }
 
-    public void MagicBall(Vector3 playerScale)
+    public void MagicBall(int attackDirection)
     {
-        transform.localScale = playerScale;
+        transform.localScale = new Vector3(6f, 6f, 1f);
+        if (attackDirection == 1)
+        {
+            direction = Vector2.right;
+        }
+        else
+        {
+            direction = Vector2.left;
+            Vector3 scale = transform.localScale;
+            scale.x *= -1;
+            transform.localScale = scale;
+        }
         anim = GetComponent<Animator>();
         startTime = Time.time;
         anim.Play("attack2");

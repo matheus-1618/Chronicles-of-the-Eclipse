@@ -25,6 +25,8 @@ public class FelixController : MonoBehaviour
     private bool canAttack2 = true;
     private float lastAttack2Time;
     private Attack2 attack2;
+    private bool stop = false;
+    private int direction = 1;
 
     void Start()
     {
@@ -53,18 +55,18 @@ public class FelixController : MonoBehaviour
 
         if (canAttack2 && Input.GetKeyDown(KeyCode.X))
         {
-            rb.velocity = Vector2.zero;
+            stop = true;
             anim.SetTrigger("Attack2");
-            Attack2 newAttack2 = Instantiate(attack2, transform.position, Quaternion.identity);
-            newAttack2.transform.SetParent(transform);
-            newAttack2.MagicBall(attack2.transform.localScale);
+            Attack2 newAttack2 = Instantiate(attack2, attack2.transform.position, Quaternion.identity);
+            newAttack2.MagicBall(direction);
             canAttack2 = false;
             lastAttack2Time = Time.time;
         }
 
-        if (!canAttack2 && Time.time - lastAttack2Time >= 2.5f)
+        if (!canAttack2 && Time.time - lastAttack2Time >= 1f)
         {
             canAttack2 = true;
+            stop = false;
         }
 
     
@@ -86,6 +88,11 @@ public class FelixController : MonoBehaviour
             Flip();
         }
 
+        if (stop)
+        {
+            rb.velocity = Vector2.zero;
+        }
+
         if (jump)
         {
             anim.SetTrigger("Jump");
@@ -101,5 +108,6 @@ public class FelixController : MonoBehaviour
         Vector3 scale = transform.localScale;
         scale.x *= -1;
         transform.localScale = scale;
+        direction *= -1;
     }
 }
