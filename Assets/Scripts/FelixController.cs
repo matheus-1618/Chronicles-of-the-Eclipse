@@ -25,7 +25,6 @@ public class FelixController : MonoBehaviour
     private bool canAttack2 = true;
     private float lastAttack2Time;
     private Attack2 attack2;
-    private int direction = 1;
 
     void Start()
     {
@@ -56,7 +55,9 @@ public class FelixController : MonoBehaviour
         {
             rb.velocity = Vector2.zero;
             anim.SetTrigger("Attack2");
-            attack2.MagicBall(direction);
+            Attack2 newAttack2 = Instantiate(attack2, transform.position, Quaternion.identity);
+            newAttack2.transform.SetParent(transform);
+            newAttack2.MagicBall(attack2.transform.localScale);
             canAttack2 = false;
             lastAttack2Time = Time.time;
         }
@@ -100,6 +101,5 @@ public class FelixController : MonoBehaviour
         Vector3 scale = transform.localScale;
         scale.x *= -1;
         transform.localScale = scale;
-        direction *= -1;
     }
 }

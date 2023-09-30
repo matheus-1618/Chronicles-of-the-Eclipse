@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class Attack2 : MonoBehaviour
 {
@@ -9,14 +10,7 @@ public class Attack2 : MonoBehaviour
     private bool active = false;
     public Vector2 direction = Vector2.right;
     private float startTime;
-
-    private FelixController felix;
-    private Vector2 startPosition; // Store the starting position.
-    private int directionAttack;
-    void Start()
-    {
-        anim = GetComponent<Animator>();
-    }
+    void Start(){}
 
     // Update is called once per frame
     void FixedUpdate()
@@ -32,22 +26,18 @@ public class Attack2 : MonoBehaviour
             if (Time.time - startTime >= 1.5f)
             {
                 active = false;
-                felix = GetComponentInParent<FelixController>();
-                startPosition = new Vector2(felix.transform.position.x + 2f * directionAttack, felix.transform.position.y + 0.5f);
-                transform.position = startPosition;
+                Destroy(gameObject);
             }
-
         }
-
     }
 
-    public void MagicBall(int direction)
+    public void MagicBall(Vector3 playerScale)
     {
-        directionAttack = direction;
+        transform.localScale = playerScale;
+        anim = GetComponent<Animator>();
         startTime = Time.time;
         anim.Play("attack2");
-        active = false;
-        
+        active = true;
     }
 
 }
