@@ -24,17 +24,15 @@ public class FelixController : MonoBehaviour
     //Attack2
     private bool canAttack2 = true;
     private float lastAttack2Time;
-    public GameObject attack2;
-    private float offsetX = 2.0f;    // Quão longe à direita do personagem
-    private float offsetY = 0.5f;    // Quão alto acima do personagem
-    private bool right = true;
+    private Attack2 attack2;
+    private int direction = 1;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         speed = maxSpeed;
         anim = GetComponent<Animator>();
-        
+        attack2 = GetComponentInChildren<Attack2>();
     }
 
     // Update is called once per frame
@@ -58,25 +56,12 @@ public class FelixController : MonoBehaviour
         {
             rb.velocity = Vector2.zero;
             anim.SetTrigger("Attack2");
+            attack2.MagicBall(direction);
             canAttack2 = false;
             lastAttack2Time = Time.time;
-            attack2.SetActive(true);
-
-
-            Vector2 currentPosition = transform.position;
-            Vector2 newPosition = new Vector2(currentPosition.x + offsetX, currentPosition.y + offsetY);
-            attack2.transform.position = newPosition;
-
-            if (right)
-                attack2.transform.Translate(Vector2.right.normalized * 0.2f*Time.deltaTime);
-            else
-                attack2.transform.Translate(Vector2.left.normalized * -0.2f * Time.deltaTime);
         }
-        if (Time.time - lastAttack2Time >= 2.8f)
-        {
-            attack2.SetActive(false);
-        }
-        if (!canAttack2 && Time.time - lastAttack2Time >= 0.8f)
+
+        if (!canAttack2 && Time.time - lastAttack2Time >= 2.5f)
         {
             canAttack2 = true;
         }
@@ -115,12 +100,6 @@ public class FelixController : MonoBehaviour
         Vector3 scale = transform.localScale;
         scale.x *= -1;
         transform.localScale = scale;
-
-        Vector3 scaleAttack2 = attack2.transform.localScale;
-        scaleAttack2.x *= -1;
-        offsetX *= -1;
-        right = !right;
-        attack2.transform.localScale = scaleAttack2;
-
+        direction *= -1;
     }
 }
