@@ -20,6 +20,7 @@ public class FelixController : MonoBehaviour
     //Atack1
     private bool canAttack1 = true;
     private float lastAttack1Time;
+    private Attack1 attack1;
 
     //Attack2
     private bool canAttack2 = true;
@@ -33,6 +34,7 @@ public class FelixController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         speed = maxSpeed;
         anim = GetComponent<Animator>();
+        attack1 = GetComponentInChildren<Attack1>();
         attack2 = GetComponentInChildren<Attack2>();
     }
 
@@ -45,10 +47,11 @@ public class FelixController : MonoBehaviour
         {
             rb.velocity = Vector2.zero;
             anim.SetTrigger("Attack1");
+            attack1.Explosion();
             canAttack1 = false;
             lastAttack1Time = Time.time;
         }
-        if (!canAttack1 && Time.time - lastAttack1Time >= 0.6f)
+        if (!canAttack1 && Time.time - lastAttack1Time >= 3f)
         {
             canAttack1 = true;
         }
