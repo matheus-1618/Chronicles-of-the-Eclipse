@@ -20,21 +20,27 @@ public class AriaController : MonoBehaviour
     //Atack1
     private bool canAttack1 = true;
     private float lastAttack1Time;
+    private AriaAttack1 attack1;
 
     //Attack2
     private bool canAttack2 = true;
     private float lastAttack2Time;
+    private AriaAttack2 attack2;
 
     //Attack3
     private bool canAttack3 = true;
     private float lastAttack3Time;
+    private AriaAttack3 attack3;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         speed = maxSpeed;
         anim = GetComponent<Animator>();
-        
+        attack1 = GetComponentInChildren<AriaAttack1>();
+        attack2 = GetComponentInChildren<AriaAttack2>();
+        attack3 = GetComponentInChildren<AriaAttack3>();
+
     }
 
     // Update is called once per frame
@@ -51,10 +57,11 @@ public class AriaController : MonoBehaviour
         {
             rb.velocity = Vector2.zero;
             anim.SetTrigger("Attack1");
+            attack1.Blade();
             canAttack1 = false;
             lastAttack1Time = Time.time;
         }
-        if (!canAttack1 && Time.time - lastAttack1Time >= 0.6f)
+        if (!canAttack1 && Time.time - lastAttack1Time >= 2.2f)
         {
             canAttack1 = true;
         }
@@ -63,10 +70,11 @@ public class AriaController : MonoBehaviour
         {
             rb.velocity = Vector2.zero;
             anim.SetTrigger("Attack2");
+            attack2.Blade();
             canAttack2 = false;
             lastAttack2Time = Time.time;
         }
-        if (!canAttack2 && Time.time - lastAttack2Time >= 0.8f)
+        if (!canAttack2 && Time.time - lastAttack2Time >= 1.5f)
         {
             canAttack2 = true;
         }
@@ -74,11 +82,12 @@ public class AriaController : MonoBehaviour
         if (canAttack3 && Input.GetKeyDown(KeyCode.C))
         {
             rb.velocity = Vector2.zero;
+            attack3.Blade();
             anim.SetTrigger("Attack3");
             canAttack3 = false;
             lastAttack3Time = Time.time;
         }
-        if (!canAttack3 && Time.time - lastAttack3Time >= 0.2f)
+        if (!canAttack3 && Time.time - lastAttack3Time >= 0.5f)
         {
             canAttack3 = true;
         }
