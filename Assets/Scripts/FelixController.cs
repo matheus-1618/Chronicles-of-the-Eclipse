@@ -29,6 +29,18 @@ public class FelixController : MonoBehaviour
     private bool stop = false;
     private int direction = 1;
 
+
+    //Atack1
+    private bool canAttack3 = true;
+    private float lastAttack3Time;
+    private Attack3 attack3;
+
+
+    //Atack1
+    private bool canAttack4 = true;
+    private float lastAttack4Time;
+    private Attack4 attack4;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -36,6 +48,8 @@ public class FelixController : MonoBehaviour
         anim = GetComponent<Animator>();
         attack1 = GetComponentInChildren<Attack1>();
         attack2 = GetComponentInChildren<Attack2>();
+        attack3 = GetComponentInChildren<Attack3>();
+        attack4 = GetComponentInChildren<Attack4>();
     }
 
     // Update is called once per frame
@@ -45,21 +59,22 @@ public class FelixController : MonoBehaviour
 
         if (canAttack1 && Input.GetKeyDown(KeyCode.Z))
         {
-            rb.velocity = Vector2.zero;
-            anim.SetTrigger("Attack1");
+            anim.SetTrigger("attack1");
             attack1.Explosion();
             canAttack1 = false;
             lastAttack1Time = Time.time;
+            stop = true;
         }
-        if (!canAttack1 && Time.time - lastAttack1Time >= 3f)
+        if (!canAttack1 && Time.time - lastAttack1Time >= 0.6f)
         {
             canAttack1 = true;
+            stop = false;
         }
 
         if (canAttack2 && Input.GetKeyDown(KeyCode.X))
         {
             stop = true;
-            anim.SetTrigger("Attack2");
+            anim.SetTrigger("attack2");
             Attack2 newAttack2 = Instantiate(attack2, attack2.transform.position, Quaternion.identity);
             newAttack2.MagicBall(direction);
             canAttack2 = false;
@@ -72,7 +87,35 @@ public class FelixController : MonoBehaviour
             stop = false;
         }
 
-    
+        if (canAttack3 && Input.GetKeyDown(KeyCode.C))
+        {
+            anim.SetTrigger("attack3");
+            attack3.Explosion();
+            canAttack3 = false;
+            lastAttack3Time = Time.time;
+            stop = true;
+        }
+        if (!canAttack3 && Time.time - lastAttack3Time >= 0.6f)
+        {
+            canAttack3 = true;
+            stop = false;
+        }
+
+        if (canAttack4 && Input.GetKeyDown(KeyCode.V))
+        {
+            anim.SetTrigger("attack4");
+            attack4.Explosion();
+            canAttack4 = false;
+            lastAttack4Time = Time.time;
+            stop = true;
+        }
+        if (!canAttack4 && Time.time - lastAttack4Time >= 0.9f)
+        {
+            canAttack4 = true;
+            stop = false;
+        }
+
+
 
         if (Input.GetButtonDown("Jump") && (onGround))
         {
@@ -93,7 +136,7 @@ public class FelixController : MonoBehaviour
 
         if (stop)
         {
-            rb.velocity = Vector2.zero;
+            rb.velocity = new Vector2(0, rb.velocity.y);
         }
 
         if (jump)

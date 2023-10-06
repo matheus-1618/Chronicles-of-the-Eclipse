@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class AriaController : MonoBehaviour
@@ -14,7 +15,6 @@ public class AriaController : MonoBehaviour
     private bool facingRight = true;
     private bool onGround;
     private bool jump = false;
-    private bool doubleJump;
     private Animator anim;
 
     //Atack1
@@ -26,11 +26,20 @@ public class AriaController : MonoBehaviour
     private bool canAttack2 = true;
     private float lastAttack2Time;
     private AriaAttack2 attack2;
+    private bool stop = false;
+    private int direction = 1;
 
-    //Attack3
+
+    //Atack1
     private bool canAttack3 = true;
     private float lastAttack3Time;
     private AriaAttack3 attack3;
+
+
+    //Atack1
+    private bool canAttack4 = true;
+    private float lastAttack4Time;
+    private AriaAttack4 attack4;
 
     void Start()
     {
@@ -40,65 +49,77 @@ public class AriaController : MonoBehaviour
         attack1 = GetComponentInChildren<AriaAttack1>();
         attack2 = GetComponentInChildren<AriaAttack2>();
         attack3 = GetComponentInChildren<AriaAttack3>();
-
+        attack4 = GetComponentInChildren<AriaAttack4>();
     }
 
     // Update is called once per frame
     void Update()
     {
         onGround = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));
-        if (onGround)
-        {
-            anim.SetTrigger("OnGround");
-            doubleJump = false;
-        }
 
         if (canAttack1 && Input.GetKeyDown(KeyCode.Z))
         {
-            rb.velocity = Vector2.zero;
             anim.SetTrigger("Attack1");
             attack1.Blade();
             canAttack1 = false;
             lastAttack1Time = Time.time;
+            stop = true;
         }
-        if (!canAttack1 && Time.time - lastAttack1Time >= 2.2f)
+        if (!canAttack1 && Time.time - lastAttack1Time >= 0.6f)
         {
             canAttack1 = true;
+            stop = false;
         }
 
         if (canAttack2 && Input.GetKeyDown(KeyCode.X))
         {
-            rb.velocity = Vector2.zero;
+            stop = true;
             anim.SetTrigger("Attack2");
-            attack2.Blade();
+            AriaAttack2 newAttack2 = Instantiate(attack2, attack2.transform.position, Quaternion.identity);
+            newAttack2.MagicBall(direction);
             canAttack2 = false;
             lastAttack2Time = Time.time;
         }
-        if (!canAttack2 && Time.time - lastAttack2Time >= 1.5f)
+
+        if (!canAttack2 && Time.time - lastAttack2Time >= 0.8f)
         {
             canAttack2 = true;
+            stop = false;
         }
 
         if (canAttack3 && Input.GetKeyDown(KeyCode.C))
         {
-            rb.velocity = Vector2.zero;
-            attack3.Blade();
             anim.SetTrigger("Attack3");
+            attack3.Blade();
             canAttack3 = false;
             lastAttack3Time = Time.time;
+            stop = true;
         }
-        if (!canAttack3 && Time.time - lastAttack3Time >= 0.5f)
+        if (!canAttack3 && Time.time - lastAttack3Time >= 0.6f)
         {
             canAttack3 = true;
+            stop = false;
         }
 
-        if (Input.GetButtonDown("Jump") && (onGround || !doubleJump))
+        if (canAttack4 && Input.GetKeyDown(KeyCode.V))
+        {
+            anim.SetTrigger("Attack4");
+            attack4.Blade();
+            canAttack4 = false;
+            lastAttack4Time = Time.time;
+            stop = true;
+        }
+        if (!canAttack4 && Time.time - lastAttack4Time >= 0.9f)
+        {
+            canAttack4 = true;
+            stop = false;
+        }
+
+
+
+        if (Input.GetButtonDown("Jump") && (onGround))
         {
             jump = true;
-            if (!doubleJump && !onGround)
-            {
-                doubleJump = true;
-            }
         }
     }
 
@@ -111,6 +132,11 @@ public class AriaController : MonoBehaviour
         if ((h > 0 && !facingRight) || (h < 0 && facingRight))
         {
             Flip();
+        }
+
+        if (stop)
+        {
+            rb.velocity = new Vector2(0, rb.velocity.y);
         }
 
         if (jump)
@@ -128,5 +154,6 @@ public class AriaController : MonoBehaviour
         Vector3 scale = transform.localScale;
         scale.x *= -1;
         transform.localScale = scale;
+        direction *= -1;
     }
 }

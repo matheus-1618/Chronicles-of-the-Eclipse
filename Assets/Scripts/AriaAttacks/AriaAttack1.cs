@@ -24,6 +24,6 @@ public class AriaAttack1 : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         startTime = Time.time;
-        anim.Play("AriaAttack1");
+        anim.Play("Attack1Collider");
     }
 }

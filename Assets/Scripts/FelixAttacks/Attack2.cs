@@ -17,7 +17,7 @@ public class Attack2 : MonoBehaviour
     {
         if (active)
         {
-            float distance = 10 * (Time.time - startTime);
+            float distance = 7 * (Time.time - startTime);
 
             // Move the fire attack in the specified direction.
             transform.Translate(direction.normalized * distance * Time.deltaTime);
@@ -33,7 +33,7 @@ public class Attack2 : MonoBehaviour
 
     public void MagicBall(int attackDirection)
     {
-        transform.localScale = new Vector3(6f, 6f, 1f);
+        transform.localScale = new Vector3(4f, 4f, 1f);
         if (attackDirection == 1)
         {
             direction = Vector2.right;
@@ -47,7 +47,7 @@ public class Attack2 : MonoBehaviour
         }
         anim = GetComponent<Animator>();
         startTime = Time.time;
-        anim.Play("attack2");
+        anim.Play("FireBall");
         active = true;
     }
 
