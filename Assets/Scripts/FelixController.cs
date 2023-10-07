@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.U2D;
 
 public class FelixController : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class FelixController : MonoBehaviour
     public float maxSpeed = 5;
     public Transform groundCheck;
     public float jumpForce;
+    public int health = 500;
+    private bool canDamage = true;
 
     private Rigidbody2D rb;
     private float speed;
@@ -16,6 +19,7 @@ public class FelixController : MonoBehaviour
     private bool onGround;
     private bool jump = false;
     private Animator anim;
+    private SpriteRenderer sprite;
 
     //Atack1
     private bool canAttack1 = true;
@@ -50,6 +54,7 @@ public class FelixController : MonoBehaviour
         attack2 = GetComponentInChildren<Attack2>();
         attack3 = GetComponentInChildren<Attack3>();
         attack4 = GetComponentInChildren<Attack4>();
+        sprite = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -126,7 +131,11 @@ public class FelixController : MonoBehaviour
     private void FixedUpdate()
     {
         float h = Input.GetAxisRaw("Horizontal");
-        rb.velocity = new Vector2(h * speed, rb.velocity.y);
+
+        if (canDamage)
+        {
+            rb.velocity = new Vector2(h * speed, rb.velocity.y);
+        }
 
         anim.SetFloat("Speed", Mathf.Abs(h));
         if ((h > 0 && !facingRight) || (h < 0 && facingRight))
@@ -156,4 +165,41 @@ public class FelixController : MonoBehaviour
         transform.localScale = scale;
         direction *= -1;
     }
+
+    public int GetHealth()
+    {
+        return health;
+    }
+
+    public void TakeDamage(int damage)
+    {
+        if (canDamage)
+        {
+            canDamage = false;
+            health -= damage;
+            if (health <= 0)
+            {
+                anim.SetTrigger("Dead");
+            }
+            else
+            {
+                anim.SetTrigger("Damage");
+                StartCoroutine(DamageCoroutine());
+
+            }
+        }
+    }
+    IEnumerator DamageCoroutine()
+    {
+        for (float i = 0; i < 0.2f; i += 0.2f)
+        {
+           sprite.color = Color.red;
+            yield return new WaitForSeconds(0.3f);
+           sprite.color = Color.white;
+           // yield return new WaitForSeconds(0.3f);
+        }
+        canDamage = true;
+    }
+
+
 }

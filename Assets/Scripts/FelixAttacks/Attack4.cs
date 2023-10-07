@@ -6,7 +6,7 @@ using static UnityEngine.RuleTile.TilingRuleOutput;
 public class Attack4 : MonoBehaviour
 {
     private Animator anim;
-    private int damage = 120;
+    private int damage = 100;
     public Vector2 direction = Vector2.right;
     private float startTime;
     void Start(){}
@@ -28,5 +28,17 @@ public class Attack4 : MonoBehaviour
         startTime = Time.time;
         anim.Play("Attack4Collider");
     }
+
+    public void OnTriggerEnter2D(Collider2D other)
+    {
+        Panther panther = other.GetComponent<Panther>();
+        if (panther != null)
+        {
+            panther.TakeDamage(damage);
+        
+        }
+
+    }
+
 
 }

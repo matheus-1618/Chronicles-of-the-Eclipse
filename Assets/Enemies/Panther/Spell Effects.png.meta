@@ -1,85 +1,88 @@
 fileFormatVersion: 2
-guid: e5c84d2b221e7c84da76870888bf21b6
+guid: a4a781f7ba753f44eb09a51f411a4352
 TextureImporter:
   internalIDToNameTable:
   - first:
       213: 21300000
-    second: Black Panther_0
+    second: Spell Effects_0
   - first:
       213: 21300002
-    second: Black Panther_1
+    second: Spell Effects_1
   - first:
       213: 21300004
-    second: Black Panther_2
+    second: Spell Effects_2
   - first:
       213: 21300006
-    second: Black Panther_3
+    second: Spell Effects_3
   - first:
       213: 21300008
-    second: Black Panther_4
+    second: Spell Effects_4
   - first:
       213: 21300010
-    second: Black Panther_5
+    second: Spell Effects_5
   - first:
       213: 21300012
-    second: Black Panther_6
+    second: Spell Effects_6
   - first:
       213: 21300014
-    second: Black Panther_7
+    second: Spell Effects_7
   - first:
       213: 21300016
-    second: Black Panther_8
+    second: Spell Effects_8
   - first:
       213: 21300018
-    second: Black Panther_9
+    second: Spell Effects_9
   - first:
       213: 21300020
-    second: Black Panther_10
+    second: Spell Effects_10
   - first:
       213: 21300022
-    second: Black Panther_11
+    second: Spell Effects_11
   - first:
       213: 21300024
-    second: Black Panther_12
+    second: Spell Effects_12
   - first:
       213: 21300026
-    second: Black Panther_13
+    second: Spell Effects_13
   - first:
       213: 21300028
-    second: Black Panther_14
+    second: Spell Effects_14
   - first:
       213: 21300030
-    second: Black Panther_15
+    second: Spell Effects_15
   - first:
       213: 21300032
-    second: Black Panther_16
+    second: Spell Effects_16
   - first:
       213: 21300034
-    second: Black Panther_17
+    second: Spell Effects_17
   - first:
       213: 21300036
-    second: Black Panther_18
+    second: Spell Effects_18
   - first:
       213: 21300038
-    second: Black Panther_19
+    second: Spell Effects_19
   - first:
       213: 21300040
-    second: Black Panther_20
+    second: Spell Effects_20
   - first:
       213: 21300042
-    second: Black Panther_21
+    second: Spell Effects_21
   - first:
       213: 21300044
-    second: Black Panther_22
+    second: Spell Effects_22
   - first:
       213: 21300046
-    second: Black Panther_23
+    second: Spell Effects_23
   - first:
       213: 21300048
-    second: Black Panther_24
+    second: Spell Effects_24
   - first:
       213: 21300050
-    second: Black Panther_25
+    second: Spell Effects_25
+  - first:
+      213: 21300052
+    second: Spell Effects_26
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -214,13 +217,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Black Panther_0
+      name: Spell Effects_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 201
-        width: 46
-        height: 26
+        x: 10
+        y: 83
+        width: 11
+        height: 11
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -235,13 +238,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Black Panther_1
+      name: Spell Effects_1
       rect:
         serializedVersion: 2
-        x: 49
-        y: 197
-        width: 45
-        height: 26
+        x: 27
+        y: 84
+        width: 11
+        height: 11
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -256,13 +259,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Black Panther_2
+      name: Spell Effects_2
       rect:
         serializedVersion: 2
-        x: 97
-        y: 197
-        width: 28
-        height: 30
+        x: 41
+        y: 83
+        width: 13
+        height: 12
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -277,13 +280,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Black Panther_3
+      name: Spell Effects_3
       rect:
         serializedVersion: 2
-        x: 1
-        y: 175
-        width: 61
-        height: 20
+        x: 57
+        y: 83
+        width: 13
+        height: 12
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -298,13 +301,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Black Panther_4
+      name: Spell Effects_4
       rect:
         serializedVersion: 2
-        x: 65
-        y: 165
-        width: 54
-        height: 26
+        x: 76
+        y: 84
+        width: 8
+        height: 12
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -319,13 +322,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Black Panther_5
+      name: Spell Effects_5
       rect:
         serializedVersion: 2
-        x: 4
-        y: 152
-        width: 59
-        height: 17
+        x: 92
+        y: 83
+        width: 8
+        height: 12
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -340,13 +343,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Black Panther_6
+      name: Spell Effects_6
       rect:
         serializedVersion: 2
-        x: 94
-        y: 157
-        width: 4
-        height: 6
+        x: 107
+        y: 59
+        width: 19
+        height: 21
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -361,13 +364,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Black Panther_7
+      name: Spell Effects_7
       rect:
         serializedVersion: 2
-        x: 3
-        y: 130
-        width: 53
-        height: 15
+        x: 107
+        y: 84
+        width: 9
+        height: 12
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -382,13 +385,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Black Panther_8
+      name: Spell Effects_8
       rect:
         serializedVersion: 2
-        x: 69
-        y: 101
-        width: 55
-        height: 54
+        x: 11
+        y: 60
+        width: 15
+        height: 17
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -403,13 +406,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Black Panther_9
+      name: Spell Effects_9
       rect:
         serializedVersion: 2
-        x: 3
-        y: 101
-        width: 58
-        height: 17
+        x: 36
+        y: 64
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -424,13 +427,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Black Panther_10
+      name: Spell Effects_10
       rect:
         serializedVersion: 2
-        x: 31
-        y: 91
-        width: 5
-        height: 8
+        x: 61
+        y: 64
+        width: 15
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -445,13 +448,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Black Panther_11
+      name: Spell Effects_11
       rect:
         serializedVersion: 2
-        x: 37
-        y: 91
-        width: 9
-        height: 8
+        x: 86
+        y: 65
+        width: 14
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -466,13 +469,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Black Panther_12
+      name: Spell Effects_12
       rect:
         serializedVersion: 2
-        x: 47
-        y: 91
-        width: 5
-        height: 8
+        x: 12
+        y: 36
+        width: 15
+        height: 19
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -487,13 +490,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Black Panther_13
+      name: Spell Effects_13
       rect:
         serializedVersion: 2
-        x: 53
-        y: 91
-        width: 5
-        height: 8
+        x: 35
+        y: 34
+        width: 15
+        height: 21
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -508,13 +511,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Black Panther_14
+      name: Spell Effects_14
       rect:
         serializedVersion: 2
-        x: 59
-        y: 91
-        width: 5
-        height: 8
+        x: 40
+        y: 50
+        width: 7
+        height: 5
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -529,13 +532,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Black Panther_15
+      name: Spell Effects_15
       rect:
         serializedVersion: 2
-        x: 65
-        y: 91
-        width: 6
-        height: 8
+        x: 60
+        y: 34
+        width: 15
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -550,13 +553,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Black Panther_16
+      name: Spell Effects_16
       rect:
         serializedVersion: 2
-        x: 72
-        y: 91
-        width: 6
-        height: 8
+        x: 83
+        y: 34
+        width: 16
+        height: 19
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -571,13 +574,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Black Panther_17
+      name: Spell Effects_17
       rect:
         serializedVersion: 2
-        x: 79
-        y: 91
-        width: 6
-        height: 8
+        x: 106
+        y: 34
+        width: 16
+        height: 20
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -592,13 +595,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Black Panther_18
+      name: Spell Effects_18
       rect:
         serializedVersion: 2
-        x: 7
-        y: 19
-        width: 5
-        height: 8
+        x: 9
+        y: 13
+        width: 14
+        height: 18
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -613,13 +616,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Black Panther_19
+      name: Spell Effects_19
       rect:
         serializedVersion: 2
-        x: 13
-        y: 19
-        width: 4
-        height: 6
+        x: 25
+        y: 12
+        width: 13
+        height: 19
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -634,13 +637,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Black Panther_20
+      name: Spell Effects_20
       rect:
         serializedVersion: 2
-        x: 18
-        y: 19
-        width: 4
-        height: 6
+        x: 42
+        y: 14
+        width: 12
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -655,13 +658,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Black Panther_21
+      name: Spell Effects_21
       rect:
         serializedVersion: 2
-        x: 23
-        y: 16
-        width: 70
-        height: 71
+        x: 58
+        y: 14
+        width: 11
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -676,13 +679,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Black Panther_22
+      name: Spell Effects_22
       rect:
         serializedVersion: 2
-        x: 92
-        y: 19
+        x: 75
+        y: 24
         width: 4
-        height: 6
+        height: 5
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -697,13 +700,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Black Panther_23
+      name: Spell Effects_23
       rect:
         serializedVersion: 2
-        x: 97
-        y: 19
-        width: 4
-        height: 6
+        x: 75
+        y: 14
+        width: 11
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -718,13 +721,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Black Panther_24
+      name: Spell Effects_24
       rect:
         serializedVersion: 2
-        x: 102
-        y: 17
-        width: 11
-        height: 10
+        x: 91
+        y: 15
+        width: 10
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -739,13 +742,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Black Panther_25
+      name: Spell Effects_25
       rect:
         serializedVersion: 2
-        x: 52
-        y: 4
-        width: 7
-        height: 8
+        x: 105
+        y: 2
+        width: 30
+        height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -755,6 +758,27 @@ TextureImporter:
       bones: []
       spriteID: 25305410000000000800000000000000
       internalID: 21300050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spell Effects_26
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 15
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45305410000000000800000000000000
+      internalID: 21300052
       vertices: []
       indices: 
       edges: []
@@ -770,32 +794,33 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Black Panther_0: 21300000
-      Black Panther_1: 21300002
-      Black Panther_10: 21300020
-      Black Panther_11: 21300022
-      Black Panther_12: 21300024
-      Black Panther_13: 21300026
-      Black Panther_14: 21300028
-      Black Panther_15: 21300030
-      Black Panther_16: 21300032
-      Black Panther_17: 21300034
-      Black Panther_18: 21300036
-      Black Panther_19: 21300038
-      Black Panther_2: 21300004
-      Black Panther_20: 21300040
-      Black Panther_21: 21300042
-      Black Panther_22: 21300044
-      Black Panther_23: 21300046
-      Black Panther_24: 21300048
-      Black Panther_25: 21300050
-      Black Panther_3: 21300006
-      Black Panther_4: 21300008
-      Black Panther_5: 21300010
-      Black Panther_6: 21300012
-      Black Panther_7: 21300014
-      Black Panther_8: 21300016
-      Black Panther_9: 21300018
+      Spell Effects_0: 21300000
+      Spell Effects_1: 21300002
+      Spell Effects_10: 21300020
+      Spell Effects_11: 21300022
+      Spell Effects_12: 21300024
+      Spell Effects_13: 21300026
+      Spell Effects_14: 21300028
+      Spell Effects_15: 21300030
+      Spell Effects_16: 21300032
+      Spell Effects_17: 21300034
+      Spell Effects_18: 21300036
+      Spell Effects_19: 21300038
+      Spell Effects_2: 21300004
+      Spell Effects_20: 21300040
+      Spell Effects_21: 21300042
+      Spell Effects_22: 21300044
+      Spell Effects_23: 21300046
+      Spell Effects_24: 21300048
+      Spell Effects_25: 21300050
+      Spell Effects_26: 21300052
+      Spell Effects_3: 21300006
+      Spell Effects_4: 21300008
+      Spell Effects_5: 21300010
+      Spell Effects_6: 21300012
+      Spell Effects_7: 21300014
+      Spell Effects_8: 21300016
+      Spell Effects_9: 21300018
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

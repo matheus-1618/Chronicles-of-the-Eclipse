@@ -51,4 +51,15 @@ public class Attack2 : MonoBehaviour
         active = true;
     }
 
+    public void OnTriggerEnter2D(Collider2D other)
+    {
+        Panther panther = other.GetComponent<Panther>();
+        if (panther != null)
+        {
+            panther.TakeDamage(damage);
+            Destroy(gameObject);
+        }
+
+    }
+
 }
