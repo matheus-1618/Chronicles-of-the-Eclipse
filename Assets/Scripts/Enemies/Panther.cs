@@ -57,7 +57,6 @@ public class Panther : MonoBehaviour
             isDead = true;
             rb.velocity = Vector2.zero;
             anim.SetTrigger("Dead");
-            //Destroy(GameObject);
         }
         else
         {

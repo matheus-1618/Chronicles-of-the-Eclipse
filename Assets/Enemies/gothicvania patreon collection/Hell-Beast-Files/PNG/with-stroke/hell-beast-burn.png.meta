@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -121,7 +121,133 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: hell-beast-burn_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 74
+        height: 160
+      alignment: 9
+      pivot: {x: 0.45735607, y: 0.16964278}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e81dd19ab71a5fc4c9e2471c753dc73c
+      internalID: 1247550374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hell-beast-burn_1
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 0
+        width: 74
+        height: 160
+      alignment: 9
+      pivot: {x: 0.4200426, y: 0.15238532}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea0c9649194e50140943ce44639bdc59
+      internalID: -1978557511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hell-beast-burn_2
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 0
+        width: 74
+        height: 160
+      alignment: 9
+      pivot: {x: 0.43070364, y: 0.1326625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23345538caaa21d40bfd2c2d78121bc4
+      internalID: -1433139903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hell-beast-burn_3
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 0
+        width: 74
+        height: 160
+      alignment: 9
+      pivot: {x: 0.47334743, y: 0.15731603}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00274bb7c82f2d94886f04113780bc38
+      internalID: -1889859337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hell-beast-burn_4
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 0
+        width: 74
+        height: 160
+      alignment: 9
+      pivot: {x: 0.46268648, y: 0.20662305}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee0236c5f681d2845aa047eb456da7aa
+      internalID: 1811129428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hell-beast-burn_5
+      rect:
+        serializedVersion: 2
+        x: 370
+        y: 0
+        width: 74
+        height: 160
+      alignment: 9
+      pivot: {x: 0.46801674, y: 0.18690024}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 003fff0c34c189b45b7794d1ace1ec8f
+      internalID: -1278586144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -132,7 +258,13 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      hell-beast-burn_0: 1247550374
+      hell-beast-burn_1: -1978557511
+      hell-beast-burn_2: -1433139903
+      hell-beast-burn_3: -1889859337
+      hell-beast-burn_4: 1811129428
+      hell-beast-burn_5: -1278586144
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
