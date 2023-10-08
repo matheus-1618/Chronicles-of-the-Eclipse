@@ -31,10 +31,10 @@ public class Attack3 : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D other)
     {
-        Panther panther = other.GetComponent<Panther>();
-        if (panther != null)
+        Enemy enemy = other.GetComponent<Enemy>();
+        if (enemy != null)
         {
-            panther.TakeDamage(damage);
+            enemy.TakeDamage(damage);
         }
 
     }

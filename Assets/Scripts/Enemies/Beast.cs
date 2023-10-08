@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Panther : Enemy
+public class Beast : Enemy
 {
     public float speed = 3;
     public int health = 300;
@@ -28,12 +28,7 @@ public class Panther : Enemy
         if (!isDead && move)
         {
             playerDistance = player.transform.position - transform.position;
-            if (Mathf.Abs(playerDistance.x) < 12 && Mathf.Abs(playerDistance.y) < 3)
-            {
-                rb.velocity = new Vector2(speed * (playerDistance.x) / Mathf.Abs(playerDistance.x), rb.velocity.y);
-            }
-            anim.SetFloat("Speed", Mathf.Abs(rb.velocity.x));
-            float h = rb.velocity.x;
+            float h = (playerDistance.x) / Mathf.Abs(playerDistance.x);
             if ((h > 0 && !facingRight) || (h < 0 && facingRight))
             {
                 Flip();
@@ -68,7 +63,7 @@ public class Panther : Enemy
     {
         move = false;
         rb.velocity = Vector2.zero;
-        rb.AddForce(Vector2.right * 5 * (-playerDistance.x) / Mathf.Abs(playerDistance.x), ForceMode2D.Impulse);
+        rb.AddForce(Vector2.right * 3 * (-playerDistance.x) / Mathf.Abs(playerDistance.x), ForceMode2D.Impulse);
         for (float i = 0; i<0.2f; i += 0.2f)
         {
             sprite.color = Color.red;
