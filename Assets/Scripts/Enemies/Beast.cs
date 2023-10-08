@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Beast : Enemy
 {
-    public float speed = 3;
     public int health = 300;
     public int damage = 50;
     private Transform player;
@@ -14,20 +13,35 @@ public class Beast : Enemy
     private bool facingRight = false;
     private bool isDead = false;
     private SpriteRenderer sprite;
-    private bool move = true;
+    private BeastAttack attack;
+    private bool attackAllowed = true;
+    private float lastAttackTime;
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
+        attack = GetComponentInChildren<BeastAttack>();
     }
 
     void FixedUpdate()
     {
-        if (!isDead && move)
+        if (!isDead)
         {
             playerDistance = player.transform.position - transform.position;
+            if (attackAllowed && Mathf.Abs(playerDistance.x) < 10 && Mathf.Abs(playerDistance.y) < 3)
+            {
+                anim.SetTrigger("Attack");
+                BeastAttack newAttack = Instantiate(attack, attack.transform.position, Quaternion.identity);
+                newAttack.MagicBall((playerDistance.x) / Mathf.Abs(playerDistance.x));
+                attackAllowed = false;
+                lastAttackTime = Time.time;
+            }
+            if (!attackAllowed && Time.time - lastAttackTime >= 4f)
+            {
+                attackAllowed = true;
+            }
             float h = (playerDistance.x) / Mathf.Abs(playerDistance.x);
             if ((h > 0 && !facingRight) || (h < 0 && facingRight))
             {
@@ -51,7 +65,7 @@ public class Beast : Enemy
         {
             isDead = true;
             rb.velocity = Vector2.zero;
-            anim.SetTrigger("Dead");
+            anim.SetTrigger("Death");
         }
         else
         {
@@ -61,7 +75,6 @@ public class Beast : Enemy
 
     public override IEnumerator DamageCoroutine()
     {
-        move = false;
         rb.velocity = Vector2.zero;
         rb.AddForce(Vector2.right * 3 * (-playerDistance.x) / Mathf.Abs(playerDistance.x), ForceMode2D.Impulse);
         for (float i = 0; i<0.2f; i += 0.2f)
@@ -71,7 +84,6 @@ public class Beast : Enemy
             sprite.color = Color.white;
             yield return new WaitForSeconds(0.3f);
         }
-        move = true;
     }
 
     public void OnCollisionEnter2D(Collision2D other)
@@ -87,14 +99,11 @@ public class Beast : Enemy
 
     public override IEnumerator StopRoutine()
     {
-        move = false;
         rb.velocity = Vector2.zero;
-        anim.SetFloat("Speed", Mathf.Abs(rb.velocity.x));
         for (float i = 0; i < 0.2f; i += 0.2f)
         {
             yield return new WaitForSeconds(0.8f);
         }
-        move = true;
     }
     public override void DestroyEnemy()
     {
