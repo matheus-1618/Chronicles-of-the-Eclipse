@@ -19,12 +19,17 @@ public class EyeFly : Enemy
     private bool attackAllowed = true;
     private bool leftDirection = true;
     private float lastAttackTime;
+
+    private BeastAttack attack;
+    private bool ballAllowed = true;
+    private float lastBallTime;
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
+        attack = GetComponentInChildren<BeastAttack>();
     }
 
     void FixedUpdate()
@@ -32,15 +37,27 @@ public class EyeFly : Enemy
         if (!isDead && move)
         {
             playerDistance = player.transform.position - transform.position;
+            if (ballAllowed)
+            {
+                //anim.SetTrigger("Attack");
+                BeastAttack newAttack = Instantiate(attack, attack.transform.position, Quaternion.identity);
+                newAttack.MagicBall((playerDistance.x) / Mathf.Abs(playerDistance.x));
+                ballAllowed = false;
+                lastBallTime = Time.time;
+            }
+            if (!ballAllowed && Time.time - lastBallTime >= 3.5f)
+            {
+                ballAllowed = true;
+            }
             if (attackAllowed)
             {
                 if (leftDirection)
                 {
-                    transform.Translate(direction.normalized * 3.5f* Time.deltaTime);
+                    transform.Translate(direction.normalized * -3.5f* Time.deltaTime);
                 }
                 else
                 {
-                    transform.Translate(direction.normalized * -3.5f * Time.deltaTime);
+                    transform.Translate(direction.normalized * 3.5f * Time.deltaTime);
                 }
                 //anim.SetTrigger("Attack");
                 StartCoroutine(AttackRoutine());

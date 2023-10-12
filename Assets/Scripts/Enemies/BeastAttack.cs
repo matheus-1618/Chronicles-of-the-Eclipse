@@ -5,6 +5,7 @@ using UnityEngine;
 public class BeastAttack : MonoBehaviour
 {
     private Animator anim;
+    public float distanceInitial;
     private int damage = 40;
     private bool active = false;
     public Vector2 direction = Vector2.right;
@@ -16,7 +17,7 @@ public class BeastAttack : MonoBehaviour
     {
         if (active)
         {
-            float distance = 5 * (Time.time - startTime);
+            float distance = distanceInitial * (Time.time - startTime);
 
             // Move the fire attack in the specified direction.
             transform.Translate(direction.normalized * distance * Time.deltaTime);
