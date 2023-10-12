@@ -1,23 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.RuleTile.TilingRuleOutput;
 
-public class Attack2 : MonoBehaviour
+public class WitcherAttack : MonoBehaviour
 {
     private Animator anim;
+    public float distanceInitial;
     private int damage = 40;
     private bool active = false;
     public Vector2 direction = Vector2.right;
     private float startTime;
-    void Start(){}
+    void Start() { }
 
     // Update is called once per frame
     void FixedUpdate()
     {
         if (active)
         {
-            float distance = 7 * (Time.time - startTime);
+            float distance = distanceInitial * (Time.time - startTime);
 
             // Move the fire attack in the specified direction.
             transform.Translate(direction.normalized * distance * Time.deltaTime);
@@ -31,19 +31,19 @@ public class Attack2 : MonoBehaviour
         }
     }
 
-    public void MagicBall(int attackDirection)
+    public void MagicBall(float attackDirection)
     {
-        transform.localScale = new Vector3(4f, 4f, 1f);
-        if (attackDirection == 1)
+        transform.localScale = new Vector3(2f, 2f, 1f);
+        if (attackDirection == 1f)
         {
             direction = Vector2.right;
+            Vector3 scale = transform.localScale;
+            scale.x *= -1;
+            transform.localScale = scale;
         }
         else
         {
             direction = Vector2.left;
-            Vector3 scale = transform.localScale;
-            scale.x *= -1;
-            transform.localScale = scale;
         }
         anim = GetComponent<Animator>();
         startTime = Time.time;
@@ -53,13 +53,12 @@ public class Attack2 : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D other)
     {
-        Enemy enemy = other.GetComponent<Enemy>();
-        if (enemy != null)
+        PlayerController player = other.GetComponent<PlayerController>();
+        if (player != null)
         {
-            enemy.TakeDamage(damage);
+            player.TakeDamage(damage);
+            player.GetComponent<Rigidbody2D>().AddForce(Vector2.right * (-5), ForceMode2D.Impulse);
             Destroy(gameObject);
         }
-
     }
-
 }
