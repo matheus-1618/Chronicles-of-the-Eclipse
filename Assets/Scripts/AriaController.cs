@@ -44,6 +44,11 @@ public class AriaController : PlayerController
     private float lastAttack4Time;
     private AriaAttack4 attack4;
 
+    //Atack1
+    private bool canAttack5 = true;
+    private float lastAttack5Time;
+    private AriaAttack5 attack5;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -53,6 +58,7 @@ public class AriaController : PlayerController
         attack2 = GetComponentInChildren<AriaAttack2>();
         attack3 = GetComponentInChildren<AriaAttack3>();
         attack4 = GetComponentInChildren<AriaAttack4>();
+        attack5 = GetComponentInChildren<AriaAttack5>();
         sprite = GetComponent<SpriteRenderer>();
     }
 
@@ -93,13 +99,13 @@ public class AriaController : PlayerController
 
         if (canAttack3 && Input.GetKeyDown(KeyCode.C))
         {
-            anim.SetTrigger("Attack3");
-            attack3.Blade();
+            anim.SetTrigger("Attack5");
+            attack5.Blade();
             canAttack3 = false;
             lastAttack3Time = Time.time;
             stop = true;
         }
-        if (!canAttack3 && Time.time - lastAttack3Time >= 0.6f)
+        if (!canAttack3 && Time.time - lastAttack3Time >= 1.5f)
         {
             canAttack3 = true;
             stop = false;
