@@ -81,7 +81,7 @@ public class Panther : Enemy
 
     public void OnCollisionEnter2D(Collision2D other)
     {
-        FelixController player = other.gameObject.GetComponent<FelixController>();
+        PlayerController player = other.gameObject.GetComponent<PlayerController>();
         if (player != null)
         {
             StartCoroutine(StopRoutine());

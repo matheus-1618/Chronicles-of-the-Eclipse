@@ -26,4 +26,14 @@ public class AriaAttack3 : MonoBehaviour
         startTime = Time.time;
         anim.Play("Attack3Collider");
     }
+
+    public void OnTriggerEnter2D(Collider2D other)
+    {
+        Enemy enemy = other.GetComponent<Enemy>();
+        if (enemy != null)
+        {
+            enemy.TakeDamage(damage);
+        }
+
+    }
 }

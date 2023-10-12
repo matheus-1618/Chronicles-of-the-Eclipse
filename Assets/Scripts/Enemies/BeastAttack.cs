@@ -52,7 +52,7 @@ public class BeastAttack : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D other)
     {
-        FelixController player = other.GetComponent<FelixController>();
+        PlayerController player = other.GetComponent<PlayerController>();
         if (player != null)
         {
             player.TakeDamage(damage);

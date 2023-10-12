@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class AriaController : MonoBehaviour
+public class AriaController : PlayerController
 {
     // Start is called before the first frame update
     public float maxSpeed = 5;
     public Transform groundCheck;
     public float jumpForce;
+    public int health = 500;
+    private bool canDamage = true;
 
     private Rigidbody2D rb;
     private float speed;
@@ -16,6 +18,7 @@ public class AriaController : MonoBehaviour
     private bool onGround;
     private bool jump = false;
     private Animator anim;
+    private SpriteRenderer sprite;
 
     //Atack1
     private bool canAttack1 = true;
@@ -50,6 +53,7 @@ public class AriaController : MonoBehaviour
         attack2 = GetComponentInChildren<AriaAttack2>();
         attack3 = GetComponentInChildren<AriaAttack3>();
         attack4 = GetComponentInChildren<AriaAttack4>();
+        sprite = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -126,7 +130,10 @@ public class AriaController : MonoBehaviour
     private void FixedUpdate()
     {
         float h = Input.GetAxisRaw("Horizontal");
-        rb.velocity = new Vector2(h * speed, rb.velocity.y);
+        if (canDamage)
+        {
+            rb.velocity = new Vector2(h * speed, rb.velocity.y);
+        }
 
         anim.SetFloat("Speed", Mathf.Abs(h));
         if ((h > 0 && !facingRight) || (h < 0 && facingRight))
@@ -148,12 +155,48 @@ public class AriaController : MonoBehaviour
         }
     }
 
-    void Flip()
+    public override void Flip()
     {
         facingRight = !facingRight;
         Vector3 scale = transform.localScale;
         scale.x *= -1;
         transform.localScale = scale;
         direction *= -1;
+    }
+
+    public int GetHealth()
+    {
+        return health;
+    }
+
+    public override void TakeDamage(int damage)
+    {
+        if (canDamage)
+        {
+            canDamage = false;
+            health -= damage;
+            if (health <= 0)
+            {
+                anim.SetTrigger("Dead");
+            }
+            else
+            {
+                //rb.AddForce(Vector2.right * 5 * direction, ForceMode2D.Impulse);
+                anim.SetTrigger("Damage");
+                StartCoroutine(DamageCoroutine());
+
+            }
+        }
+    }
+    public override IEnumerator DamageCoroutine()
+    {
+        for (float i = 0; i < 0.2f; i += 0.2f)
+        {
+            sprite.color = Color.red;
+            yield return new WaitForSeconds(0.3f);
+            sprite.color = Color.white;
+            // yield return new WaitForSeconds(0.3f);
+        }
+        canDamage = true;
     }
 }

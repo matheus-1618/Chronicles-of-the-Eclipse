@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.U2D;
 
-public class FelixController : MonoBehaviour
+public class FelixController : PlayerController
 {
     // Start is called before the first frame update
     public float maxSpeed = 5;
@@ -45,6 +45,28 @@ public class FelixController : MonoBehaviour
     private float lastAttack4Time;
     private Attack4 attack4;
 
+    //Atack1
+    private bool canAttack5 = true;
+    private float lastAttack5Time;
+    private Attack5 attack5;
+
+    //Atack1
+    private bool canAttack6 = true;
+    private float lastAttack6Time;
+    private Attack6 attack6;
+
+
+    //Atack1
+    private bool canAttack7 = true;
+    private float lastAttack7Time;
+    private Attack7 attack7;
+
+
+    //Atack1
+    private bool canAttack8 = true;
+    private float lastAttack8Time;
+    private Attack8 attack8;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -54,6 +76,10 @@ public class FelixController : MonoBehaviour
         attack2 = GetComponentInChildren<Attack2>();
         attack3 = GetComponentInChildren<Attack3>();
         attack4 = GetComponentInChildren<Attack4>();
+        attack5 = GetComponentInChildren<Attack5>();
+        attack6 = GetComponentInChildren<Attack6>();
+        attack7 = GetComponentInChildren<Attack7>();
+        attack8 = GetComponentInChildren<Attack8>();
         sprite = GetComponent<SpriteRenderer>();
     }
 
@@ -64,8 +90,8 @@ public class FelixController : MonoBehaviour
 
         if (canAttack1 && Input.GetKeyDown(KeyCode.Z))
         {
-            anim.SetTrigger("attack1");
-            attack1.Explosion();
+            anim.SetTrigger("attack5");
+            attack5.Explosion();
             canAttack1 = false;
             lastAttack1Time = Time.time;
             stop = true;
@@ -108,8 +134,8 @@ public class FelixController : MonoBehaviour
 
         if (canAttack4 && Input.GetKeyDown(KeyCode.V))
         {
-            anim.SetTrigger("attack4");
-            attack4.Explosion();
+            anim.SetTrigger("attack6");
+            attack6.Explosion();
             canAttack4 = false;
             lastAttack4Time = Time.time;
             stop = true;
@@ -157,7 +183,7 @@ public class FelixController : MonoBehaviour
         }
     }
 
-    void Flip()
+    public override void Flip()
     {
         facingRight = !facingRight;
         Vector3 scale = transform.localScale;
@@ -171,7 +197,7 @@ public class FelixController : MonoBehaviour
         return health;
     }
 
-    public void TakeDamage(int damage)
+    public override void TakeDamage(int damage)
     {
         if (canDamage)
         {
@@ -189,7 +215,7 @@ public class FelixController : MonoBehaviour
             }
         }
     }
-    IEnumerator DamageCoroutine()
+    public override IEnumerator DamageCoroutine()
     {
         for (float i = 0; i < 0.2f; i += 0.2f)
         {
@@ -200,6 +226,4 @@ public class FelixController : MonoBehaviour
         }
         canDamage = true;
     }
-
-
 }
