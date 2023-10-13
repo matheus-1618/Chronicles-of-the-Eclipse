@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 715b7a11e41aba449be7f666689422dd
+guid: 5a0fe64344a07cf4bb156f1b2c062c3f
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,13 +123,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Idle_0
+      name: angel-atk_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 150
-        height: 150
+        width: 122
+        height: 117
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,20 +137,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8febb9aabf7c48c43b7080af5ea2c89a
-      internalID: -202868927
+      spriteID: 41e43046736c0d549b8fec84429d7fba
+      internalID: 1600039666
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle_1
+      name: angel-atk_1
       rect:
         serializedVersion: 2
-        x: 150
+        x: 122
         y: 0
-        width: 150
-        height: 150
+        width: 122
+        height: 117
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,20 +158,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9fd8312fa37254c418d7fbc5c49f46b0
-      internalID: -1951226330
+      spriteID: 08026a9e084e47e4b99a209bc2791e30
+      internalID: -1242394509
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle_2
+      name: angel-atk_2
       rect:
         serializedVersion: 2
-        x: 300
+        x: 244
         y: 0
-        width: 150
-        height: 150
+        width: 122
+        height: 117
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -179,20 +179,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a4f24b8139346e344bac167419e8211e
-      internalID: 102715908
+      spriteID: 1cbd5d4b391d3f748ac58a402913f6e9
+      internalID: 918245764
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle_3
+      name: angel-atk_3
       rect:
         serializedVersion: 2
-        x: 450
+        x: 366
         y: 0
-        width: 150
-        height: 150
+        width: 122
+        height: 117
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -200,20 +200,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 17975d6c37ecc2649b78aaceba34c7f0
-      internalID: 1157636136
+      spriteID: 5245d16fa14c490418f9e32833734ae8
+      internalID: -376612075
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle_4
+      name: angel-atk_4
       rect:
         serializedVersion: 2
-        x: 600
+        x: 488
         y: 0
-        width: 150
-        height: 150
+        width: 122
+        height: 117
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -221,20 +221,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 486026672c2d6de479ae8ae9f7646df9
-      internalID: 271515818
+      spriteID: edc1cfe7859921c4187274fd744a9dcf
+      internalID: 1783492252
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle_5
+      name: angel-atk_5
       rect:
         serializedVersion: 2
-        x: 750
+        x: 610
         y: 0
-        width: 150
-        height: 150
+        width: 122
+        height: 117
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -242,20 +242,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e440e94a9cd2e914a92dadec1ca75c2d
-      internalID: 2066657620
+      spriteID: da5a26bcab51dbd46b41f824f0acb804
+      internalID: 310050914
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle_6
+      name: angel-atk_6
       rect:
         serializedVersion: 2
-        x: 900
+        x: 732
         y: 0
-        width: 150
-        height: 150
+        width: 122
+        height: 117
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -263,20 +263,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 02a2afa2f70e8b04bb70ab9e18b97b58
-      internalID: -874170423
+      spriteID: b00bf1d3205853043bcba243330df68d
+      internalID: 1110704865
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle_7
+      name: angel-atk_7
       rect:
         serializedVersion: 2
-        x: 1050
+        x: 854
         y: 0
-        width: 150
-        height: 150
+        width: 122
+        height: 117
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -284,8 +284,113 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 301e6a69c394c8646938fa4e9da46c3b
-      internalID: -886748052
+      spriteID: 99d6677e5397da64e920639b85245985
+      internalID: 2006602510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: angel-atk_8
+      rect:
+        serializedVersion: 2
+        x: 976
+        y: 0
+        width: 122
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12178efe61a291241b49a1b4ad810baa
+      internalID: 562822316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: angel-atk_9
+      rect:
+        serializedVersion: 2
+        x: 1098
+        y: 0
+        width: 122
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3efa96eb2ad0c54a861c4860feed176
+      internalID: -1189725005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: angel-atk_10
+      rect:
+        serializedVersion: 2
+        x: 1220
+        y: 0
+        width: 122
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8e18c3506fd8b642ba3747fecbb5a6d
+      internalID: 1311835327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: angel-atk_11
+      rect:
+        serializedVersion: 2
+        x: 1342
+        y: 0
+        width: 122
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6363f06bb969ea2449c32fc7ad9f0540
+      internalID: 1286273579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: angel-atk_12
+      rect:
+        serializedVersion: 2
+        x: 1464
+        y: 0
+        width: 122
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef9c5d2ef3eaba64cae5022a0fe71e45
+      internalID: 951212901
       vertices: []
       indices: 
       edges: []
@@ -301,14 +406,19 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Idle_0: -202868927
-      Idle_1: -1951226330
-      Idle_2: 102715908
-      Idle_3: 1157636136
-      Idle_4: 271515818
-      Idle_5: 2066657620
-      Idle_6: -874170423
-      Idle_7: -886748052
+      angel-atk_0: 1600039666
+      angel-atk_1: -1242394509
+      angel-atk_10: 1311835327
+      angel-atk_11: 1286273579
+      angel-atk_12: 951212901
+      angel-atk_2: 918245764
+      angel-atk_3: -376612075
+      angel-atk_4: 1783492252
+      angel-atk_5: 310050914
+      angel-atk_6: 1110704865
+      angel-atk_7: 2006602510
+      angel-atk_8: 562822316
+      angel-atk_9: -1189725005
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
