@@ -11,6 +11,7 @@ public class AriaController : PlayerController
     public float jumpForce;
     public int health = 500;
     private bool canDamage = true;
+    private bool doubleJump;
 
     private Rigidbody2D rb;
     private float speed;
@@ -125,11 +126,18 @@ public class AriaController : PlayerController
             stop = false;
         }
 
+        if (onGround)
+        {
+            doubleJump = false;
+        }
 
-
-        if (Input.GetButtonDown("Jump") && (onGround))
+        if (Input.GetButtonDown("Jump") && (onGround || !doubleJump))
         {
             jump = true;
+            if (!doubleJump && !onGround)
+            {
+                doubleJump = true;
+            }
         }
     }
 
