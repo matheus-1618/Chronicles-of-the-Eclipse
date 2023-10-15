@@ -2644,7 +2644,7 @@ MonoBehaviour:
   maxSpeed: 5
   groundCheck: {fileID: 1774156941}
   jumpForce: 500
-  health: 500
+  health: 5000
 --- !u!1 &858407898
 GameObject:
   m_ObjectHideFlags: 0
