@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bringer : Enemy
+public class General : Enemy
 {
     // Start is called before the first frame update
     public int health = 3000;
@@ -15,10 +15,12 @@ public class Bringer : Enemy
     private bool isDead = false;
     private SpriteRenderer sprite;
 
-    private BringerAttack1 attack1;
-    private BringerAttack2 attack2;
+    private GeneralAttack1 attack1;
+    private GeneralAttack2 attack2;
+    private GeneralAttack3 attack3;
     private bool attackAllowed = true;
     private float lastAttackTime;
+    private bool initial = true;
     private int state = 0;
     void Start()
     {
@@ -26,9 +28,9 @@ public class Bringer : Enemy
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
-        attack1 = GetComponentInChildren<BringerAttack1>();
-        attack2 = GetComponentInChildren<BringerAttack2>();
-
+        attack1 = GetComponentInChildren<GeneralAttack1>();
+        attack2 = GetComponentInChildren<GeneralAttack2>();
+        attack3 = GetComponentInChildren<GeneralAttack3>();
     }
 
     // Update is called once per frame
@@ -37,53 +39,90 @@ public class Bringer : Enemy
         if (!isDead)
         {
             playerDistance = player.transform.position - transform.position;
-            if (state == 0 && attackAllowed)
+            if (initial)
             {
-                rb.velocity = new Vector2(0f, rb.velocity.y);
-                anim.SetTrigger("Attack2");
-                StartCoroutine(Attack2Routine());
-                lastAttackTime = Time.time;
-                attackAllowed = false;
-            }
-            if (state == 0 && Time.time - lastAttackTime > 2f)
-            {
-                attackAllowed = true;
-                state = 1;
-
-            }
-            if (state == 1 && attackAllowed)
-            {
-                rb.velocity = new Vector2(3.5f * (playerDistance.x) / Mathf.Abs(playerDistance.x), rb.velocity.y);
+                rb.velocity = new Vector2(4.5f * (playerDistance.x) / Mathf.Abs(playerDistance.x), rb.velocity.y);
                 anim.SetFloat("Speed", Mathf.Abs(rb.velocity.x));
-                if (Mathf.Abs(playerDistance.x) < 3)
+                if (Mathf.Abs(playerDistance.x) < 2)
                 {
-                    //rb.velocity = new Vector2(0f, rb.velocity.y);
                     anim.SetFloat("Speed", 0f);
-                    state = 2;
+                    ChangeState();
+                    initial = false;
                 }
-            }
 
-            if (state == 2 && attackAllowed)
+            }
+            if (state == 1 && attackAllowed && !initial)
             {
-                anim.SetTrigger("Attack");
-                rb.velocity = new Vector2(2.5f * (playerDistance.x) / Mathf.Abs(playerDistance.x), rb.velocity.y);
+                anim.SetTrigger("Attack1");
+                rb.velocity = new Vector2(2f * (playerDistance.x) / Mathf.Abs(playerDistance.x), rb.velocity.y);
                 attack1.Blade();
                 attackAllowed = false;
                 lastAttackTime = Time.time;
             }
 
-            if (state == 2 && Time.time - lastAttackTime > 2f)
+            if (state == 1 && Time.time - lastAttackTime > 1.5f && !initial)
             {
                 attackAllowed = true;
-                state = 0;
-
+                initial = true;
             }
+
+            if (state == 2 && attackAllowed && !initial)
+            {
+                anim.SetTrigger("Attack2");
+                rb.velocity = new Vector2(1.7f * (playerDistance.x) / Mathf.Abs(playerDistance.x), rb.velocity.y);
+                attack2.Blade();
+                attackAllowed = false;
+                lastAttackTime = Time.time;
+            }
+
+            if (state == 2 && Time.time - lastAttackTime > 1.5f && !initial)
+            {
+                attackAllowed = true;
+                initial = true;
+            }
+
+            if (state == 3 && attackAllowed && !initial)
+            {
+                anim.SetTrigger("Attack3");
+                rb.velocity = new Vector2(1.5f * (playerDistance.x) / Mathf.Abs(playerDistance.x), rb.velocity.y);
+                attack3.Blade();
+                attackAllowed = false;
+                lastAttackTime = Time.time;
+            }
+
+            if (state == 3 && Time.time - lastAttackTime > 1.5f && !initial)
+            {
+                attackAllowed = true;
+                initial = true;
+            }
+
 
             float h = (playerDistance.x) / Mathf.Abs(playerDistance.x);
             if ((h > 0 && !facingRight) || (h < 0 && facingRight))
             {
                 Flip();
             }
+        }
+
+    }
+
+    void ChangeState()
+    {
+        if (state == 0)
+        {
+            state = 1;
+        }
+        else if (state == 1)
+        {
+            state = 2;
+        }
+        else if (state == 2)
+        {
+            state = 3;
+        }
+        else if (state == 3)
+        {
+            state = 1;
         }
 
     }
@@ -143,17 +182,6 @@ public class Bringer : Enemy
             yield return new WaitForSeconds(0.8f);
         }
     }
-
-    public  IEnumerator Attack2Routine()
-    {
-        anim.SetFloat("Speed", 0f);
-        for (float i = 0; i < 0.2f; i += 0.2f)
-        {
-            yield return new WaitForSeconds(2f);
-            attack2.MagicBall((playerDistance.x) / Mathf.Abs(playerDistance.x));
-        }
-    }
-
 
     public override void DestroyEnemy()
     {
