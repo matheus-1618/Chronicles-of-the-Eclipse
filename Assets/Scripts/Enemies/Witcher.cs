@@ -65,8 +65,8 @@ public class Witcher : Enemy
         {
             isDead = true;
             rb.velocity = Vector2.zero;
-            Destroy(gameObject);
-            //anim.SetTrigger("Death");
+            //Destroy(gameObject);
+            anim.SetTrigger("Death");
         }
         else
         {

@@ -71,8 +71,8 @@ public class Angel : Enemy
         {
             isDead = true;
             rb.velocity = Vector2.zero;
-            DestroyEnemy();
-            //anim.SetTrigger("Dead");
+            
+            anim.SetTrigger("Death");
         }
         else
         {

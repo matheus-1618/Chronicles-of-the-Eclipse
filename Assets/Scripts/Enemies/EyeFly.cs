@@ -86,7 +86,7 @@ public class EyeFly : Enemy
         {
             isDead = true;
             rb.velocity = Vector2.zero;
-            DestroyEnemy();
+            anim.SetTrigger("Death");
         }
         else
         {
