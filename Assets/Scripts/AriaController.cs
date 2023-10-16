@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEditor.ShaderGraph.Internal.KeywordDependentCollection;
 
 public class AriaController : PlayerController
 {
@@ -20,6 +21,10 @@ public class AriaController : PlayerController
     private bool jump = false;
     private Animator anim;
     private SpriteRenderer sprite;
+
+    private bool roll = true;
+    private bool canRoll = false;
+    private float lastRollTime;
 
     //Atack1
     private bool canAttack1 = true;
@@ -126,6 +131,19 @@ public class AriaController : PlayerController
             stop = false;
         }
 
+        if (roll && Input.GetKeyDown(KeyCode.F))
+        {
+            anim.SetTrigger("Roll");
+            roll = false;
+            canRoll = true;
+            lastRollTime = Time.time;
+        }
+        if (!roll && Time.time-lastRollTime > 2f)
+        {
+            roll = true;
+            
+        }
+
         if (onGround)
         {
             doubleJump = false;
@@ -158,6 +176,15 @@ public class AriaController : PlayerController
         if (stop)
         {
             rb.velocity = new Vector2(0, rb.velocity.y);
+        }
+
+        if (canRoll)
+        {
+            rb.velocity = new Vector2(0, rb.velocity.y);
+            Vector2 Ndirection = Vector2.right;
+            transform.Translate(Ndirection.normalized * 30 * direction * Time.deltaTime);
+            //rb.AddForce(Vector2.right * -10 * direction, ForceMode2D.Impulse);
+            canRoll = false;
         }
 
         if (jump)
@@ -196,7 +223,7 @@ public class AriaController : PlayerController
             else
             {
                 //rb.AddForce(Vector2.right * 5 * direction, ForceMode2D.Impulse);
-                anim.SetTrigger("Damage");
+                //anim.SetTrigger("Damage");
                 StartCoroutine(DamageCoroutine());
 
             }

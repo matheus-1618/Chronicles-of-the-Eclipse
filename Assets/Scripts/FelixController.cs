@@ -209,7 +209,7 @@ public class FelixController : PlayerController
             }
             else
             {
-                anim.SetTrigger("Damage");
+                //anim.SetTrigger("Damage");
                 StartCoroutine(DamageCoroutine());
 
             }
