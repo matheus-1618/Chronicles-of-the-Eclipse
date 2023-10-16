@@ -182,7 +182,7 @@ public class AriaController : PlayerController
         {
             rb.velocity = new Vector2(0, rb.velocity.y);
             Vector2 Ndirection = Vector2.right;
-            transform.Translate(Ndirection.normalized * 30 * direction * Time.deltaTime);
+            transform.Translate(Ndirection.normalized * 45 * direction * Time.deltaTime);
             //rb.AddForce(Vector2.right * -10 * direction, ForceMode2D.Impulse);
             canRoll = false;
         }

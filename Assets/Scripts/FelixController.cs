@@ -21,6 +21,10 @@ public class FelixController : PlayerController
     private Animator anim;
     private SpriteRenderer sprite;
 
+    private bool roll = true;
+    private bool canRoll = false;
+    private float lastRollTime;
+
     //Atack1
     private bool canAttack1 = true;
     private float lastAttack1Time;
@@ -146,7 +150,18 @@ public class FelixController : PlayerController
             stop = false;
         }
 
+        if (roll && Input.GetKeyDown(KeyCode.F))
+        {
+            anim.SetTrigger("Roll");
+            roll = false;
+            canRoll = true;
+            lastRollTime = Time.time;
+        }
+        if (!roll && Time.time - lastRollTime > 2f)
+        {
+            roll = true;
 
+        }
 
         if (Input.GetButtonDown("Jump") && (onGround))
         {
@@ -172,6 +187,15 @@ public class FelixController : PlayerController
         if (stop)
         {
             rb.velocity = new Vector2(0, rb.velocity.y);
+        }
+
+        if (canRoll)
+        {
+            rb.velocity = new Vector2(0, rb.velocity.y);
+            Vector2 Ndirection = Vector2.right;
+            transform.Translate(Ndirection.normalized * 45 * direction * Time.deltaTime);
+            //rb.AddForce(Vector2.right * -10 * direction, ForceMode2D.Impulse);
+            canRoll = false;
         }
 
         if (jump)
