@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 using static UnityEditor.ShaderGraph.Internal.KeywordDependentCollection;
+
 
 public class AriaController : PlayerController
 {
@@ -10,9 +12,11 @@ public class AriaController : PlayerController
     public float maxSpeed = 5;
     public Transform groundCheck;
     public float jumpForce;
-    public int health = 500;
+    public int Maxhealth = 500;
+    public Scrollbar mainSlider;
     private bool canDamage = true;
     private bool doubleJump;
+    private int health;
 
     private Rigidbody2D rb;
     private float speed;
@@ -57,7 +61,11 @@ public class AriaController : PlayerController
 
     void Start()
     {
+        //mainSlider.m = health;
+        mainSlider.value = 0;
+        mainSlider.size = 1;
         rb = GetComponent<Rigidbody2D>();
+        health = Maxhealth;
         speed = maxSpeed;
         anim = GetComponent<Animator>();
         attack1 = GetComponentInChildren<AriaAttack1>();
@@ -216,6 +224,7 @@ public class AriaController : PlayerController
         {
             canDamage = false;
             health -= damage;
+            mainSlider.size = (float) health/Maxhealth;
             if (health <= 0)
             {
                 anim.SetTrigger("Dead");
