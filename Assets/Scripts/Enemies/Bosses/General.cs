@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class General : Enemy
 {
     // Start is called before the first frame update
-    public int health = 3000;
+    public int Maxhealth = 3000;
+    private int health;
     public int damage = 20;
+    public Scrollbar mainSlider;
+
     private Transform player;
     private Rigidbody2D rb;
     private Animator anim;
@@ -24,6 +27,9 @@ public class General : Enemy
     private int state = 0;
     void Start()
     {
+        health = Maxhealth;
+        mainSlider.value = 0;
+        mainSlider.size = 1;
         player = GameObject.FindGameObjectWithTag("Player").transform;
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
@@ -137,6 +143,7 @@ public class General : Enemy
     public override void TakeDamage(int damage)
     {
         health -= damage;
+        mainSlider.size = (float)health / Maxhealth;
         if (health <= 0)
         {
             isDead = true;

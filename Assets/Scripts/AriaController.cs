@@ -165,7 +165,7 @@ public class AriaController : PlayerController
             Imageattack40.color = Color.white;
         }
 
-        if (roll && Input.GetKeyDown(KeyCode.F))
+        if (!jump && roll && Input.GetKeyDown(KeyCode.F))
         {
             anim.SetTrigger("Roll");
             roll = false;
