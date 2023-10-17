@@ -4096,7 +4096,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 47, y: 36.5}
+  m_AnchoredPosition: {x: 79.9, y: 36.5}
   m_SizeDelta: {x: 200, y: 51}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &922607680
@@ -4119,7 +4119,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: General of Darkness
+  m_text: Voros Salazar
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c8466eef2d9478546820dc8c6ab6c6ea, type: 2}
   m_sharedMaterial: {fileID: -627972985888509251, guid: c8466eef2d9478546820dc8c6ab6c6ea, type: 2}
@@ -4669,7 +4669,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 47, y: 36.5}
+  m_AnchoredPosition: {x: 57.4, y: 36.5}
   m_SizeDelta: {x: 200, y: 51}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1066397197
@@ -4692,7 +4692,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: General of Darkness
+  m_text: Voros Salazar, Demon Form
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c8466eef2d9478546820dc8c6ab6c6ea, type: 2}
   m_sharedMaterial: {fileID: -627972985888509251, guid: c8466eef2d9478546820dc8c6ab6c6ea, type: 2}
@@ -4755,7 +4755,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -52.482933, y: 0, z: -19.000763, w: 0}
+  m_margin: {x: -119.92536, y: 0, z: -6.0310974, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -6576,7 +6576,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Maxhealth: 3000
   damage: 20
-  mainSlider: {fileID: 0}
+  mainSlider: {fileID: 250477347}
 --- !u!50 &1500755038
 Rigidbody2D:
   serializedVersion: 4
@@ -6592,7 +6592,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 0
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -7051,7 +7051,7 @@ MonoBehaviour:
   Maxhealth: 3000
   damage: 20
   DemonForm: {fileID: 1500755036}
-  mainSlider: {fileID: 0}
+  mainSlider: {fileID: 355149207}
 --- !u!50 &1661690595
 Rigidbody2D:
   serializedVersion: 4
