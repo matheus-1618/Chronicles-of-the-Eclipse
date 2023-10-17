@@ -14,6 +14,16 @@ public class AriaController : PlayerController
     public float jumpForce;
     public int Maxhealth = 500;
     public Scrollbar mainSlider;
+    public Image Imageattack1;
+    public Image Imageattack10;
+    public Image Imageattack2;
+    public Image Imageattack20;
+    public Image Imageattack3;
+    public Image Imageattack30;
+    public Image Imageattack4;
+    public Image Imageattack40;
+    public Image Dodge;
+    public Image Dodge0;
     private bool canDamage = true;
     private bool doubleJump;
     private int health;
@@ -88,11 +98,15 @@ public class AriaController : PlayerController
             canAttack1 = false;
             lastAttack1Time = Time.time;
             stop = true;
+            Imageattack1.color = Color.red;
+            Imageattack10.color = Color.red;
         }
         if (!canAttack1 && Time.time - lastAttack1Time >= 0.6f)
         {
             canAttack1 = true;
             stop = false;
+            Imageattack1.color = Color.white;
+            Imageattack10.color = Color.white;
         }
 
         if (canAttack2 && Input.GetKeyDown(KeyCode.X))
@@ -103,12 +117,16 @@ public class AriaController : PlayerController
             newAttack2.MagicBall(direction);
             canAttack2 = false;
             lastAttack2Time = Time.time;
+            Imageattack2.color = Color.red;
+            Imageattack20.color = Color.red;
         }
 
         if (!canAttack2 && Time.time - lastAttack2Time >= 0.8f)
         {
             canAttack2 = true;
             stop = false;
+            Imageattack2.color = Color.white;
+            Imageattack20.color = Color.white;
         }
 
         if (canAttack3 && Input.GetKeyDown(KeyCode.C))
@@ -118,11 +136,15 @@ public class AriaController : PlayerController
             canAttack3 = false;
             lastAttack3Time = Time.time;
             stop = true;
+            Imageattack3.color = Color.red;
+            Imageattack30.color = Color.red;
         }
         if (!canAttack3 && Time.time - lastAttack3Time >= 1.5f)
         {
             canAttack3 = true;
             stop = false;
+            Imageattack3.color = Color.white;
+            Imageattack30.color = Color.white;
         }
 
         if (canAttack4 && Input.GetKeyDown(KeyCode.V))
@@ -132,11 +154,15 @@ public class AriaController : PlayerController
             canAttack4 = false;
             lastAttack4Time = Time.time;
             stop = true;
+            Imageattack4.color = Color.red;
+            Imageattack40.color = Color.red;
         }
         if (!canAttack4 && Time.time - lastAttack4Time >= 0.9f)
         {
             canAttack4 = true;
             stop = false;
+            Imageattack4.color = Color.white;
+            Imageattack40.color = Color.white;
         }
 
         if (roll && Input.GetKeyDown(KeyCode.F))
@@ -145,11 +171,14 @@ public class AriaController : PlayerController
             roll = false;
             canRoll = true;
             lastRollTime = Time.time;
+            Dodge.color = Color.red;
+            Dodge0.color = Color.red;
         }
         if (!roll && Time.time-lastRollTime > 2f)
         {
             roll = true;
-            
+            Dodge.color = Color.white;
+            Dodge0.color = Color.white;
         }
 
         if (onGround)

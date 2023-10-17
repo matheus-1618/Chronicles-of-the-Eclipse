@@ -1390,6 +1390,16 @@ MonoBehaviour:
   jumpForce: 500
   Maxhealth: 3000
   mainSlider: {fileID: 16957031}
+  Imageattack1: {fileID: 1631900272}
+  Imageattack10: {fileID: 2109179918}
+  Imageattack2: {fileID: 1222817606}
+  Imageattack20: {fileID: 1978871874}
+  Imageattack3: {fileID: 813922332}
+  Imageattack30: {fileID: 1578876979}
+  Imageattack4: {fileID: 864101466}
+  Imageattack40: {fileID: 1686280991}
+  Dodge: {fileID: 994106785}
+  Dodge0: {fileID: 947715112}
 --- !u!95 &265364371
 Animator:
   serializedVersion: 5
