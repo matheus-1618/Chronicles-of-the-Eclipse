@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Necromancer : Enemy
 {
     // Start is called before the first frame update
-    public int health = 3000;
+    public int Maxhealth = 3000;
+    private int health;
     public int damage = 20;
+    public Scrollbar mainSlider;
     private Transform player;
     private Rigidbody2D rb;
     private Animator anim;
@@ -22,6 +25,9 @@ public class Necromancer : Enemy
     private int state = 0;
     void Start()
     {
+        health = Maxhealth;
+        mainSlider.value = 0;
+        mainSlider.size = 1;
         player = GameObject.FindGameObjectWithTag("Player").transform;
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
@@ -53,9 +59,9 @@ public class Necromancer : Enemy
             }
             if (state == 1 && attackAllowed)
             {
-                rb.velocity = new Vector2(3.5f * (playerDistance.x) / Mathf.Abs(playerDistance.x), rb.velocity.y);
+                rb.velocity = new Vector2(4.5f * (playerDistance.x) / Mathf.Abs(playerDistance.x), rb.velocity.y);
                 anim.SetFloat("Speed", Mathf.Abs(rb.velocity.x));
-                if (Mathf.Abs(playerDistance.x) < 6)
+                if (Mathf.Abs(playerDistance.x) < 4)
                 {
                     //rb.velocity = new Vector2(0f, rb.velocity.y);
                     anim.SetFloat("Speed", 0f);
@@ -98,6 +104,7 @@ public class Necromancer : Enemy
     public override void TakeDamage(int damage)
     {
         health -= damage;
+        mainSlider.size = (float)health / Maxhealth;
         if (health <= 0)
         {
             isDead = true;

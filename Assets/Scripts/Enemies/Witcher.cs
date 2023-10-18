@@ -8,6 +8,7 @@ public class Witcher : Enemy
     public int damage = 50;
     private Transform player;
     private Rigidbody2D rb;
+    private BoxCollider2D box;
     private Animator anim;
     private Vector3 playerDistance;
     private bool facingRight = false;
@@ -21,6 +22,7 @@ public class Witcher : Enemy
         player = GameObject.FindGameObjectWithTag("Player").transform;
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        box = GetComponent<BoxCollider2D>();
         sprite = GetComponent<SpriteRenderer>();
         attack = GetComponentInChildren<WitcherAttack>();
     }
@@ -33,10 +35,13 @@ public class Witcher : Enemy
             if (attackAllowed && Mathf.Abs(playerDistance.x) < 10 && Mathf.Abs(playerDistance.y) < 3)
             {
                 anim.SetTrigger("Attack");
-                WitcherAttack newAttack = Instantiate(attack, attack.transform.position, Quaternion.identity);
-                newAttack.MagicBall((playerDistance.x) / Mathf.Abs(playerDistance.x));
-                attackAllowed = false;
-                lastAttackTime = Time.time;
+                if (attack != null)
+                {
+                    WitcherAttack newAttack = Instantiate(attack, attack.transform.position, Quaternion.identity);
+                    newAttack.MagicBall((playerDistance.x) / Mathf.Abs(playerDistance.x));
+                    attackAllowed = false;
+                    lastAttackTime = Time.time;
+                }
             }
             if (!attackAllowed && Time.time - lastAttackTime >= 4f)
             {
@@ -63,6 +68,8 @@ public class Witcher : Enemy
         health -= damage;
         if (health <= 0)
         {
+            rb.gravityScale = 0;
+            box.enabled = false;
             isDead = true;
             rb.velocity = Vector2.zero;
             //Destroy(gameObject);
