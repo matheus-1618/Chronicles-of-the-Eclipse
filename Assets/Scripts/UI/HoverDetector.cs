@@ -9,6 +9,13 @@ public class HoverDetector : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     public GameObject HopeScene;
     public GameObject RevengeScene;
 
+    public AudioSource Soundtrack;
+
+    void Start()
+    {
+        if (Soundtrack != null)
+            Soundtrack.Play();
+    }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
