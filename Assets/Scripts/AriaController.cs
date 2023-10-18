@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using static UnityEditor.ShaderGraph.Internal.KeywordDependentCollection;
 
 
@@ -181,6 +182,12 @@ public class AriaController : PlayerController
             Dodge0.color = Color.white;
         }
 
+        if (transform.position.y < -5)
+        {
+            int cenaAtual = SceneManager.GetActiveScene().buildIndex;
+            SceneManager.LoadScene(cenaAtual);
+        }
+
         if (onGround)
         {
             doubleJump = false;
@@ -257,6 +264,7 @@ public class AriaController : PlayerController
             if (health <= 0)
             {
                 anim.SetTrigger("Dead");
+                StartCoroutine(RecarregaCena());
             }
             else
             {
@@ -265,6 +273,16 @@ public class AriaController : PlayerController
                 StartCoroutine(DamageCoroutine());
 
             }
+        }
+    }
+
+    public IEnumerator RecarregaCena()
+    {
+        for (float i = 0; i < 0.2f; i += 0.2f)
+        {
+            yield return new WaitForSeconds(0.7f);
+            int cenaAtual = SceneManager.GetActiveScene().buildIndex;
+            SceneManager.LoadScene(cenaAtual);
         }
     }
     public override IEnumerator DamageCoroutine()
