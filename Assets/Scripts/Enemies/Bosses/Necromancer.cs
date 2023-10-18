@@ -73,8 +73,11 @@ public class Necromancer : Enemy
             {
                 anim.SetTrigger("Attack2");
                 rb.velocity = new Vector2(1.5f * (playerDistance.x) / Mathf.Abs(playerDistance.x), rb.velocity.y);
-                NecromancerAttack2 newAttack = Instantiate(attack2, attack2.transform.position, Quaternion.identity);
-                newAttack.Blade((playerDistance.x) / Mathf.Abs(playerDistance.x));
+                if (attack2 != null)
+                {
+                    NecromancerAttack2 newAttack = Instantiate(attack2, attack2.transform.position, Quaternion.identity);
+                    newAttack.Blade((playerDistance.x) / Mathf.Abs(playerDistance.x));
+                }
                 attackAllowed = false;
                 lastAttackTime = Time.time;
             }
