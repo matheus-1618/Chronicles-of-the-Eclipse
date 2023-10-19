@@ -320,9 +320,13 @@ public class FelixController : PlayerController
     {
         return rings;
     }
-    public override void SetMaxHealth(int health)
+    public override void SetMaxHealth(int healthExtra)
     {
-        Maxhealth += health;
+        health += 100;
+        Maxhealth += healthExtra;
+        Vector3 scale = mainSlider.transform.localScale;
+        scale.x *= 1.1f;
+        mainSlider.transform.localScale = scale;
     }
     public override void SetattackImprovement(int extra)
     {

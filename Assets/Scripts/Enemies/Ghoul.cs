@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Ghoul : Enemy
 {
+    public AudioSource deathSound;
     public GameObject collectible;
     public int health = 100;
     public int damage = 50;
@@ -22,6 +23,7 @@ public class Ghoul : Enemy
     private float lastAttackTime;
     void Start()
     {
+        deathSound.Stop();
         player = GameObject.FindGameObjectWithTag("Player").transform;
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
@@ -70,6 +72,7 @@ public class Ghoul : Enemy
         {
             isDead = true;
             rb.velocity = Vector2.zero;
+            deathSound.Play();
             anim.SetTrigger("Death");
         }
         else

@@ -9,6 +9,7 @@ public class General : Enemy
     private int health;
     public int damage = 20;
     public Scrollbar mainSlider;
+    public AudioSource attackSound;
 
     private Transform player;
     private Rigidbody2D rb;
@@ -27,6 +28,7 @@ public class General : Enemy
     private int state = 0;
     void Start()
     {
+        attackSound.Stop();
         health = Maxhealth;
         mainSlider.value = 0;
         mainSlider.size = 1;
@@ -60,6 +62,7 @@ public class General : Enemy
             if (state == 1 && attackAllowed && !initial)
             {
                 anim.SetTrigger("Attack1");
+                attackSound.Play();
                 rb.velocity = new Vector2(2f * (playerDistance.x) / Mathf.Abs(playerDistance.x), rb.velocity.y);
                 attack1.Blade();
                 attackAllowed = false;
@@ -75,6 +78,7 @@ public class General : Enemy
             if (state == 2 && attackAllowed && !initial)
             {
                 anim.SetTrigger("Attack2");
+                attackSound.Play();
                 rb.velocity = new Vector2(1.7f * (playerDistance.x) / Mathf.Abs(playerDistance.x), rb.velocity.y);
                 attack2.Blade();
                 attackAllowed = false;
@@ -90,6 +94,7 @@ public class General : Enemy
             if (state == 3 && attackAllowed && !initial)
             {
                 anim.SetTrigger("Attack3");
+                attackSound.Play();
                 rb.velocity = new Vector2(1.5f * (playerDistance.x) / Mathf.Abs(playerDistance.x), rb.velocity.y);
                 attack3.Blade();
                 attackAllowed = false;

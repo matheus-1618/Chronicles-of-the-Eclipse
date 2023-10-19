@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class EyeFly : Enemy
 {
+    public AudioSource deathSound;
     public GameObject collectible;
     public int health = 100;
     public int damage = 50;
@@ -26,6 +27,7 @@ public class EyeFly : Enemy
     private float lastBallTime;
     void Start()
     {
+        deathSound.Stop();
         player = GameObject.FindGameObjectWithTag("Player").transform;
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
@@ -87,6 +89,7 @@ public class EyeFly : Enemy
         {
             isDead = true;
             rb.velocity = Vector2.zero;
+            deathSound.Play();
             anim.SetTrigger("Death");
         }
         else
@@ -142,6 +145,7 @@ public class EyeFly : Enemy
     }
     public override void DestroyEnemy()
     {
+
         Instantiate(collectible, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }

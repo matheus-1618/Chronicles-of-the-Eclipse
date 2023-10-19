@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Panther : Enemy
 {
+    public AudioSource deathSound;
     public GameObject collectible;
     public float speed = 3;
     public int health = 300;
@@ -18,6 +19,7 @@ public class Panther : Enemy
     private bool move = true;
     void Start()
     {
+        deathSound.Stop();
         player = GameObject.FindGameObjectWithTag("Player").transform;
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
@@ -57,6 +59,7 @@ public class Panther : Enemy
         {
             isDead = true;
             rb.velocity = Vector2.zero;
+            deathSound.Play();
             anim.SetTrigger("Dead");
         }
         else
@@ -104,6 +107,7 @@ public class Panther : Enemy
     }
     public override void DestroyEnemy()
     {
+        
         Instantiate(collectible, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }

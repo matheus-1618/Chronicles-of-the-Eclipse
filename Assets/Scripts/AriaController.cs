@@ -5,12 +5,17 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
-using static UnityEditor.ShaderGraph.Internal.KeywordDependentCollection;
 
 
 public class AriaController : PlayerController
 {
     // Start is called before the first frame update
+    public AudioSource jumpSound;
+    public AudioSource soudtrack;
+    public AudioSource damageSound;
+    public AudioSource soundAttack1;
+    public AudioSource soundAttack2;
+    public AudioSource soundAttack3;
     public static float dodgeTime = 2f;
     public static int attackImprovement = 0;
     public static int Maxhealth = 500;
@@ -80,6 +85,12 @@ public class AriaController : PlayerController
 
     void Start()
     {
+        soudtrack.Play();
+        damageSound.Stop();
+        soundAttack1.Stop();
+        soundAttack2.Stop();
+        soundAttack3.Stop();
+        jumpSound.Stop();
         CureCount.text = cures.ToString() + "x";
         RingCount.text = rings.ToString();
         RingCountPause.text = rings.ToString();
@@ -105,6 +116,7 @@ public class AriaController : PlayerController
         if (canAttack1 && Input.GetKeyDown(KeyCode.Z))
         {
             anim.SetTrigger("Attack1");
+            soundAttack3.Play();
             attack1.Blade(attackImprovement);
             canAttack1 = false;
             lastAttack1Time = Time.time;
@@ -124,6 +136,7 @@ public class AriaController : PlayerController
         {
             stop = true;
             anim.SetTrigger("Attack2");
+            soundAttack2.Play();
             AriaAttack2 newAttack2 = Instantiate(attack2, attack2.transform.position, Quaternion.identity);
             newAttack2.MagicBall(direction, attackImprovement);
             canAttack2 = false;
@@ -143,6 +156,7 @@ public class AriaController : PlayerController
         if (canAttack3 && Input.GetKeyDown(KeyCode.C))
         {
             anim.SetTrigger("Attack5");
+            soundAttack1.Play();
             attack5.Blade(attackImprovement);
             canAttack3 = false;
             lastAttack3Time = Time.time;
@@ -161,6 +175,7 @@ public class AriaController : PlayerController
         if (canAttack4 && Input.GetKeyDown(KeyCode.V))
         {
             anim.SetTrigger("Attack4");
+            soundAttack2.Play();
             attack4.Blade(attackImprovement);
             canAttack4 = false;
             lastAttack4Time = Time.time;
@@ -245,6 +260,7 @@ public class AriaController : PlayerController
         if (canRoll)
         {
             rb.velocity = new Vector2(0, rb.velocity.y);
+            jumpSound.Play();
             Vector2 Ndirection = Vector2.right;
             transform.Translate(Ndirection.normalized * 45 * direction * Time.deltaTime);
             //rb.AddForce(Vector2.right * -10 * direction, ForceMode2D.Impulse);
@@ -254,6 +270,7 @@ public class AriaController : PlayerController
         if (jump)
         {
             anim.SetTrigger("Jump");
+            jumpSound.Play();
             rb.velocity = Vector2.zero;
             rb.AddForce(Vector2.up * jumpForce);
             jump = false;
@@ -309,8 +326,12 @@ public class AriaController : PlayerController
         }
     }
 
-    public override void SetMaxHealth(int health) {
-        Maxhealth += health;
+    public override void SetMaxHealth(int healthExtra) {
+        health += 100;
+        Maxhealth += healthExtra;
+        Vector3 scale = mainSlider.transform.localScale;
+        scale.x *= 1.1f;
+        mainSlider.transform.localScale = scale;
     }
     public override void SetattackImprovement(int extra)
     {
@@ -345,6 +366,7 @@ public class AriaController : PlayerController
     }
     public override IEnumerator DamageCoroutine()
     {
+        damageSound.Play();
         for (float i = 0; i < 0.2f; i += 0.2f)
         {
             sprite.color = Color.red;
