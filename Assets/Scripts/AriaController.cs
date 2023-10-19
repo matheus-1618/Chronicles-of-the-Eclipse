@@ -10,6 +10,8 @@ using TMPro;
 public class AriaController : PlayerController
 {
     // Start is called before the first frame update
+    public GameObject DeathScene;
+    public GameObject BlackFade;
     public GameObject ScenarioName;
     public AudioSource jumpSound;
     public AudioSource soudtrack;
@@ -221,8 +223,10 @@ public class AriaController : PlayerController
 
         if (transform.position.y < -5)
         {
-            int cenaAtual = SceneManager.GetActiveScene().buildIndex;
-            SceneManager.LoadScene(cenaAtual);
+            anim.SetTrigger("Dead");
+            StartCoroutine(RecarregaCena());
+            //int cenaAtual = SceneManager.GetActiveScene().buildIndex;
+            //SceneManager.LoadScene(cenaAtual);
         }
 
         if (onGround)
@@ -361,7 +365,15 @@ public class AriaController : PlayerController
     {
         for (float i = 0; i < 0.2f; i += 0.2f)
         {
-            yield return new WaitForSeconds(0.7f);
+            BlackFade.SetActive(true);
+            Animator anim = BlackFade.GetComponent<Animator>();
+            anim.SetTrigger("FadeOut");
+            yield return new WaitForSeconds(1.1f);
+            soudtrack.Stop();
+            DeathScene.SetActive(true);
+            yield return new WaitForSeconds(2.5f);
+            DeathScene.SetActive(false);
+            yield return new WaitForSeconds(1f);
             int cenaAtual = SceneManager.GetActiveScene().buildIndex;
             SceneManager.LoadScene(cenaAtual);
         }
