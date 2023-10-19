@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class SkelletonA : Enemy
 {
+    public AudioSource deathSound;
+    public GameObject collectible;
     public float speed = 3;
     public int health = 300;
     public int damage = 50;
@@ -66,6 +68,7 @@ public class SkelletonA : Enemy
         {
             isDead = true;
             rb.velocity = Vector2.zero;
+            deathSound.Play();
             anim.SetTrigger("Death");
         }
         else
@@ -110,6 +113,7 @@ public class SkelletonA : Enemy
     }
     public override void DestroyEnemy()
     {
+        Instantiate(collectible, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 }

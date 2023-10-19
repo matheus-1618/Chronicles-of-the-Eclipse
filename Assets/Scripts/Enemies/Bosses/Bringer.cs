@@ -1,12 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Bringer : Enemy
 {
     // Start is called before the first frame update
-    public int health = 3000;
+    public int Maxhealth = 3000;
+    private int health;
     public int damage = 20;
+    public Scrollbar mainSlider;
+    public AudioSource attackSound;
+    public AudioSource attackSound2;
     private Transform player;
     private Rigidbody2D rb;
     private Animator anim;
@@ -22,6 +27,11 @@ public class Bringer : Enemy
     private int state = 0;
     void Start()
     {
+        attackSound.Stop();
+        attackSound2.Stop();
+        health = Maxhealth;
+        mainSlider.value = 0;
+        mainSlider.size = 1;
         player = GameObject.FindGameObjectWithTag("Player").transform;
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
@@ -66,6 +76,7 @@ public class Bringer : Enemy
             if (state == 2 && attackAllowed)
             {
                 anim.SetTrigger("Attack");
+                attackSound.Play();
                 rb.velocity = new Vector2(2.5f * (playerDistance.x) / Mathf.Abs(playerDistance.x), rb.velocity.y);
                 attack1.Blade();
                 attackAllowed = false;
@@ -98,6 +109,7 @@ public class Bringer : Enemy
     public override void TakeDamage(int damage)
     {
         health -= damage;
+        mainSlider.size = (float)health / Maxhealth;
         if (health <= 0)
         {
             isDead = true;
@@ -150,6 +162,7 @@ public class Bringer : Enemy
         for (float i = 0; i < 0.2f; i += 0.2f)
         {
             yield return new WaitForSeconds(2f);
+            attackSound2.Play();
             attack2.MagicBall((playerDistance.x) / Mathf.Abs(playerDistance.x));
         }
     }

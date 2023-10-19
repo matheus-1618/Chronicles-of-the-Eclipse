@@ -370,6 +370,7 @@ MonoBehaviour:
   Maxhealth: 3000
   damage: 20
   mainSlider: {fileID: 0}
+  attackSound: {fileID: 0}
 --- !u!50 &30192435
 Rigidbody2D:
   serializedVersion: 4
@@ -972,6 +973,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a32066b08dafe994786512f322a0507e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathSound: {fileID: 0}
+  collectible: {fileID: 0}
   health: 100
   damage: 50
   direction: {x: 1, y: 0}
@@ -4804,8 +4807,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6430451513cef474daa39142fdbd9f78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 3000
+  Maxhealth: 3000
   damage: 20
+  mainSlider: {fileID: 0}
 --- !u!50 &746718064
 Rigidbody2D:
   serializedVersion: 4
@@ -4898,7 +4902,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!61 &748525808
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4983,6 +4987,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a32066b08dafe994786512f322a0507e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathSound: {fileID: 0}
+  collectible: {fileID: 0}
   health: 100
   damage: 50
   direction: {x: 1, y: 0}
@@ -5868,7 +5874,7 @@ RectTransform:
   m_Father: {fileID: 1061977990}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0.75, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -5930,7 +5936,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!50 &904229417
 Rigidbody2D:
   serializedVersion: 4
@@ -6064,7 +6070,7 @@ Transform:
   m_GameObject: {fileID: 904229416}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.2, y: 1.62, z: 0}
+  m_LocalPosition: {x: -6.8, y: 1.62, z: 0}
   m_LocalScale: {x: -3, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6104,6 +6110,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fe0b970c33828e43a2213a03dd7d194, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathSound: {fileID: 0}
+  collectible: {fileID: 0}
   speed: 3
   health: 300
   damage: 50
@@ -7075,6 +7083,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f26d878cb83b0f849a707289dd5377ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collectible: {fileID: 0}
   health: 300
   damage: 50
   direction: {x: 1, y: 0}
@@ -8026,6 +8035,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 345c536537be2d44185c47028c36bdc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collectible: {fileID: 0}
   speed: 2
   health: 300
   damage: 50
@@ -8366,6 +8376,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe75f84dbd27e794bb1acd37f24d106f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathSound: {fileID: 0}
+  collectible: {fileID: 0}
   health: 100
   damage: 50
   direction: {x: 1, y: 0}
@@ -9521,6 +9533,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4c450dcfe2fb7e4396465e4d3c1f628, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collectible: {fileID: 0}
   health: 300
   damage: 50
 --- !u!61 &1418946175
@@ -9788,6 +9801,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 345c536537be2d44185c47028c36bdc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collectible: {fileID: 0}
   speed: 3
   health: 300
   damage: 50
@@ -10751,7 +10765,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!95 &1592462930
 Animator:
   serializedVersion: 5
@@ -10985,7 +10999,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &1619137970
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11086,6 +11100,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1a92a0326b62b1479ebb85227a025e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathSound: {fileID: 0}
+  collectible: {fileID: 0}
   speed: 3
   health: 300
   damage: 50
@@ -11215,10 +11231,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03e69e8f4cab2ee4d9721659020a17c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CureCount: {fileID: 0}
+  RingCount: {fileID: 0}
+  RingCountPause: {fileID: 0}
   maxSpeed: 5
   groundCheck: {fileID: 620802913}
   jumpForce: 500
-  Maxhealth: 3000
   mainSlider: {fileID: 1176948678}
   Imageattack1: {fileID: 243482597}
   Imageattack10: {fileID: 590235122}
@@ -11812,6 +11830,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0661f2e6c66760542b92db95f65489fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathSound: {fileID: 0}
+  collectible: {fileID: 0}
   speed: 4
   health: 300
   damage: 50
@@ -12852,10 +12872,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2c870062d7a19746869f434d3d841dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumpSound: {fileID: 0}
+  soudtrack: {fileID: 0}
+  damageSound: {fileID: 0}
+  soundAttack1: {fileID: 0}
+  soundAttack2: {fileID: 0}
+  soundAttack3: {fileID: 0}
+  CureCount: {fileID: 0}
+  RingCount: {fileID: 0}
+  RingCountPause: {fileID: 0}
   maxSpeed: 5
   groundCheck: {fileID: 2096829023}
   jumpForce: 500
-  Maxhealth: 3000
   mainSlider: {fileID: 372564901}
   Imageattack1: {fileID: 1204943390}
   Imageattack10: {fileID: 658482524}
