@@ -20,8 +20,9 @@ public class AriaAttack3 : MonoBehaviour
         
     }
 
-    public void Blade()
+    public void Blade(int extra)
     {
+        damage += extra;
         anim = GetComponent<Animator>();
         startTime = Time.time;
         anim.Play("Attack3Collider");

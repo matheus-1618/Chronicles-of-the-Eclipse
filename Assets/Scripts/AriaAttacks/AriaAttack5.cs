@@ -20,8 +20,9 @@ public class AriaAttack5 : MonoBehaviour
         
     }
 
-    public void Blade()
+    public void Blade(int extra)
     {
+        damage += extra;
         anim = GetComponent<Animator>();
         startTime = Time.time;
         anim.Play("Attack5 Collider");

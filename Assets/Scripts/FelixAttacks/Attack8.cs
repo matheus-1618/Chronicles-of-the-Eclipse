@@ -21,9 +21,9 @@ public class Attack8 : MonoBehaviour
         }
 
     }
-
-    public void Explosion()
+    public void Explosion(int extra)
     {
+        damage += extra;
         anim = GetComponent<Animator>();
         startTime = Time.time;
         anim.Play("Attack8 Collider");

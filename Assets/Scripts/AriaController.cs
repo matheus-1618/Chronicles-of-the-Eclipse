@@ -11,6 +11,9 @@ using static UnityEditor.ShaderGraph.Internal.KeywordDependentCollection;
 public class AriaController : PlayerController
 {
     // Start is called before the first frame update
+    public static float dodgeTime = 2f;
+    public static int attackImprovement = 0;
+    public static int Maxhealth = 500;
     public static int rings = 0;
     public static int cures = 0;
     public TextMeshProUGUI CureCount;
@@ -19,7 +22,6 @@ public class AriaController : PlayerController
     public float maxSpeed = 5;
     public Transform groundCheck;
     public float jumpForce;
-    public int Maxhealth = 500;
     public Scrollbar mainSlider;
     public Image Imageattack1;
     public Image Imageattack10;
@@ -103,7 +105,7 @@ public class AriaController : PlayerController
         if (canAttack1 && Input.GetKeyDown(KeyCode.Z))
         {
             anim.SetTrigger("Attack1");
-            attack1.Blade();
+            attack1.Blade(attackImprovement);
             canAttack1 = false;
             lastAttack1Time = Time.time;
             stop = true;
@@ -123,7 +125,7 @@ public class AriaController : PlayerController
             stop = true;
             anim.SetTrigger("Attack2");
             AriaAttack2 newAttack2 = Instantiate(attack2, attack2.transform.position, Quaternion.identity);
-            newAttack2.MagicBall(direction);
+            newAttack2.MagicBall(direction, attackImprovement);
             canAttack2 = false;
             lastAttack2Time = Time.time;
             Imageattack2.color = Color.red;
@@ -141,18 +143,12 @@ public class AriaController : PlayerController
         if (canAttack3 && Input.GetKeyDown(KeyCode.C))
         {
             anim.SetTrigger("Attack5");
-            attack5.Blade();
+            attack5.Blade(attackImprovement);
             canAttack3 = false;
             lastAttack3Time = Time.time;
             stop = true;
             Imageattack3.color = Color.red;
             Imageattack30.color = Color.red;
-        }
-        if (cures > 0 && Input.GetKeyDown(KeyCode.E))
-        {
-            anim.SetTrigger("Potion");
-            health += 200;
-            mainSlider.size = (float)health / Maxhealth;
         }
         if (!canAttack3 && Time.time - lastAttack3Time >= 1.5f)
         {
@@ -165,7 +161,7 @@ public class AriaController : PlayerController
         if (canAttack4 && Input.GetKeyDown(KeyCode.V))
         {
             anim.SetTrigger("Attack4");
-            attack4.Blade();
+            attack4.Blade(attackImprovement);
             canAttack4 = false;
             lastAttack4Time = Time.time;
             stop = true;
@@ -189,11 +185,21 @@ public class AriaController : PlayerController
             Dodge.color = Color.red;
             Dodge0.color = Color.red;
         }
-        if (!roll && Time.time-lastRollTime > 2f)
+        if (!roll && Time.time-lastRollTime > dodgeTime)
         {
             roll = true;
             Dodge.color = Color.white;
             Dodge0.color = Color.white;
+        }
+
+        if (cures > 0 && Input.GetKeyDown(KeyCode.E))
+        {
+            cures -= 1;
+            CureCount.text = cures.ToString() + "x";
+            anim.SetTrigger("Potion");
+            health += 200;
+            mainSlider.size = (float)health / Maxhealth;
+            StartCoroutine(CureCoroutine());
         }
 
         if (transform.position.y < -5)
@@ -303,6 +309,31 @@ public class AriaController : PlayerController
         }
     }
 
+    public override void SetMaxHealth(int health) {
+        Maxhealth += health;
+    }
+    public override void SetattackImprovement(int extra)
+    {
+        attackImprovement += extra;
+    }
+    public override void SetDodgeTime(float minus)
+    {
+        if (dodgeTime > 0.6f)
+        {
+            dodgeTime -= minus;
+        }
+    }
+
+    
+    public override void SetRings(int minus) {
+        rings -= minus;
+        RingCount.text = rings.ToString();
+        RingCountPause.text = rings.ToString();
+    }
+    public override int GetRingCount() {
+        return rings;
+    }
+
     public IEnumerator RecarregaCena()
     {
         for (float i = 0; i < 0.2f; i += 0.2f)
@@ -317,10 +348,20 @@ public class AriaController : PlayerController
         for (float i = 0; i < 0.2f; i += 0.2f)
         {
             sprite.color = Color.red;
-            yield return new WaitForSeconds(0.3f);
+            yield return new WaitForSeconds(0.5f);
             sprite.color = Color.white;
             // yield return new WaitForSeconds(0.3f);
         }
         canDamage = true;
+    }
+    public IEnumerator CureCoroutine()
+    {
+        for (float i = 0; i < 0.2f; i += 0.2f)
+        {
+            sprite.color = Color.green;
+            yield return new WaitForSeconds(0.5f);
+            sprite.color = Color.white;
+            // yield return new WaitForSeconds(0.3f);
+        }
     }
 }

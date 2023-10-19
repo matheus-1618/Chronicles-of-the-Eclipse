@@ -22,8 +22,9 @@ public class Attack6 : MonoBehaviour
         
     }
 
-    public void Explosion()
+    public void Explosion(int extra)
     {
+        damage += extra;
         anim = GetComponent<Animator>();
         startTime = Time.time;
         anim.Play("Attack6 Collider");

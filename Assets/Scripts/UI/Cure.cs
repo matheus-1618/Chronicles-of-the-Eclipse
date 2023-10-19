@@ -16,13 +16,13 @@ public class Cure : MonoBehaviour
     {
         if (Time.time - time > 0.1f && direction)
         {
-            transform.localScale = new Vector3(0.5f, 0.3f, 0f);
+            transform.localScale = new Vector3(0.5f, 0.5f, 0f);
             time = Time.time;
             direction = false;
         }
         else if (Time.time - time > 0.1f && !direction)
         {
-            transform.localScale = new Vector3(0.55f, 0.35f, 0f);
+            transform.localScale = new Vector3(0.55f, 0.55f, 0f);
             time = Time.time;
             direction = true;
         }

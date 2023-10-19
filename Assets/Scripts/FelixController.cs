@@ -9,6 +9,9 @@ using UnityEngine.UI;
 public class FelixController : PlayerController
 {
     // Start is called before the first frame update
+    public static float dodgeTime = 2f;
+    public static int attackImprovement = 0;
+    public static int Maxhealth = 500;
     public static int rings = 0;
     public static int cures = 0;
     public TextMeshProUGUI CureCount;
@@ -17,7 +20,6 @@ public class FelixController : PlayerController
     public float maxSpeed = 5;
     public Transform groundCheck;
     public float jumpForce;
-    public int Maxhealth = 500;
     public Scrollbar mainSlider;
     public Image Imageattack1;
     public Image Imageattack10;
@@ -120,7 +122,7 @@ public class FelixController : PlayerController
         if (canAttack1 && Input.GetKeyDown(KeyCode.Z))
         {
             anim.SetTrigger("attack5");
-            attack5.Explosion();
+            attack5.Explosion(attackImprovement);
             canAttack1 = false;
             lastAttack1Time = Time.time;
             stop = true;
@@ -140,7 +142,7 @@ public class FelixController : PlayerController
             stop = true;
             anim.SetTrigger("attack2");
             Attack2 newAttack2 = Instantiate(attack2, attack2.transform.position, Quaternion.identity);
-            newAttack2.MagicBall(direction);
+            newAttack2.MagicBall(direction, attackImprovement);
             canAttack2 = false;
             lastAttack2Time = Time.time;
             Imageattack4.color = Color.red;
@@ -158,7 +160,7 @@ public class FelixController : PlayerController
         if (canAttack3 && Input.GetKeyDown(KeyCode.C))
         {
             anim.SetTrigger("attack3");
-            attack3.Explosion();
+            attack3.Explosion(attackImprovement);
             canAttack3 = false;
             lastAttack3Time = Time.time;
             stop = true;
@@ -176,7 +178,7 @@ public class FelixController : PlayerController
         if (canAttack4 && Input.GetKeyDown(KeyCode.X))
         {
             anim.SetTrigger("attack6");
-            attack6.Explosion();
+            attack6.Explosion(attackImprovement);
             canAttack4 = false;
             lastAttack4Time = Time.time;
             stop = true;
@@ -192,9 +194,12 @@ public class FelixController : PlayerController
         }
         if (cures > 0 && Input.GetKeyDown(KeyCode.E))
         {
+            cures -= 1;
+            CureCount.text = cures.ToString() + "x";
             anim.SetTrigger("Potion");
             health += 200;
             mainSlider.size = (float)health / Maxhealth;
+            StartCoroutine(CureCoroutine());
         }
 
         if (onGround && roll && Input.GetKeyDown(KeyCode.F))
@@ -206,7 +211,7 @@ public class FelixController : PlayerController
             Dodge.color = Color.red;
             Dodge0.color = Color.red;
         }
-        if (!roll && Time.time - lastRollTime > 2f)
+        if (!roll && Time.time - lastRollTime > dodgeTime)
         {
             roll = true;
             Dodge.color = Color.white;
@@ -304,15 +309,52 @@ public class FelixController : PlayerController
             }
         }
     }
+
+    public override void SetRings(int minus)
+    {
+        rings -= minus;
+        RingCount.text = rings.ToString();
+        RingCountPause.text = rings.ToString();
+    }
+    public override int GetRingCount()
+    {
+        return rings;
+    }
+    public override void SetMaxHealth(int health)
+    {
+        Maxhealth += health;
+    }
+    public override void SetattackImprovement(int extra)
+    {
+        attackImprovement += extra;
+    }
+    public override void SetDodgeTime(float minus)
+    {
+        if (dodgeTime > 0.6f)
+        {
+            dodgeTime -= minus;
+        }
+    }
     public override IEnumerator DamageCoroutine()
     {
         for (float i = 0; i < 0.2f; i += 0.2f)
         {
            sprite.color = Color.red;
-            yield return new WaitForSeconds(0.3f);
+            yield return new WaitForSeconds(0.5f);
            sprite.color = Color.white;
            // yield return new WaitForSeconds(0.3f);
         }
         canDamage = true;
+    }
+
+    public  IEnumerator CureCoroutine()
+    {
+        for (float i = 0; i < 0.2f; i += 0.2f)
+        {
+            sprite.color = Color.green;
+            yield return new WaitForSeconds(0.5f);
+            sprite.color = Color.white;
+            // yield return new WaitForSeconds(0.3f);
+        }
     }
 }

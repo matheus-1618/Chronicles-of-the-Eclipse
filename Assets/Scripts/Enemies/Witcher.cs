@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Witcher : Enemy
 {
+    public GameObject collectible;
     public int health = 300;
     public int damage = 50;
     private Transform player;
@@ -115,6 +116,7 @@ public class Witcher : Enemy
     }
     public override void DestroyEnemy()
     {
+        Instantiate(collectible, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 }

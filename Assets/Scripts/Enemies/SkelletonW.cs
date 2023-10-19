@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SkelletonW : Enemy
 {
+    public GameObject collectible;
     public float speed = 3;
     public int health = 300;
     public int damage = 50;
@@ -104,6 +105,7 @@ public class SkelletonW : Enemy
     }
     public override void DestroyEnemy()
     {
+        Instantiate(collectible, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 }

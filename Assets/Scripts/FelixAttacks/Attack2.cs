@@ -31,8 +31,9 @@ public class Attack2 : MonoBehaviour
         }
     }
 
-    public void MagicBall(int attackDirection)
+    public void MagicBall(int attackDirection,int extra)
     {
+        damage += extra;
         transform.localScale = new Vector3(4f, 4f, 1f);
         if (attackDirection == 1)
         {

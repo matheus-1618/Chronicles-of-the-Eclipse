@@ -27,8 +27,9 @@ public class Attack1 : MonoBehaviour
         return damage;
     }
 
-    public void Explosion()
+    public void Explosion(int extra)
     {
+        damage += extra;
         anim = GetComponent<Animator>();
         startTime = Time.time;
         anim.Play("Attack1Collider");
