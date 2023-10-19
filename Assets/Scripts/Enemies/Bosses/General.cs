@@ -32,8 +32,8 @@ public class General : Enemy
     void Start()
     {
         attackSound.Stop();
-        Soundtrack.Stop();
-        BattleSound.Play();
+        //Soundtrack.Stop();
+        //BattleSound.Play();
         health = Maxhealth;
         mainSlider.value = 0;
         mainSlider.size = 1;

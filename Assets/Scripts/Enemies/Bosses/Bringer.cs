@@ -33,8 +33,8 @@ public class Bringer : Enemy
     {
         attackSound.Stop();
         attackSound2.Stop();
-        Soundtrack.Stop();
-        BattleSound.Play();
+       // Soundtrack.Stop();
+       // BattleSound.Play();
         health = Maxhealth;
         mainSlider.value = 0;
         mainSlider.size = 1;

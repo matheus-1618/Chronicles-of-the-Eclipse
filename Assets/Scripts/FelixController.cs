@@ -10,6 +10,7 @@ using UnityEngine.UI;
 public class FelixController : PlayerController
 {
     // Start is called before the first frame update
+    public GameObject ScenarioName;
     public AudioSource jumpSound;
     public AudioSource soudtrack;
     public AudioSource damageSound;
@@ -100,6 +101,7 @@ public class FelixController : PlayerController
 
     void Start()
     {
+        StartCoroutine(ScenarioRoutine());
         soudtrack.Play();
         damageSound.Stop();
         soundAttack1.Stop();
@@ -378,6 +380,17 @@ public class FelixController : PlayerController
            // yield return new WaitForSeconds(0.3f);
         }
         canDamage = true;
+    }
+
+    public IEnumerator ScenarioRoutine()
+    {
+        for (float i = 0; i < 0.2f; i += 0.2f)
+        {
+            ScenarioName.SetActive(true);
+            yield return new WaitForSeconds(5.5f);
+            ScenarioName.SetActive(false);
+            // yield return new WaitForSeconds(0.3f);
+        }
     }
 
     public  IEnumerator CureCoroutine()
