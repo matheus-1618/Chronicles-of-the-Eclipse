@@ -18,6 +18,7 @@ public class Salazar : Enemy
     private bool facingRight = false;
     private bool isDead = false;
     private SpriteRenderer sprite;
+    public AudioSource attackSound;
 
     private SalazarAttack1 attack1;
     private SalazarAttack2 attack2;
@@ -27,6 +28,7 @@ public class Salazar : Enemy
     private int state = 0;
     void Start()
     {
+        attackSound.Stop();
         health = Maxhealth;
         mainSlider.value = 0;
         mainSlider.size = 1;
@@ -60,6 +62,7 @@ public class Salazar : Enemy
             if (state == 1 && attackAllowed && !initial)
             {
                 anim.SetTrigger("Attack1");
+                attackSound.Play();
                 rb.velocity = new Vector2(2f * (playerDistance.x) / Mathf.Abs(playerDistance.x), rb.velocity.y);
                 attack1.Blade();
                 attackAllowed = false;
@@ -75,6 +78,7 @@ public class Salazar : Enemy
             if (state == 2 && attackAllowed && !initial)
             {
                 anim.SetTrigger("Attack2");
+                attackSound.Play();
                 rb.velocity = new Vector2(1.7f * (playerDistance.x) / Mathf.Abs(playerDistance.x), rb.velocity.y);
                 attack2.Blade();
                 attackAllowed = false;

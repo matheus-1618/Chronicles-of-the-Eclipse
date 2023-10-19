@@ -23,6 +23,7 @@ public class Skull : Enemy
     private float lastAttackTime;
     void Start()
     {
+        deathSound.Stop();
         player = GameObject.FindGameObjectWithTag("Player").transform;
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();

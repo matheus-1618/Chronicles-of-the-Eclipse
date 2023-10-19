@@ -12,6 +12,10 @@ public class Bringer : Enemy
     public Scrollbar mainSlider;
     public AudioSource attackSound;
     public AudioSource attackSound2;
+
+    public AudioSource Soundtrack;
+    public AudioSource BattleSound;
+
     private Transform player;
     private Rigidbody2D rb;
     private Animator anim;
@@ -29,6 +33,8 @@ public class Bringer : Enemy
     {
         attackSound.Stop();
         attackSound2.Stop();
+        Soundtrack.Stop();
+        BattleSound.Play();
         health = Maxhealth;
         mainSlider.value = 0;
         mainSlider.size = 1;

@@ -13,6 +13,10 @@ public class Necromancer : Enemy
     private Transform player;
     public AudioSource attackSound;
     public AudioSource attackSound2;
+
+    public AudioSource Soundtrack;
+    public AudioSource BattleSound;
+
     private Rigidbody2D rb;
     private Animator anim;
     private Vector3 playerDistance;
@@ -29,6 +33,8 @@ public class Necromancer : Enemy
     {
         attackSound.Stop();
         attackSound2.Stop();
+        Soundtrack.Stop();
+        BattleSound.Play();
         health = Maxhealth;
         mainSlider.value = 0;
         mainSlider.size = 1;

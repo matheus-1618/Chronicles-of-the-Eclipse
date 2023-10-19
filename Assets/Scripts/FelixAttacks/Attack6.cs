@@ -6,7 +6,7 @@ using static UnityEngine.RuleTile.TilingRuleOutput;
 public class Attack6 : MonoBehaviour
 {
     private Animator anim;
-    private int damage = 100;
+    public int damage = 100;
     public Vector2 direction = Vector2.right;
     private float startTime;
     void Start(){}

@@ -4,6 +4,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.U2D;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class FelixController : PlayerController
@@ -316,6 +317,7 @@ public class FelixController : PlayerController
             if (health <= 0)
             {
                 anim.SetTrigger("Dead");
+                StartCoroutine(RecarregaCena());
             }
             else
             {
@@ -353,6 +355,16 @@ public class FelixController : PlayerController
         if (dodgeTime > 0.6f)
         {
             dodgeTime -= minus;
+        }
+    }
+
+    public IEnumerator RecarregaCena()
+    {
+        for (float i = 0; i < 0.2f; i += 0.2f)
+        {
+            yield return new WaitForSeconds(0.7f);
+            int cenaAtual = SceneManager.GetActiveScene().buildIndex;
+            SceneManager.LoadScene(cenaAtual);
         }
     }
     public override IEnumerator DamageCoroutine()

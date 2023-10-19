@@ -19,6 +19,7 @@ public class SkelletonW : Enemy
     private bool move = true;
     void Start()
     {
+        deathSound.Stop();
         player = GameObject.FindGameObjectWithTag("Player").transform;
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();

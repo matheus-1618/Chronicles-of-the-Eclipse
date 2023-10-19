@@ -5,7 +5,7 @@ using UnityEngine;
 public class AriaAttack4 : MonoBehaviour
 {
     private Animator anim;
-    private int damage = 120;
+    public int damage = 120;
     public Vector2 direction = Vector2.right;
     private float startTime;
     // Start is called before the first frame update

@@ -11,6 +11,9 @@ public class General : Enemy
     public Scrollbar mainSlider;
     public AudioSource attackSound;
 
+    public AudioSource Soundtrack;
+    public AudioSource BattleSound;
+
     private Transform player;
     private Rigidbody2D rb;
     private Animator anim;
@@ -29,6 +32,8 @@ public class General : Enemy
     void Start()
     {
         attackSound.Stop();
+        Soundtrack.Stop();
+        BattleSound.Play();
         health = Maxhealth;
         mainSlider.value = 0;
         mainSlider.size = 1;
