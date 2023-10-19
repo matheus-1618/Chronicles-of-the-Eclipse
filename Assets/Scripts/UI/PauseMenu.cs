@@ -51,7 +51,7 @@ public class PauseMenu : MonoBehaviour
 
     public void AddAttackExtra()
     {
-        if (player.GetRingCount() > 5 && mainSlider1.size < 1f)
+        if (player.GetRingCount() >= 5 && mainSlider1.size < 1f)
         {
             player.SetattackImprovement(50);
             player.SetRings(5);
@@ -60,7 +60,7 @@ public class PauseMenu : MonoBehaviour
     }
 
     public void AddMaxHealth() {
-        if (player.GetRingCount() > 5  && mainSlider2.size < 1f) {
+        if (player.GetRingCount() >= 5  && mainSlider2.size < 1f) {
             player.SetMaxHealth(200);
             player.SetRings(5);
             mainSlider2.size += 0.1f;
@@ -69,7 +69,7 @@ public class PauseMenu : MonoBehaviour
 
     public void LessDodgeTime()
     {
-        if (player.GetRingCount() > 5 && mainSlider3.size < 1f)
+        if (player.GetRingCount() >= 5 && mainSlider3.size < 1f)
         {
             player.SetattackImprovement(50);
             player.SetDodgeTime(0.2f);
