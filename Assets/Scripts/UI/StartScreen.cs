@@ -11,12 +11,13 @@ public class StartScreen : MonoBehaviour
 
     void Start()
     {
+        if (Soundtrack != null)
         Soundtrack.Play();
     }
 
     public void FadetoLevel()
     {
-        anim.SetTrigger("FadeOut");
+        StartCoroutine(TransitionRoutine());
     }
 
     public void fadeComplete()
@@ -30,6 +31,16 @@ public class StartScreen : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Return))
         {
             FadetoLevel();
+        }
+    }
+
+    public IEnumerator TransitionRoutine()
+    {
+        for (float i = 0; i < 0.2f; i += 0.2f)
+        {
+            anim.SetTrigger("FadeOut");
+            yield return new WaitForSeconds(1f);
+            fadeComplete();
         }
     }
 }

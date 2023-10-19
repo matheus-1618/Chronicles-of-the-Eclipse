@@ -2,6 +2,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using Unity.VisualScripting;
+using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class HoverDetector : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
@@ -9,6 +11,9 @@ public class HoverDetector : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     public GameObject HopeScene;
     public GameObject RevengeScene;
     public AudioSource Soundtrack;
+    public string SceneName;
+    public GameObject BlackFade;
+    // public Animator anim;
 
     void Start()
     {
@@ -30,6 +35,25 @@ public class HoverDetector : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         Debug.Log("Cursor saiu do botão.");
 /*        HopeScene.SetActive(false);
         RevengeScene.SetActive(true);*/
+    }
+/*    public void FadetoLevel()
+    {
+        anim.SetTrigger("FadeOut");
+    }*/
+    public void Change()
+    {
+        StartCoroutine(TransitionRoutine());
+    }
+
+    public IEnumerator TransitionRoutine()
+    {
+        Animator anim = BlackFade.GetComponent<Animator>();
+        for (float i = 0; i < 0.2f; i += 0.2f)
+        {
+            anim.SetTrigger("FadeOut");
+            yield return new WaitForSeconds(1f);
+            SceneManager.LoadScene(SceneName);
+        }
     }
 }
 

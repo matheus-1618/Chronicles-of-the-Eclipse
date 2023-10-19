@@ -5170,6 +5170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d03fea31d20d1fe448f539a4a22c5e3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 50
   direction: {x: 1, y: 0}
 --- !u!212 &308418452
 SpriteRenderer:
@@ -5683,6 +5684,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6419f70d2de2d7438b566138f9e52e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 120
   direction: {x: 1, y: 0}
 --- !u!212 &321353181
 SpriteRenderer:
@@ -6461,6 +6463,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2aaaac5f78f0f3b4a9930dacae6031cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 120
   direction: {x: 1, y: 0}
 --- !u!212 &367792480
 SpriteRenderer:
@@ -6757,6 +6760,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd9697f2067a8c445acdeeca0b6d3d28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 100
   direction: {x: 1, y: 0}
 --- !u!212 &382737354
 SpriteRenderer:
@@ -10438,6 +10442,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd07cd246f6923b469db0f605e95852e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 100
   direction: {x: 1, y: 0}
 --- !u!114 &696930598
 MonoBehaviour:
@@ -10451,6 +10456,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd07cd246f6923b469db0f605e95852e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 100
   direction: {x: 1, y: 0}
 --- !u!61 &696930599
 BoxCollider2D:
@@ -13171,6 +13177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 456cd80e1e1220046b87985aece2fc0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 120
   direction: {x: 1, y: 0}
 --- !u!212 &926306128
 SpriteRenderer:
@@ -13514,6 +13521,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c091badb0ce6ef14bafca4d4243db6f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 100
   direction: {x: 1, y: 0}
 --- !u!61 &953832635
 BoxCollider2D:
@@ -16146,6 +16154,7 @@ RectTransform:
   - {fileID: 1543589642}
   - {fileID: 1917447679}
   - {fileID: 1756029189}
+  - {fileID: 1155148982}
   m_Father: {fileID: 265364375}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -16450,6 +16459,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae8f28a79cc6abf48a4b85afd3bec37c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 100
   direction: {x: 1, y: 0}
 --- !u!61 &1150634896
 BoxCollider2D:
@@ -16704,6 +16714,103 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -20, y: -20}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1155148981
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1155148982}
+  - component: {fileID: 1155148985}
+  - component: {fileID: 1155148984}
+  - component: {fileID: 1155148983}
+  m_Layer: 5
+  m_Name: BlackFade
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1155148982
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1155148981}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 8.54167, y: 4.2708297, z: 0.85416985}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1128573141}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -0.000061035156, y: 0}
+  m_SizeDelta: {x: -583.3334, y: -123.15454}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!95 &1155148983
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1155148981}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: cb78890688dc699418a3b2d162d7b910, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1155148984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1155148981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1155148985
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1155148981}
+  m_CullTransparentMesh: 1
 --- !u!1 &1156148772
 GameObject:
   m_ObjectHideFlags: 0
@@ -19163,6 +19270,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aee3870f0a2e6945a565fc322b0aa15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 40
   direction: {x: 1, y: 0}
 --- !u!1 &1260879238 stripped
 GameObject:
@@ -19686,6 +19794,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f74483f7a761cc47b104fa3ef64dba3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 200
   direction: {x: 1, y: 0}
 --- !u!61 &1291206112
 BoxCollider2D:
@@ -25291,6 +25400,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b057fff664648f478bd9733cda178ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 100
   direction: {x: 1, y: 0}
 --- !u!61 &1831357451
 BoxCollider2D:
@@ -27492,6 +27602,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 734ead403348e2749a52daa263df1cfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 50
   direction: {x: 1, y: 0}
 --- !u!212 &2021127094
 SpriteRenderer:
