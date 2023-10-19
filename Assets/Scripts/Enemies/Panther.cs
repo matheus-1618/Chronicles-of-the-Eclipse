@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Panther : Enemy
 {
+    public GameObject collectible;
     public float speed = 3;
     public int health = 300;
     public int damage = 50;
@@ -103,6 +104,7 @@ public class Panther : Enemy
     }
     public override void DestroyEnemy()
     {
+        Instantiate(collectible, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 }

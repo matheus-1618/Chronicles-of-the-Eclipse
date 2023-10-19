@@ -4,12 +4,18 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 using static UnityEditor.ShaderGraph.Internal.KeywordDependentCollection;
 
 
 public class AriaController : PlayerController
 {
     // Start is called before the first frame update
+    public static int rings = 0;
+    public static int cures = 0;
+    public TextMeshProUGUI CureCount;
+    public TextMeshProUGUI RingCount;
+    public TextMeshProUGUI RingCountPause;
     public float maxSpeed = 5;
     public Transform groundCheck;
     public float jumpForce;
@@ -72,7 +78,9 @@ public class AriaController : PlayerController
 
     void Start()
     {
-        //mainSlider.m = health;
+        CureCount.text = cures.ToString() + "x";
+        RingCount.text = rings.ToString();
+        RingCountPause.text = rings.ToString();
         mainSlider.value = 0;
         mainSlider.size = 1;
         rb = GetComponent<Rigidbody2D>();
@@ -140,6 +148,12 @@ public class AriaController : PlayerController
             Imageattack3.color = Color.red;
             Imageattack30.color = Color.red;
         }
+        if (cures > 0 && Input.GetKeyDown(KeyCode.E))
+        {
+            anim.SetTrigger("Potion");
+            health += 200;
+            mainSlider.size = (float)health / Maxhealth;
+        }
         if (!canAttack3 && Time.time - lastAttack3Time >= 1.5f)
         {
             canAttack3 = true;
@@ -166,7 +180,7 @@ public class AriaController : PlayerController
             Imageattack40.color = Color.white;
         }
 
-        if (!jump && roll && Input.GetKeyDown(KeyCode.F))
+        if (onGround && roll && Input.GetKeyDown(KeyCode.F))
         {
             anim.SetTrigger("Roll");
             roll = false;
@@ -247,6 +261,19 @@ public class AriaController : PlayerController
         scale.x *= -1;
         transform.localScale = scale;
         direction *= -1;
+    }
+
+    public override void GetRing()
+    {
+        rings += 1;
+        RingCount.text = rings.ToString();
+        RingCountPause.text = rings.ToString();
+    }
+
+    public override void GetCure()
+    {
+        cures += 1;
+        CureCount.text = cures.ToString() + "x";
     }
 
     public int GetHealth()

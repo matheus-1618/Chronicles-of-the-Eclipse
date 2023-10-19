@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.U2D;
@@ -8,6 +9,11 @@ using UnityEngine.UI;
 public class FelixController : PlayerController
 {
     // Start is called before the first frame update
+    public static int rings = 0;
+    public static int cures = 0;
+    public TextMeshProUGUI CureCount;
+    public TextMeshProUGUI RingCount;
+    public TextMeshProUGUI RingCountPause;
     public float maxSpeed = 5;
     public Transform groundCheck;
     public float jumpForce;
@@ -86,6 +92,9 @@ public class FelixController : PlayerController
 
     void Start()
     {
+        CureCount.text = cures.ToString() + "x";
+        RingCount.text = rings.ToString();
+        RingCountPause.text = rings.ToString();
         rb = GetComponent<Rigidbody2D>();
         mainSlider.value = 0;
         mainSlider.size = 1;
@@ -181,8 +190,14 @@ public class FelixController : PlayerController
             Imageattack2.color = Color.white;
             Imageattack20.color = Color.white;
         }
+        if (cures > 0 && Input.GetKeyDown(KeyCode.E))
+        {
+            anim.SetTrigger("Potion");
+            health += 200;
+            mainSlider.size = (float)health / Maxhealth;
+        }
 
-        if (roll && Input.GetKeyDown(KeyCode.F))
+        if (onGround && roll && Input.GetKeyDown(KeyCode.F))
         {
             anim.SetTrigger("Roll");
             roll = false;
@@ -251,6 +266,19 @@ public class FelixController : PlayerController
         transform.localScale = scale;
         direction *= -1;
     }
+    public override void GetRing()
+    {
+        rings += 1;
+        RingCount.text = rings.ToString();
+        RingCountPause.text = rings.ToString();
+    }
+
+    public override void GetCure()
+    {
+        cures += 1;
+        CureCount.text = cures.ToString() + "x";
+    }
+
 
     public int GetHealth()
     {

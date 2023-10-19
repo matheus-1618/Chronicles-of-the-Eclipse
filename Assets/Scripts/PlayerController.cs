@@ -8,4 +8,8 @@ public abstract class PlayerController : MonoBehaviour
     public abstract void Flip();
     public abstract void TakeDamage(int damage);
     public abstract IEnumerator DamageCoroutine();
+
+    public abstract void GetRing();
+
+    public abstract void GetCure();
 }

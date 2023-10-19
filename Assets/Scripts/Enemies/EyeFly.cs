@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class EyeFly : Enemy
 {
+    public GameObject collectible;
     public int health = 100;
     public int damage = 50;
     private Transform player;
@@ -141,6 +142,7 @@ public class EyeFly : Enemy
     }
     public override void DestroyEnemy()
     {
+        Instantiate(collectible, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 }

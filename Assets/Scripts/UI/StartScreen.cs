@@ -7,10 +7,21 @@ public class StartScreen : MonoBehaviour
 {
     // Start is called before the first frame update
     public AudioSource Soundtrack;
+    public Animator anim;
 
     void Start()
     {
         Soundtrack.Play();
+    }
+
+    public void FadetoLevel()
+    {
+        anim.SetTrigger("FadeOut");
+    }
+
+    public void fadeComplete()
+    {
+        SceneManager.LoadScene("Scenes/MenuSelection");
     }
 
     // Update is called once per frame
@@ -18,7 +29,7 @@ public class StartScreen : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Return))
         {
-            SceneManager.LoadScene("Scenes/MenuSelection");
+            FadetoLevel();
         }
     }
 }

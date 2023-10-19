@@ -8,7 +8,6 @@ public class HoverDetector : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     public GameObject textMeshProButton;
     public GameObject HopeScene;
     public GameObject RevengeScene;
-
     public AudioSource Soundtrack;
 
     void Start()
