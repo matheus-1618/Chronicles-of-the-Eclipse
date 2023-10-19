@@ -381,7 +381,7 @@ public class AriaController : PlayerController
         for (float i = 0; i < 0.2f; i += 0.2f)
         {
             sprite.color = Color.green;
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.25f);
             sprite.color = Color.white;
             // yield return new WaitForSeconds(0.3f);
         }

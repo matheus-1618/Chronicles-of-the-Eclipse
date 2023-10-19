@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Skull : Enemy
 {
+    public AudioSource deathSound;
     public GameObject collectible;
     public int health = 100;
     public int damage = 50;
@@ -72,6 +73,7 @@ public class Skull : Enemy
         {
             isDead = true;
             rb.velocity = Vector2.zero;
+            deathSound.Play();
             anim.SetTrigger("Death");
         }
         else

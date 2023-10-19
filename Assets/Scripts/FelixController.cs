@@ -9,6 +9,11 @@ using UnityEngine.UI;
 public class FelixController : PlayerController
 {
     // Start is called before the first frame update
+    public AudioSource jumpSound;
+    public AudioSource soudtrack;
+    public AudioSource damageSound;
+    public AudioSource soundAttack1;
+    public AudioSource soundAttack2;
     public static float dodgeTime = 2f;
     public static int attackImprovement = 0;
     public static int Maxhealth = 500;
@@ -94,6 +99,11 @@ public class FelixController : PlayerController
 
     void Start()
     {
+        soudtrack.Play();
+        damageSound.Stop();
+        soundAttack1.Stop();
+        soundAttack2.Stop();
+        jumpSound.Stop();
         CureCount.text = cures.ToString() + "x";
         RingCount.text = rings.ToString();
         RingCountPause.text = rings.ToString();
@@ -122,6 +132,7 @@ public class FelixController : PlayerController
         if (canAttack1 && Input.GetKeyDown(KeyCode.Z))
         {
             anim.SetTrigger("attack5");
+            soundAttack1.Play();
             attack5.Explosion(attackImprovement);
             canAttack1 = false;
             lastAttack1Time = Time.time;
@@ -141,6 +152,7 @@ public class FelixController : PlayerController
         {
             stop = true;
             anim.SetTrigger("attack2");
+            soundAttack2.Play();
             Attack2 newAttack2 = Instantiate(attack2, attack2.transform.position, Quaternion.identity);
             newAttack2.MagicBall(direction, attackImprovement);
             canAttack2 = false;
@@ -159,8 +171,9 @@ public class FelixController : PlayerController
 
         if (canAttack3 && Input.GetKeyDown(KeyCode.C))
         {
-            anim.SetTrigger("attack3");
-            attack3.Explosion(attackImprovement);
+            anim.SetTrigger("attack4");
+            attack4.Explosion(attackImprovement);
+            soundAttack2.Play();
             canAttack3 = false;
             lastAttack3Time = Time.time;
             stop = true;
@@ -178,6 +191,7 @@ public class FelixController : PlayerController
         if (canAttack4 && Input.GetKeyDown(KeyCode.X))
         {
             anim.SetTrigger("attack6");
+            soundAttack1.Play();
             attack6.Explosion(attackImprovement);
             canAttack4 = false;
             lastAttack4Time = Time.time;
@@ -247,6 +261,7 @@ public class FelixController : PlayerController
 
         if (canRoll)
         {
+            jumpSound.Play();
             rb.velocity = new Vector2(0, rb.velocity.y);
             Vector2 Ndirection = Vector2.right;
             transform.Translate(Ndirection.normalized * 45 * direction * Time.deltaTime);
@@ -256,6 +271,7 @@ public class FelixController : PlayerController
 
         if (jump)
         {
+            jumpSound.Play();
             anim.SetTrigger("Jump");
             rb.velocity = Vector2.zero;
             rb.AddForce(Vector2.up * jumpForce);
@@ -341,6 +357,7 @@ public class FelixController : PlayerController
     }
     public override IEnumerator DamageCoroutine()
     {
+        damageSound.Play();
         for (float i = 0; i < 0.2f; i += 0.2f)
         {
            sprite.color = Color.red;

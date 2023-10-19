@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Witcher : Enemy
 {
+    public AudioSource deathSound;
     public GameObject collectible;
     public int health = 300;
     public int damage = 50;
@@ -73,6 +74,7 @@ public class Witcher : Enemy
             box.enabled = false;
             isDead = true;
             rb.velocity = Vector2.zero;
+            deathSound.Play();
             //Destroy(gameObject);
             anim.SetTrigger("Death");
         }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SkelletonW : Enemy
 {
+    public AudioSource deathSound;
     public GameObject collectible;
     public float speed = 3;
     public int health = 300;
@@ -57,6 +58,7 @@ public class SkelletonW : Enemy
         {
             isDead = true;
             rb.velocity = Vector2.zero;
+            deathSound.Play();
             anim.SetTrigger("Death");
         }
         else

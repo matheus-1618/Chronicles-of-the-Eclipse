@@ -11,6 +11,8 @@ public class Necromancer : Enemy
     public int damage = 20;
     public Scrollbar mainSlider;
     private Transform player;
+    public AudioSource attackSound;
+    public AudioSource attackSound2;
     private Rigidbody2D rb;
     private Animator anim;
     private Vector3 playerDistance;
@@ -25,6 +27,8 @@ public class Necromancer : Enemy
     private int state = 0;
     void Start()
     {
+        attackSound.Stop();
+        attackSound2.Stop();
         health = Maxhealth;
         mainSlider.value = 0;
         mainSlider.size = 1;
@@ -72,6 +76,7 @@ public class Necromancer : Enemy
             if (state == 2 && attackAllowed)
             {
                 anim.SetTrigger("Attack2");
+                attackSound2.Play();
                 rb.velocity = new Vector2(1.5f * (playerDistance.x) / Mathf.Abs(playerDistance.x), rb.velocity.y);
                 if (attack2 != null)
                 {
@@ -161,12 +166,16 @@ public class Necromancer : Enemy
         {
             float directionFactor = -transform.localScale.x / Mathf.Abs(transform.localScale.x);
             attack1.Blade(0f* directionFactor);
+            attackSound.Play();
             yield return new WaitForSeconds(0.8f);
             attack1.Blade(2.5f* directionFactor);
+            attackSound.Play();
             yield return new WaitForSeconds(0.8f);
             attack1.Blade(4f* directionFactor);
+            attackSound.Play();
             yield return new WaitForSeconds(0.8f);
             attack1.Blade(-6.5f* directionFactor);
+            attackSound.Play();
         }
     }
 
