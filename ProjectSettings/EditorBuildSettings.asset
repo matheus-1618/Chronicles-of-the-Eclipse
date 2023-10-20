@@ -6,6 +6,27 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/MenuPrincipal.unity
+    guid: bdad5666e7eb3ec4480fa5fddb2b7f76
+  - enabled: 1
+    path: Assets/Scenes/MenuSelection.unity
+    guid: 9950d17dbdb460e4db1b5d6477cef08d
+  - enabled: 1
     path: Assets/Scenes/Aria_Fase1.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 1
+    path: Assets/Scenes/Aria_Fase2.unity
+    guid: fa5caccb2f5c5dc45a50baee8d9322b0
+  - enabled: 1
+    path: Assets/Scenes/FaseFinalAria.unity
+    guid: 08b1d2dc152ee7d49bf70c05d3cf0038
+  - enabled: 1
+    path: Assets/Scenes/FaseFinalFelix.unity
+    guid: 2488656387af13a4b9f16929672a2d5a
+  - enabled: 1
+    path: Assets/Scenes/Felix_Fase1.unity
+    guid: 8180744310ab0164a8bfcc06d28c3c0b
+  - enabled: 0
+    path: Assets/Scenes/Cutscene.unity
+    guid: eaed3765c6bd78d47a7bd69c83c4c31a
   m_configObjects: {}

@@ -921,8 +921,8 @@ MonoBehaviour:
   deathSound: {fileID: 478209038}
   collectible: {fileID: 377158502677559947, guid: 8d67ceb226ea9fc4ca3812707ade112c, type: 3}
   speed: 3
-  health: 300
-  damage: 50
+  health: 250
+  damage: 45
 --- !u!95 &65893214
 Animator:
   serializedVersion: 5
@@ -1958,8 +1958,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathSound: {fileID: 478209038}
   collectible: {fileID: 377158502677559947, guid: 8d67ceb226ea9fc4ca3812707ade112c, type: 3}
-  health: 300
-  damage: 50
+  health: 200
+  damage: 25
 --- !u!95 &204760576
 Animator:
   serializedVersion: 5
@@ -2587,8 +2587,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathSound: {fileID: 478209038}
   collectible: {fileID: 6103043879413648090, guid: 7903004f5e8c43040843fabdf97b783f, type: 3}
-  health: 300
-  damage: 50
+  health: 80
+  damage: 40
   direction: {x: 1, y: 0}
 --- !u!50 &229202264
 Rigidbody2D:
@@ -3526,7 +3526,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c091badb0ce6ef14bafca4d4243db6f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 100
+  damage: 85
   direction: {x: 1, y: 0}
 --- !u!61 &344403859
 BoxCollider2D:
@@ -4383,6 +4383,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distanceInitial: 3
+  damage: 40
   direction: {x: 1, y: 0}
 --- !u!212 &396183636
 SpriteRenderer:
@@ -5862,6 +5863,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b7b28de0f543c845b5b4dd5fdff3e99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 70
   direction: {x: 1, y: 0}
 --- !u!61 &485052183
 BoxCollider2D:
@@ -6413,6 +6415,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distanceInitial: 3
+  damage: 40
   direction: {x: 1, y: 0}
 --- !u!212 &510131080
 SpriteRenderer:
@@ -7616,8 +7619,8 @@ MonoBehaviour:
   deathSound: {fileID: 478209038}
   collectible: {fileID: 6103043879413648090, guid: 7903004f5e8c43040843fabdf97b783f, type: 3}
   speed: 3
-  health: 300
-  damage: 50
+  health: 250
+  damage: 45
 --- !u!95 &611101698
 Animator:
   serializedVersion: 5
@@ -8340,8 +8343,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathSound: {fileID: 478209038}
   collectible: {fileID: 6103043879413648090, guid: 7903004f5e8c43040843fabdf97b783f, type: 3}
-  health: 300
-  damage: 50
+  health: 200
+  damage: 25
 --- !u!95 &670263960
 Animator:
   serializedVersion: 5
@@ -9371,6 +9374,10 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4682240272922733095, guid: e8610e8df710616469d26120f0e439c8, type: 3}
+      propertyPath: damage
+      value: 60
+      objectReference: {fileID: 0}
     - target: {fileID: 6191468115865784368, guid: e8610e8df710616469d26120f0e439c8, type: 3}
       propertyPath: m_Name
       value: Attack2
@@ -9653,8 +9660,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathSound: {fileID: 478209038}
   collectible: {fileID: 6103043879413648090, guid: 7903004f5e8c43040843fabdf97b783f, type: 3}
-  health: 300
-  damage: 50
+  health: 200
+  damage: 25
 --- !u!95 &766393378
 Animator:
   serializedVersion: 5
@@ -9873,6 +9880,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distanceInitial: 3
+  damage: 40
   direction: {x: 1, y: 0}
 --- !u!212 &767416853
 SpriteRenderer:
@@ -11484,8 +11492,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathSound: {fileID: 478209038}
   collectible: {fileID: 6103043879413648090, guid: 7903004f5e8c43040843fabdf97b783f, type: 3}
-  health: 300
-  damage: 50
+  health: 80
+  damage: 40
   direction: {x: 1, y: 0}
 --- !u!50 &925330483
 Rigidbody2D:
@@ -11891,8 +11899,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathSound: {fileID: 478209038}
   collectible: {fileID: 6103043879413648090, guid: 7903004f5e8c43040843fabdf97b783f, type: 3}
-  health: 300
-  damage: 50
+  health: 80
+  damage: 40
   direction: {x: 1, y: 0}
 --- !u!50 &956986101
 Rigidbody2D:
@@ -12247,7 +12255,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &980587131
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12261,8 +12269,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LevelChanger: {fileID: 72248639}
-  Maxhealth: 3000
-  damage: 20
+  Maxhealth: 1500
+  damage: 30
   mainSlider: {fileID: 318339720}
   attackSound: {fileID: 555035651}
   attackSound2: {fileID: 1618571254}
@@ -13055,8 +13063,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathSound: {fileID: 478209038}
   collectible: {fileID: 6103043879413648090, guid: 7903004f5e8c43040843fabdf97b783f, type: 3}
-  health: 300
-  damage: 50
+  health: 80
+  damage: 40
   direction: {x: 1, y: 0}
 --- !u!50 &1079617059
 Rigidbody2D:
@@ -13229,7 +13237,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd9697f2067a8c445acdeeca0b6d3d28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 100
+  damage: 120
   direction: {x: 1, y: 0}
 --- !u!212 &1087496156
 SpriteRenderer:
@@ -13400,8 +13408,8 @@ MonoBehaviour:
   deathSound: {fileID: 478209038}
   collectible: {fileID: 6103043879413648090, guid: 7903004f5e8c43040843fabdf97b783f, type: 3}
   speed: 3
-  health: 300
-  damage: 50
+  health: 250
+  damage: 45
 --- !u!95 &1100798290
 Animator:
   serializedVersion: 5
@@ -14900,8 +14908,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathSound: {fileID: 478209038}
   collectible: {fileID: 6103043879413648090, guid: 7903004f5e8c43040843fabdf97b783f, type: 3}
-  health: 300
-  damage: 50
+  health: 80
+  damage: 40
   direction: {x: 1, y: 0}
 --- !u!50 &1281102139
 Rigidbody2D:
@@ -18327,6 +18335,36 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
+  - first: {x: 74, y: 0, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 74
+      m_TileSpriteIndex: 73
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
+  - first: {x: 75, y: 0, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 43
+      m_TileSpriteIndex: 64
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
+  - first: {x: 76, y: 0, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 76
+      m_TileSpriteIndex: 63
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
   - first: {x: 81, y: 0, z: 0}
     second:
       serializedVersion: 2
@@ -18600,8 +18638,8 @@ Tilemap:
   - first: {x: 74, y: 1, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 74
-      m_TileSpriteIndex: 73
+      m_TileIndex: 73
+      m_TileSpriteIndex: 45
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -18610,8 +18648,8 @@ Tilemap:
   - first: {x: 75, y: 1, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 43
-      m_TileSpriteIndex: 64
+      m_TileIndex: 46
+      m_TileSpriteIndex: 46
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -18620,8 +18658,8 @@ Tilemap:
   - first: {x: 76, y: 1, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 76
-      m_TileSpriteIndex: 63
+      m_TileIndex: 75
+      m_TileSpriteIndex: 47
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -18892,36 +18930,6 @@ Tilemap:
       serializedVersion: 2
       m_TileIndex: 71
       m_TileSpriteIndex: 71
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
-  - first: {x: 74, y: 2, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 73
-      m_TileSpriteIndex: 45
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
-  - first: {x: 75, y: 2, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 46
-      m_TileSpriteIndex: 46
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
-  - first: {x: 76, y: 2, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 75
-      m_TileSpriteIndex: 47
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -20324,6 +20332,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9bddf1592e35e74aa21d5d773c0d895, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 85
   direction: {x: 1, y: 0}
 --- !u!61 &1499992868
 BoxCollider2D:
@@ -20494,8 +20503,8 @@ MonoBehaviour:
   deathSound: {fileID: 478209038}
   collectible: {fileID: 6103043879413648090, guid: 7903004f5e8c43040843fabdf97b783f, type: 3}
   speed: 3
-  health: 300
-  damage: 50
+  health: 250
+  damage: 45
 --- !u!95 &1501633636
 Animator:
   serializedVersion: 5
@@ -21362,7 +21371,7 @@ RectTransform:
   m_Father: {fileID: 194085327}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0.75, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -21628,8 +21637,8 @@ MonoBehaviour:
   deathSound: {fileID: 478209038}
   collectible: {fileID: 6103043879413648090, guid: 7903004f5e8c43040843fabdf97b783f, type: 3}
   speed: 3
-  health: 300
-  damage: 50
+  health: 250
+  damage: 45
 --- !u!95 &1596451828
 Animator:
   serializedVersion: 5
@@ -22084,8 +22093,8 @@ MonoBehaviour:
   deathSound: {fileID: 478209038}
   collectible: {fileID: 6103043879413648090, guid: 7903004f5e8c43040843fabdf97b783f, type: 3}
   speed: 3
-  health: 300
-  damage: 50
+  health: 250
+  damage: 45
 --- !u!95 &1637599347
 Animator:
   serializedVersion: 5
@@ -23245,7 +23254,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b057fff664648f478bd9733cda178ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 100
+  damage: 85
   direction: {x: 1, y: 0}
 --- !u!61 &1785639403
 BoxCollider2D:
@@ -24340,8 +24349,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathSound: {fileID: 478209038}
   collectible: {fileID: 6103043879413648090, guid: 7903004f5e8c43040843fabdf97b783f, type: 3}
-  health: 300
-  damage: 50
+  health: 200
+  damage: 25
 --- !u!95 &1845497575
 Animator:
   serializedVersion: 5
@@ -25511,8 +25520,8 @@ MonoBehaviour:
   deathSound: {fileID: 478209038}
   collectible: {fileID: 6103043879413648090, guid: 7903004f5e8c43040843fabdf97b783f, type: 3}
   speed: 3
-  health: 300
-  damage: 50
+  health: 250
+  damage: 45
 --- !u!95 &1965714670
 Animator:
   serializedVersion: 5
@@ -26501,6 +26510,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distanceInitial: 3
+  damage: 40
   direction: {x: 1, y: 0}
 --- !u!212 &2123465334
 SpriteRenderer:

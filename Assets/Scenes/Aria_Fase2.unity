@@ -465,8 +465,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathSound: {fileID: 838864174}
   collectible: {fileID: 6103043879413648090, guid: 7903004f5e8c43040843fabdf97b783f, type: 3}
-  health: 100
-  damage: 50
+  health: 75
+  damage: 25
   direction: {x: 1, y: 0}
 --- !u!95 &39069312
 Animator:
@@ -1916,8 +1916,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LevelChanger: {fileID: 1667994459}
-  Maxhealth: 3000
-  damage: 50
+  Maxhealth: 1550
+  damage: 40
   mainSlider: {fileID: 1232011619}
   attackSound: {fileID: 965430709}
   attackSound2: {fileID: 428913625}
@@ -2222,7 +2222,7 @@ MonoBehaviour:
   collectible: {fileID: 377158502677559947, guid: 8d67ceb226ea9fc4ca3812707ade112c, type: 3}
   speed: 3
   health: 300
-  damage: 50
+  damage: 25
 --- !u!95 &129361235
 Animator:
   serializedVersion: 5
@@ -3675,7 +3675,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aee3870f0a2e6945a565fc322b0aa15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 40
+  damage: 60
   direction: {x: 1, y: 0}
 --- !u!1 &194547888
 GameObject:
@@ -4998,6 +4998,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0549a18f7e03184a915b56df2c343cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 120
   direction: {x: 1, y: 0}
 --- !u!212 &308264690
 SpriteRenderer:
@@ -5669,8 +5670,8 @@ MonoBehaviour:
   deathSound: {fileID: 838864174}
   collectible: {fileID: 6103043879413648090, guid: 7903004f5e8c43040843fabdf97b783f, type: 3}
   speed: 3
-  health: 300
-  damage: 50
+  health: 250
+  damage: 70
 --- !u!50 &353270571
 Rigidbody2D:
   serializedVersion: 4
@@ -7853,7 +7854,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 456cd80e1e1220046b87985aece2fc0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 120
+  damage: 75
   direction: {x: 1, y: 0}
 --- !u!212 &611102513
 SpriteRenderer:
@@ -8020,6 +8021,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 493ffec4c429bce4c837ff94e90e7c0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 50
   direction: {x: 1, y: 0}
 --- !u!212 &616808698
 SpriteRenderer:
@@ -9661,8 +9663,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathSound: {fileID: 838864174}
   collectible: {fileID: 6103043879413648090, guid: 7903004f5e8c43040843fabdf97b783f, type: 3}
-  health: 100
-  damage: 50
+  health: 150
+  damage: 40
   direction: {x: 1, y: 0}
 --- !u!1 &693181352
 GameObject:
@@ -13095,6 +13097,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distanceInitial: 5
+  damage: 40
   direction: {x: 1, y: 0}
 --- !u!61 &998615370
 BoxCollider2D:
@@ -13409,8 +13412,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathSound: {fileID: 838864174}
   collectible: {fileID: 6103043879413648090, guid: 7903004f5e8c43040843fabdf97b783f, type: 3}
-  health: 100
-  damage: 50
+  health: 150
+  damage: 40
   direction: {x: 1, y: 0}
 --- !u!1 &1020603029
 GameObject:
@@ -13992,6 +13995,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distanceInitial: 5
+  damage: 40
   direction: {x: 1, y: 0}
 --- !u!61 &1047149417
 BoxCollider2D:
@@ -14765,8 +14769,8 @@ MonoBehaviour:
   deathSound: {fileID: 838864174}
   collectible: {fileID: 6103043879413648090, guid: 7903004f5e8c43040843fabdf97b783f, type: 3}
   speed: 3
-  health: 300
-  damage: 50
+  health: 250
+  damage: 70
 --- !u!50 &1127584889
 Rigidbody2D:
   serializedVersion: 4
@@ -17541,8 +17545,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathSound: {fileID: 838864174}
   collectible: {fileID: 6103043879413648090, guid: 7903004f5e8c43040843fabdf97b783f, type: 3}
-  health: 100
-  damage: 50
+  health: 75
+  damage: 25
   direction: {x: 1, y: 0}
 --- !u!95 &1255376037
 Animator:
@@ -18302,7 +18306,7 @@ MonoBehaviour:
   collectible: {fileID: 6103043879413648090, guid: 7903004f5e8c43040843fabdf97b783f, type: 3}
   speed: 3
   health: 300
-  damage: 50
+  damage: 25
 --- !u!95 &1337443396
 Animator:
   serializedVersion: 5
@@ -19660,8 +19664,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathSound: {fileID: 838864174}
   collectible: {fileID: 6103043879413648090, guid: 7903004f5e8c43040843fabdf97b783f, type: 3}
-  health: 100
-  damage: 50
+  health: 150
+  damage: 40
   direction: {x: 1, y: 0}
 --- !u!1 &1431719788
 GameObject:
@@ -21300,6 +21304,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distanceInitial: 12
+  damage: 30
   direction: {x: 1, y: 0}
 --- !u!61 &1622926617
 BoxCollider2D:
@@ -22579,6 +22584,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distanceInitial: 5
+  damage: 40
   direction: {x: 1, y: 0}
 --- !u!61 &1676550901
 BoxCollider2D:
@@ -22833,8 +22839,8 @@ MonoBehaviour:
   deathSound: {fileID: 838864174}
   collectible: {fileID: 377158502677559947, guid: 8d67ceb226ea9fc4ca3812707ade112c, type: 3}
   speed: 3
-  health: 300
-  damage: 50
+  health: 250
+  damage: 70
 --- !u!50 &1684678196
 Rigidbody2D:
   serializedVersion: 4
@@ -23711,8 +23717,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathSound: {fileID: 838864174}
   collectible: {fileID: 6103043879413648090, guid: 7903004f5e8c43040843fabdf97b783f, type: 3}
-  health: 100
-  damage: 50
+  health: 150
+  damage: 40
   direction: {x: 1, y: 0}
 --- !u!1 &1740670389
 GameObject:
@@ -24562,7 +24568,7 @@ MonoBehaviour:
   collectible: {fileID: 6103043879413648090, guid: 7903004f5e8c43040843fabdf97b783f, type: 3}
   speed: 3
   health: 300
-  damage: 50
+  damage: 25
 --- !u!95 &1795324717
 Animator:
   serializedVersion: 5
@@ -24958,8 +24964,8 @@ MonoBehaviour:
   deathSound: {fileID: 838864174}
   collectible: {fileID: 6103043879413648090, guid: 7903004f5e8c43040843fabdf97b783f, type: 3}
   speed: 3
-  health: 300
-  damage: 50
+  health: 250
+  damage: 70
 --- !u!50 &1831698818
 Rigidbody2D:
   serializedVersion: 4
@@ -27148,6 +27154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distanceInitial: 12
+  damage: 30
   direction: {x: 1, y: 0}
 --- !u!61 &1966569559
 BoxCollider2D:
@@ -27367,6 +27374,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distanceInitial: 5
+  damage: 40
   direction: {x: 1, y: 0}
 --- !u!61 &1981474123
 BoxCollider2D:
@@ -28798,7 +28806,7 @@ MonoBehaviour:
   collectible: {fileID: 6103043879413648090, guid: 7903004f5e8c43040843fabdf97b783f, type: 3}
   speed: 3
   health: 300
-  damage: 50
+  damage: 25
 --- !u!95 &2108377699
 Animator:
   serializedVersion: 5

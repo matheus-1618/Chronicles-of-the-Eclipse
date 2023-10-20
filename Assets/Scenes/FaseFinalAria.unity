@@ -3182,6 +3182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7779cc9ee0d55b44cae314f799c15dd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 60
   direction: {x: 1, y: 0}
 --- !u!212 &682792023
 SpriteRenderer:
@@ -8300,8 +8301,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9590aef114bfff24cbbfaae09db0699c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Maxhealth: 3000
-  damage: 20
+  Maxhealth: 2000
+  damage: 30
   mainSlider: {fileID: 250477347}
   attackSound: {fileID: 1655015057}
 --- !u!50 &1500755038
@@ -9103,8 +9104,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 322009cce0850174d8255561c52a4c23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Maxhealth: 3000
-  damage: 20
+  Maxhealth: 2000
+  damage: 50
   DemonForm: {fileID: 1500755036}
   mainSlider: {fileID: 355149207}
   attackSound: {fileID: 1655015057}
@@ -10100,6 +10101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 221ce72ec1ac3074ba1cbb10673ed808, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 70
   direction: {x: 1, y: 0}
 --- !u!212 &1822884941
 SpriteRenderer:
@@ -11657,6 +11659,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 496e194b427f4884d90cb8bb1276c782, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 150
   direction: {x: 1, y: 0}
 --- !u!1 &2058096580
 GameObject:

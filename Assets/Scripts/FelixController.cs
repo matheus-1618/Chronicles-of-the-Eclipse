@@ -149,7 +149,7 @@ public class FelixController : PlayerController
             Imageattack1.color = Color.red;
             Imageattack10.color = Color.red;
         }
-        if (!canAttack1 && Time.time - lastAttack1Time >= 0.6f)
+        if (!canAttack1 && Time.time - lastAttack1Time >= 0.5f)
         {
             canAttack1 = true;
             stop = false;
@@ -170,12 +170,15 @@ public class FelixController : PlayerController
             Imageattack40.color = Color.red;
         }
 
-        if (!canAttack2 && Time.time - lastAttack2Time >= 1f)
+        if (!canAttack2 && Time.time - lastAttack2Time >= 2f)
         {
             canAttack2 = true;
-            stop = false;
             Imageattack4.color = Color.white;
             Imageattack40.color = Color.white;
+        }
+        if (!canAttack2 && Time.time - lastAttack2Time >= 1f)
+        {
+            stop = false;
         }
 
         if (canAttack3 && Input.GetKeyDown(KeyCode.C))
@@ -189,7 +192,7 @@ public class FelixController : PlayerController
             Imageattack3.color = Color.red;
             Imageattack30.color = Color.red;
         }
-        if (!canAttack3 && Time.time - lastAttack3Time >= 0.6f)
+        if (!canAttack3 && Time.time - lastAttack3Time >= 1f)
         {
             canAttack3 = true;
             stop = false;
@@ -208,7 +211,7 @@ public class FelixController : PlayerController
             Imageattack2.color = Color.red;
             Imageattack20.color = Color.red;
         }
-        if (!canAttack4 && Time.time - lastAttack4Time >= 0.9f)
+        if (!canAttack4 && Time.time - lastAttack4Time >= 0.7f)
         {
             canAttack4 = true;
             stop = false;
@@ -389,7 +392,10 @@ public class FelixController : PlayerController
         damageSound.Play();
         for (float i = 0; i < 0.2f; i += 0.2f)
         {
-           sprite.color = Color.red;
+            rb.velocity = new Vector2(0, rb.velocity.y);
+            yield return new WaitForSeconds(0.05f);
+            rb.AddForce(Vector2.right * -5 * direction, ForceMode2D.Impulse);
+            sprite.color = Color.red;
             yield return new WaitForSeconds(0.5f);
            sprite.color = Color.white;
            // yield return new WaitForSeconds(0.3f);

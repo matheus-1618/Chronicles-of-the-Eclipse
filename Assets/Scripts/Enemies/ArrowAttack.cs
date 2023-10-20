@@ -6,7 +6,7 @@ public class ArrowAttack : MonoBehaviour
 {
     private Animator anim;
     public float distanceInitial;
-    private int damage = 40;
+    public int damage = 40;
     private bool active = false;
     public Vector2 direction = Vector2.right;
     private float startTime;

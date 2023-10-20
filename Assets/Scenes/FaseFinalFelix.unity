@@ -4049,6 +4049,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7779cc9ee0d55b44cae314f799c15dd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 60
   direction: {x: 1, y: 0}
 --- !u!212 &682792023
 SpriteRenderer:
@@ -4603,6 +4604,10 @@ PrefabInstance:
     - target: {fileID: 2688283837640755738, guid: e8610e8df710616469d26120f0e439c8, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4682240272922733095, guid: e8610e8df710616469d26120f0e439c8, type: 3}
+      propertyPath: damage
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 6191468115865784368, guid: e8610e8df710616469d26120f0e439c8, type: 3}
       propertyPath: m_Name
@@ -7869,7 +7874,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b057fff664648f478bd9733cda178ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 100
+  damage: 85
   direction: {x: 1, y: 0}
 --- !u!61 &1414047271
 BoxCollider2D:
@@ -8487,7 +8492,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd9697f2067a8c445acdeeca0b6d3d28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 100
+  damage: 120
   direction: {x: 1, y: 0}
 --- !u!212 &1478279603
 SpriteRenderer:
@@ -8715,7 +8720,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9590aef114bfff24cbbfaae09db0699c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Maxhealth: 3000
+  Maxhealth: 2000
   damage: 20
   mainSlider: {fileID: 250477347}
   attackSound: {fileID: 834245794}
@@ -9924,7 +9929,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c091badb0ce6ef14bafca4d4243db6f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 100
+  damage: 85
   direction: {x: 1, y: 0}
 --- !u!61 &1606780168
 BoxCollider2D:
@@ -10227,7 +10232,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 322009cce0850174d8255561c52a4c23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Maxhealth: 3000
+  Maxhealth: 2000
   damage: 20
   DemonForm: {fileID: 1500755036}
   mainSlider: {fileID: 355149207}
@@ -10979,6 +10984,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 221ce72ec1ac3074ba1cbb10673ed808, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 70
   direction: {x: 1, y: 0}
 --- !u!212 &1822884941
 SpriteRenderer:
@@ -12377,6 +12383,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 496e194b427f4884d90cb8bb1276c782, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 150
   direction: {x: 1, y: 0}
 --- !u!1 &2061774798
 GameObject:

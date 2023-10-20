@@ -154,15 +154,18 @@ public class AriaController : PlayerController
             Imageattack20.color = Color.red;
         }
 
-        if (!canAttack2 && Time.time - lastAttack2Time >= 0.8f)
+        if (!canAttack2 && Time.time - lastAttack2Time >= 1f)
         {
             canAttack2 = true;
-            stop = false;
             Imageattack2.color = Color.white;
             Imageattack20.color = Color.white;
         }
+        if (!canAttack2 && Time.time - lastAttack2Time >= 0.6f)
+        {
+            stop = false;
+        }
 
-        if (canAttack3 && Input.GetKeyDown(KeyCode.C))
+        if (canAttack3 && Input.GetKeyDown(KeyCode.V))
         {
             anim.SetTrigger("Attack5");
             soundAttack1.Play();
@@ -173,15 +176,18 @@ public class AriaController : PlayerController
             Imageattack3.color = Color.red;
             Imageattack30.color = Color.red;
         }
-        if (!canAttack3 && Time.time - lastAttack3Time >= 1.5f)
+        if (!canAttack3 && Time.time - lastAttack3Time >= 3f)
         {
             canAttack3 = true;
-            stop = false;
             Imageattack3.color = Color.white;
             Imageattack30.color = Color.white;
         }
+        if (!canAttack3 && Time.time - lastAttack3Time >= 1f)
+        {
+            stop = false;
+        }
 
-        if (canAttack4 && Input.GetKeyDown(KeyCode.V))
+        if (canAttack4 && Input.GetKeyDown(KeyCode.C))
         {
             anim.SetTrigger("Attack4");
             soundAttack2.Play();
@@ -192,12 +198,16 @@ public class AriaController : PlayerController
             Imageattack4.color = Color.red;
             Imageattack40.color = Color.red;
         }
-        if (!canAttack4 && Time.time - lastAttack4Time >= 0.9f)
+        if (!canAttack4 && Time.time - lastAttack4Time >= 2f)
         {
             canAttack4 = true;
-            stop = false;
             Imageattack4.color = Color.white;
             Imageattack40.color = Color.white;
+        }
+
+        if (!canAttack4 && Time.time - lastAttack4Time >= 1f)
+        {
+            stop = false;
         }
 
         if (onGround && roll && Input.GetKeyDown(KeyCode.F))
@@ -389,6 +399,9 @@ public class AriaController : PlayerController
         damageSound.Play();
         for (float i = 0; i < 0.2f; i += 0.2f)
         {
+            rb.velocity = new Vector2(0, rb.velocity.y);
+            yield return new WaitForSeconds(0.05f);
+            rb.AddForce(Vector2.right * -5 * direction, ForceMode2D.Impulse);
             sprite.color = Color.red;
             yield return new WaitForSeconds(0.5f);
             sprite.color = Color.white;

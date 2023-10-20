@@ -5,7 +5,7 @@ using UnityEngine;
 public class NightBorneAttack : MonoBehaviour
 {
     private Animator anim;
-    private int damage = 150;
+    public int damage = 150;
     public Vector2 direction = Vector2.right;
     private float startTime;
     void Start() { }
