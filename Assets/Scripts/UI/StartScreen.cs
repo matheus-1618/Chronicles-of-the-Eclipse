@@ -22,7 +22,7 @@ public class StartScreen : MonoBehaviour
 
     public void fadeComplete()
     {
-        SceneManager.LoadScene("Scenes/MenuSelection");
+        SceneManager.LoadScene("Scenes/Cutscene");
     }
 
     // Update is called once per frame
