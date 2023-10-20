@@ -244,6 +244,11 @@ public class FelixController : PlayerController
             Dodge0.color = Color.white;
 
         }
+        if (transform.position.y < -5)
+        {
+            anim.SetTrigger("Dead");
+            StartCoroutine(RecarregaCena());
+        }
 
         if (Input.GetButtonDown("Jump") && (onGround))
         {
@@ -318,7 +323,7 @@ public class FelixController : PlayerController
         return health;
     }
 
-    public override void TakeDamage(int damage)
+    public override void TakeDamage(int damage, float directionVector)
     {
         if (canDamage)
         {
@@ -333,7 +338,7 @@ public class FelixController : PlayerController
             else
             {
                 //anim.SetTrigger("Damage");
-                StartCoroutine(DamageCoroutine());
+                StartCoroutine(DamageCoroutine(directionVector));
 
             }
         }
@@ -387,18 +392,17 @@ public class FelixController : PlayerController
             SceneManager.LoadScene(cenaAtual);
         }
     }
-    public override IEnumerator DamageCoroutine()
+    public override IEnumerator DamageCoroutine(float directionVector)
     {
         damageSound.Play();
         for (float i = 0; i < 0.2f; i += 0.2f)
         {
             rb.velocity = new Vector2(0, rb.velocity.y);
             yield return new WaitForSeconds(0.05f);
-            rb.AddForce(Vector2.right * -5 * direction, ForceMode2D.Impulse);
+            rb.AddForce(Vector2.right * 5f * directionVector, ForceMode2D.Impulse);
             sprite.color = Color.red;
             yield return new WaitForSeconds(0.5f);
            sprite.color = Color.white;
-           // yield return new WaitForSeconds(0.3f);
         }
         canDamage = true;
     }

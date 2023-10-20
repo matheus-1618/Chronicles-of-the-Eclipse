@@ -49,9 +49,9 @@ public class Salazar : Enemy
             playerDistance = player.transform.position - transform.position;
             if (initial)
             {
-                rb.velocity = new Vector2(4.5f * (playerDistance.x) / Mathf.Abs(playerDistance.x), rb.velocity.y);
+                rb.velocity = new Vector2(3.5f * (playerDistance.x) / Mathf.Abs(playerDistance.x), rb.velocity.y);
                 anim.SetFloat("Speed", Mathf.Abs(rb.velocity.x));
-                if (Mathf.Abs(playerDistance.x) < 4)
+                if (Mathf.Abs(playerDistance.x) < 2.5f)
                 {
                     anim.SetFloat("Speed", 0f);
                     ChangeState();
@@ -69,7 +69,7 @@ public class Salazar : Enemy
                 lastAttackTime = Time.time;
             }
 
-            if (state == 1 && Time.time - lastAttackTime > 1.5f && !initial)
+            if (state == 1 && Time.time - lastAttackTime > 2.2f && !initial)
             {
                 attackAllowed = true;
                 initial = true;
@@ -133,6 +133,9 @@ public class Salazar : Enemy
             isDead = true;
             rb.velocity = Vector2.zero;
             anim.SetTrigger("Death");
+            rb.gravityScale = 0;
+            BoxCollider2D box = GetComponent<BoxCollider2D>();
+            box.enabled = false;
         }
         else
         {
@@ -159,9 +162,10 @@ public class Salazar : Enemy
         FelixController player = other.gameObject.GetComponent<FelixController>();
         if (player != null)
         {
+            float directionVector = (player.transform.position.x - transform.position.x) / Mathf.Abs(player.transform.position.x - transform.position.x);
             StartCoroutine(StopRoutine());
-            player.TakeDamage(damage);
-            player.GetComponent<Rigidbody2D>().AddForce(Vector2.right * 7.5f * (playerDistance.x) / Mathf.Abs(playerDistance.x), ForceMode2D.Impulse);
+            player.TakeDamage(damage, directionVector);
+
         }
     }
 

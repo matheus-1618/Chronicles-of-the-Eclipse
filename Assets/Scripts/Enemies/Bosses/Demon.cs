@@ -109,6 +109,9 @@ public class Demon : Enemy
             isDead = true;
             rb.velocity = Vector2.zero;
             anim.SetTrigger("Death");
+            rb.gravityScale = 0;
+            BoxCollider2D box = GetComponent<BoxCollider2D>();
+            box.enabled = false;
         }
         else
         {
@@ -136,8 +139,9 @@ public class Demon : Enemy
         if (player != null)
         {
             StartCoroutine(StopRoutine());
-            player.TakeDamage(damage);
-            player.GetComponent<Rigidbody2D>().AddForce(Vector2.right * 7.5f * (playerDistance.x) / Mathf.Abs(playerDistance.x), ForceMode2D.Impulse);
+            float directionVector = 1.5f*(player.transform.position.x - transform.position.x) / Mathf.Abs(player.transform.position.x - transform.position.x);
+            player.TakeDamage(damage, directionVector);
+            
         }
     }
 

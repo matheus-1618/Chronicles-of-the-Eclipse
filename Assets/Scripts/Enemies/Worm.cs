@@ -56,6 +56,9 @@ public class Worm : Enemy
         health -= damage;
         if (health <= 0)
         {
+            rb.gravityScale = 0;
+            BoxCollider2D box = GetComponent<BoxCollider2D>();
+            box.enabled = false;
             isDead = true;
             rb.velocity = Vector2.zero;
             deathSound.Play();
@@ -89,8 +92,9 @@ public class Worm : Enemy
         if (player != null)
         {
             StartCoroutine(StopRoutine());
-            player.TakeDamage(damage);
-            player.GetComponent<Rigidbody2D>().AddForce(Vector2.right * 5 * (playerDistance.x) / Mathf.Abs(playerDistance.x), ForceMode2D.Impulse);
+            float directionVector = (player.transform.position.x - transform.position.x) / Mathf.Abs(player.transform.position.x - transform.position.x);
+            player.TakeDamage(damage, directionVector);
+            //player.GetComponent<Rigidbody2D>().AddForce(Vector2.right * 5 * (playerDistance.x) / Mathf.Abs(playerDistance.x), ForceMode2D.Impulse);
         }  
     }
 

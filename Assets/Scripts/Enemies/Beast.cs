@@ -92,8 +92,8 @@ public class Beast : Enemy
         if (player != null)
         {
             StartCoroutine(StopRoutine());
-            player.TakeDamage(damage);
-            player.GetComponent<Rigidbody2D>().AddForce(Vector2.right * 5 * (playerDistance.x) / Mathf.Abs(playerDistance.x), ForceMode2D.Impulse);
+            float directionVector = (player.transform.position.x - transform.position.x) / Mathf.Abs(player.transform.position.x - transform.position.x);
+            player.TakeDamage(damage, directionVector);
         }  
     }
 

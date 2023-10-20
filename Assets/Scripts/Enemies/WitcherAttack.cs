@@ -56,8 +56,9 @@ public class WitcherAttack : MonoBehaviour
         PlayerController player = other.GetComponent<PlayerController>();
         if (player != null)
         {
-            player.TakeDamage(damage);
-            player.GetComponent<Rigidbody2D>().AddForce(Vector2.right * (-5), ForceMode2D.Impulse);
+            float directionVector = (player.transform.position.x - transform.position.x) / Mathf.Abs(player.transform.position.x - transform.position.x);
+            player.TakeDamage(damage, directionVector);
+            //player.GetComponent<Rigidbody2D>().AddForce(Vector2.right * (-5), ForceMode2D.Impulse);
             Destroy(gameObject);
         }
     }

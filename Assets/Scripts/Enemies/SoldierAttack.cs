@@ -38,7 +38,8 @@ public class SoldierAttack : MonoBehaviour
         PlayerController player = other.GetComponent<PlayerController>();
         if (player != null)
         {
-            player.TakeDamage(damage);
+            float directionVector = (player.transform.position.x - transform.position.x) / Mathf.Abs(player.transform.position.x - transform.position.x);
+            player.TakeDamage(damage, directionVector);
         }
 
     }

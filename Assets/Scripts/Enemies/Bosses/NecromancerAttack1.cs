@@ -43,7 +43,8 @@ public class NecromancerAttack1 : MonoBehaviour
         PlayerController player = other.GetComponent<PlayerController>();
         if (player != null)
         {
-            player.TakeDamage(damage);
+            float directionVector = 1.5f*(player.transform.position.x - transform.position.x) / Mathf.Abs(player.transform.position.x - transform.position.x);
+            player.TakeDamage(damage, directionVector);
         }
 
     }

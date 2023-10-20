@@ -7,8 +7,8 @@ public abstract class PlayerController : MonoBehaviour
     // Start is called before the first frame update
 
     public abstract void Flip();
-    public abstract void TakeDamage(int damage);
-    public abstract IEnumerator DamageCoroutine();
+    public abstract void TakeDamage(int damage, float directionVector);
+    public abstract IEnumerator DamageCoroutine(float directionVector);
 
     public abstract void GetRing();
 
