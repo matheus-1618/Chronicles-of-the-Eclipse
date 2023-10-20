@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class ChangeSvene : MonoBehaviour
 {
     // Start is called before the first frame update
+    public GameObject Selection;
     void Start()
     {
         
@@ -18,7 +19,8 @@ public class ChangeSvene : MonoBehaviour
     }
     public void fadeComplete()
     {
-        SceneManager.LoadScene("Scenes/MenuSelection");
+        Selection.SetActive(true);
+        //SceneManager.LoadScene("Scenes/MenuSelection");
     }
 
 }

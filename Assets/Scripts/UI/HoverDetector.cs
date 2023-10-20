@@ -17,8 +17,8 @@ public class HoverDetector : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     void Start()
     {
-        if (Soundtrack != null)
-            Soundtrack.Play();
+        if (Soundtrack != null) { }
+            //Soundtrack.Play();
     }
 
     public void OnPointerEnter(PointerEventData eventData)
