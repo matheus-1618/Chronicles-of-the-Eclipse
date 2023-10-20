@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class General : Enemy
 {
     // Start is called before the first frame update
+    public GameObject LevelChanger;
     public int Maxhealth = 3000;
     private int health;
     public int damage = 20;
@@ -202,6 +203,7 @@ public class General : Enemy
 
     public override void DestroyEnemy()
     {
+        LevelChanger.SetActive(true);
         Destroy(gameObject);
     }
 }

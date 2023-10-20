@@ -11,14 +11,17 @@ public class PauseMenu : MonoBehaviour
     public Scrollbar mainSlider1;
     public Scrollbar mainSlider2;
     public Scrollbar mainSlider3;
+    public static float size1 = 0.5f;
+    public static float size2 = 0.5f;
+    public static float size3 = 0.5f;
     void Start()
     {
         mainSlider1.value = 0;
-        mainSlider1.size = 0.5f;
+        mainSlider1.size = size1;
         mainSlider2.value = 0;
-        mainSlider2.size = 0.5f;
+        mainSlider2.size = size2;
         mainSlider3.value = 0;
-        mainSlider3.size = 0.5f;
+        mainSlider3.size = size3;
 
     }
 
@@ -55,6 +58,7 @@ public class PauseMenu : MonoBehaviour
         {
             player.SetattackImprovement(50);
             player.SetRings(5);
+            size1 += 0.1f;
             mainSlider1.size += 0.1f;
         }
     }
@@ -63,6 +67,7 @@ public class PauseMenu : MonoBehaviour
         if (player.GetRingCount() >= 5  && mainSlider2.size < 1f) {
             player.SetMaxHealth(200);
             player.SetRings(5);
+            size2 += 0.1f;
             mainSlider2.size += 0.1f;
         }
     }
@@ -74,6 +79,7 @@ public class PauseMenu : MonoBehaviour
             player.SetRings(5);
             player.SetattackImprovement(50);
             player.SetDodgeTime(0.2f);
+            size3 += 0.1f;
             mainSlider3.size += 0.1f;
         }
     }

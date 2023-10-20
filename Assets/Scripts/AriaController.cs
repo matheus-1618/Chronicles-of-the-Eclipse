@@ -19,6 +19,7 @@ public class AriaController : PlayerController
     public AudioSource soundAttack1;
     public AudioSource soundAttack2;
     public AudioSource soundAttack3;
+    public static float healthSize = 1f;
     public static float dodgeTime = 2f;
     public static int attackImprovement = 0;
     public static int Maxhealth = 500;
@@ -88,6 +89,10 @@ public class AriaController : PlayerController
 
     void Start()
     {
+        Vector3 scale = mainSlider.transform.localScale;
+        scale.x = healthSize;
+        mainSlider.transform.localScale = scale;
+
         StartCoroutine(ScenarioRoutine());
         soudtrack.Play();
         damageSound.Stop();
@@ -336,7 +341,8 @@ public class AriaController : PlayerController
         health += 100;
         Maxhealth += healthExtra;
         Vector3 scale = mainSlider.transform.localScale;
-        scale.x *= 1.1f;
+        healthSize = scale.x * 1.1f;
+        scale.x = healthSize;
         mainSlider.transform.localScale = scale;
     }
     public override void SetattackImprovement(int extra)
