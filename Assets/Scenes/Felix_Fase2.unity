@@ -21233,7 +21233,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LevelChanger: {fileID: 1005649936}
-  Maxhealth: 1550
+  Maxhealth: 1750
   damage: 20
   mainSlider: {fileID: 1671260019}
   attackSound: {fileID: 149034776}

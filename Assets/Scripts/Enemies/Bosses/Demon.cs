@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class Demon : Enemy
 {
     // Start is called before the first frame update
+    public GameObject final;
     public int Maxhealth = 3000;
     private int health;
     public int damage = 20;
@@ -156,6 +157,7 @@ public class Demon : Enemy
 
     public override void DestroyEnemy()
     {
+        final.SetActive(true);
         Destroy(gameObject);
     }
 }

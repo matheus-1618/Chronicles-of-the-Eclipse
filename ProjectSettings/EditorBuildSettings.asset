@@ -35,4 +35,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TutorialFelix.unity
     guid: ba564f298df6fd840ad470d83f5c8799
+  - enabled: 1
+    path: Assets/Scenes/Felix_Fase2.unity
+    guid: 37ff544b45d75264f89778a919bb7d5a
   m_configObjects: {}
