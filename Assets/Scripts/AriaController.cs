@@ -173,14 +173,14 @@ public class AriaController : PlayerController
             canAttack3 = false;
             lastAttack3Time = Time.time;
             stop = true;
-            Imageattack3.color = Color.red;
-            Imageattack30.color = Color.red;
+            Imageattack4.color = Color.red;
+            Imageattack40.color = Color.red;
         }
         if (!canAttack3 && Time.time - lastAttack3Time >= 3f)
         {
             canAttack3 = true;
-            Imageattack3.color = Color.white;
-            Imageattack30.color = Color.white;
+            Imageattack4.color = Color.white;
+            Imageattack40.color = Color.white;
         }
         if (!canAttack3 && Time.time - lastAttack3Time >= 1f)
         {
@@ -195,14 +195,14 @@ public class AriaController : PlayerController
             canAttack4 = false;
             lastAttack4Time = Time.time;
             stop = true;
-            Imageattack4.color = Color.red;
-            Imageattack40.color = Color.red;
+            Imageattack3.color = Color.red;
+            Imageattack30.color = Color.red;
         }
         if (!canAttack4 && Time.time - lastAttack4Time >= 2f)
         {
             canAttack4 = true;
-            Imageattack4.color = Color.white;
-            Imageattack40.color = Color.white;
+            Imageattack3.color = Color.white;
+            Imageattack30.color = Color.white;
         }
 
         if (!canAttack4 && Time.time - lastAttack4Time >= 1f)
@@ -424,6 +424,7 @@ public class AriaController : PlayerController
     {
         for (float i = 0; i < 0.2f; i += 0.2f)
         {
+            rb.velocity = new Vector2(0, rb.velocity.y);
             sprite.color = Color.green;
             yield return new WaitForSeconds(0.25f);
             sprite.color = Color.white;

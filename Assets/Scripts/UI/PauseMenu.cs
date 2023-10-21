@@ -56,7 +56,7 @@ public class PauseMenu : MonoBehaviour
     {
         if (player.GetRingCount() >= 5 && mainSlider1.size < 1f)
         {
-            player.SetattackImprovement(25);
+            player.SetattackImprovement(10);
             player.SetRings(5);
             size1 += 0.1f;
             mainSlider1.size += 0.1f;

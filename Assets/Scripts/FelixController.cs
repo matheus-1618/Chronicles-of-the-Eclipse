@@ -422,6 +422,7 @@ public class FelixController : PlayerController
     {
         for (float i = 0; i < 0.2f; i += 0.2f)
         {
+            rb.velocity = new Vector2(0, rb.velocity.y);
             sprite.color = Color.green;
             yield return new WaitForSeconds(0.5f);
             sprite.color = Color.white;
