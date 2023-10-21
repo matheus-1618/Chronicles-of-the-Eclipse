@@ -22755,7 +22755,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06c7252a2610266469912e50e8aaafae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SceneChanger: Scenes/FaseFinalFelix
+  SceneChanger: Scenes/Felix_Fase2
 --- !u!95 &1699656396
 Animator:
   serializedVersion: 5

@@ -165,4 +165,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a6b3e22082ea4f4da468edfa835262a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 40
   direction: {x: 1, y: 0}

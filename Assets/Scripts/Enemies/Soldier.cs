@@ -5,6 +5,8 @@ using UnityEngine;
 public class Soldier : Enemy
 {
     // Start is called before the first frame update
+    public AudioSource deathSound;
+    public GameObject collectible;
     public int health = 400;
     public int damage = 20;
     private Transform player;
@@ -22,6 +24,7 @@ public class Soldier : Enemy
     private int state = 0;
     void Start()
     {
+        deathSound.Stop();
         player = GameObject.FindGameObjectWithTag("Player").transform;
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
@@ -35,7 +38,7 @@ public class Soldier : Enemy
         if (!isDead)
         {
             playerDistance = player.transform.position - transform.position;
-            if (initial)
+            if (initial && Mathf.Abs(playerDistance.x) < 8f)
             {
                 rb.velocity = new Vector2(3f * (playerDistance.x) / Mathf.Abs(playerDistance.x), rb.velocity.y);
                 anim.SetFloat("Speed", Mathf.Abs(rb.velocity.x));
@@ -100,6 +103,7 @@ public class Soldier : Enemy
             BoxCollider2D box = GetComponent<BoxCollider2D>();
             box.enabled = false;
             isDead = true;
+            deathSound.Play();
             rb.velocity = Vector2.zero;
             anim.SetTrigger("Death");
         }
@@ -146,6 +150,7 @@ public class Soldier : Enemy
 
     public override void DestroyEnemy()
     {
+        Instantiate(collectible, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 }

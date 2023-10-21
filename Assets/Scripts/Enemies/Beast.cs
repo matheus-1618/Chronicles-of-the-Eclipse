@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Beast : Enemy
 {
+    public AudioSource deathSound;
+    public GameObject collectible;
     public int health = 300;
     public int damage = 50;
     private Transform player;
@@ -18,6 +20,7 @@ public class Beast : Enemy
     private float lastAttackTime;
     void Start()
     {
+        deathSound.Stop();
         player = GameObject.FindGameObjectWithTag("Player").transform;
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
@@ -65,6 +68,10 @@ public class Beast : Enemy
         {
             isDead = true;
             rb.velocity = Vector2.zero;
+            deathSound.Play();
+            rb.gravityScale = 0;
+            BoxCollider2D box = GetComponent<BoxCollider2D>();
+            box.enabled = false;
             anim.SetTrigger("Death");
         }
         else
@@ -107,6 +114,7 @@ public class Beast : Enemy
     }
     public override void DestroyEnemy()
     {
+        Instantiate(collectible, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 }

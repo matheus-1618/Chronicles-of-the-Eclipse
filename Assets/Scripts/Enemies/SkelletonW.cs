@@ -74,7 +74,7 @@ public class SkelletonW : Enemy
     public override IEnumerator DamageCoroutine()
     {
         move = false;
-        anim.SetTrigger("Hurt");
+        //anim.SetTrigger("Hurt");
         rb.velocity = Vector2.zero;
         rb.AddForce(Vector2.right * 5 * (-playerDistance.x) / Mathf.Abs(playerDistance.x), ForceMode2D.Impulse);
         for (float i = 0; i<0.2f; i += 0.2f)

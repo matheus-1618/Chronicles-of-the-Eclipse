@@ -1,12 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class NightBorne : Enemy
 {
     // Start is called before the first frame update
-    public int health = 3000;
+    public GameObject LevelChanger;
+    public int Maxhealth = 3000;
+    private int health;
     public int damage = 20;
+    public Scrollbar mainSlider;
+    public AudioSource attackSound;
     private Transform player;
     private Rigidbody2D rb;
     private Animator anim;
@@ -22,6 +27,10 @@ public class NightBorne : Enemy
     private int state = 0;
     void Start()
     {
+        attackSound.Stop();
+        health = Maxhealth;
+        mainSlider.value = 0;
+        mainSlider.size = 1;
         player = GameObject.FindGameObjectWithTag("Player").transform;
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
@@ -50,6 +59,7 @@ public class NightBorne : Enemy
             if (state == 1 && attackAllowed && !initial)
             {
                 anim.SetTrigger("Attack");
+                attackSound.Play();
                 rb.velocity = new Vector2(3f * (playerDistance.x) / Mathf.Abs(playerDistance.x), rb.velocity.y);
                 attack1.Blade();
                 attackAllowed = false;
@@ -65,6 +75,7 @@ public class NightBorne : Enemy
             if (state == 2 && attackAllowed && !initial)
             {
                 anim.SetTrigger("Attack");
+                attackSound.Play();
                 rb.velocity = new Vector2(3f * (playerDistance.x) / Mathf.Abs(playerDistance.x), rb.velocity.y);
                 attack1.Blade();
                 attackAllowed = false;
@@ -77,7 +88,7 @@ public class NightBorne : Enemy
                 initial = true;
             }
 
-            if (state == 3 && Time.time - lastAttackTime > 5f && !initial)
+            if (state == 3 && Time.time - lastAttackTime > 2.1f && !initial)
             {
                 attackAllowed = true;
                 initial = true;
@@ -123,6 +134,7 @@ public class NightBorne : Enemy
     public override void TakeDamage(int damage)
     {
         health -= damage;
+        mainSlider.size = (float)health / Maxhealth;
         if (health <= 0)
         {
             isDead = true;
@@ -141,7 +153,7 @@ public class NightBorne : Enemy
     public override IEnumerator DamageCoroutine()
     {
         rb.velocity = Vector2.zero;
-        rb.AddForce(Vector2.right * 8 * (-playerDistance.x) / Mathf.Abs(playerDistance.x), ForceMode2D.Impulse);
+        rb.AddForce(Vector2.right * 5 * (-playerDistance.x) / Mathf.Abs(playerDistance.x), ForceMode2D.Impulse);
         //anim.SetTrigger("Damage");
         for (float i = 0; i < 0.2f; i += 0.2f)
         {
@@ -175,6 +187,7 @@ public class NightBorne : Enemy
 
     public override void DestroyEnemy()
     {
+        LevelChanger.SetActive(true);
         Destroy(gameObject);
     }
 }

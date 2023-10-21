@@ -29,4 +29,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Cutscene.unity
     guid: eaed3765c6bd78d47a7bd69c83c4c31a
+  - enabled: 1
+    path: Assets/Scenes/TutorialAria.unity
+    guid: 77fa3abd1c0e54c4b840d2b07a4449b2
+  - enabled: 1
+    path: Assets/Scenes/TutorialFelix.unity
+    guid: ba564f298df6fd840ad470d83f5c8799
   m_configObjects: {}

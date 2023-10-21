@@ -376,7 +376,7 @@ MonoBehaviour:
   HopeScene: {fileID: 1924146170}
   RevengeScene: {fileID: 1679491931}
   Soundtrack: {fileID: 0}
-  SceneName: Scenes/Aria_Fase1
+  SceneName: Scenes/TutorialAria
   BlackFade: {fileID: 1785833392}
 --- !u!95 &202187891
 Animator:
@@ -1270,7 +1270,7 @@ MonoBehaviour:
   HopeScene: {fileID: 1679491931}
   RevengeScene: {fileID: 1924146170}
   Soundtrack: {fileID: 1965481302}
-  SceneName: Scenes/Felix_Fase1
+  SceneName: Scenes/TutorialFelix
   BlackFade: {fileID: 1785833392}
 --- !u!114 &772719177
 MonoBehaviour:
