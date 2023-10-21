@@ -72,7 +72,7 @@ public class Necromancer : Enemy
             {
                 rb.velocity = new Vector2(4.5f * (playerDistance.x) / Mathf.Abs(playerDistance.x), rb.velocity.y);
                 anim.SetFloat("Speed", Mathf.Abs(rb.velocity.x));
-                if (Mathf.Abs(playerDistance.x) < 4)
+                if (Mathf.Abs(playerDistance.x) < 2.6f)
                 {
                     //rb.velocity = new Vector2(0f, rb.velocity.y);
                     anim.SetFloat("Speed", 0f);

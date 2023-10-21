@@ -102,6 +102,8 @@ public class FelixController : PlayerController
     private float lastAttack8Time;
     private Attack8 attack8;
 
+    private bool canAttack = true;
+    private float lastAttack;
     void Start()
     {
         Vector3 scale = mainSlider.transform.localScale;
@@ -138,8 +140,15 @@ public class FelixController : PlayerController
     {
         onGround = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));
 
-        if (canAttack1 && Input.GetKeyDown(KeyCode.Z))
+        if (!canAttack && Time.time - lastAttack >= 0.5f)
         {
+            canAttack = true;
+        }
+
+        if (canAttack && canAttack1 && Input.GetKeyDown(KeyCode.Z))
+        {
+            canAttack = false;
+            lastAttack = Time.time;
             anim.SetTrigger("attack5");
             soundAttack1.Play();
             attack5.Explosion(attackImprovement);
@@ -157,8 +166,10 @@ public class FelixController : PlayerController
             Imageattack10.color = Color.white;
         }
 
-        if (canAttack2 && Input.GetKeyDown(KeyCode.V))
+        if (canAttack && canAttack2 && Input.GetKeyDown(KeyCode.V))
         {
+            canAttack = false;
+            lastAttack = Time.time;
             stop = true;
             anim.SetTrigger("attack2");
             soundAttack2.Play();
@@ -170,19 +181,22 @@ public class FelixController : PlayerController
             Imageattack40.color = Color.red;
         }
 
-        if (!canAttack2 && Time.time - lastAttack2Time >= 2f)
+        if (!canAttack2 && Time.time - lastAttack2Time >= 1f)
         {
             canAttack2 = true;
             Imageattack4.color = Color.white;
             Imageattack40.color = Color.white;
-        }
-        if (!canAttack2 && Time.time - lastAttack2Time >= 1f)
-        {
             stop = false;
         }
-
-        if (canAttack3 && Input.GetKeyDown(KeyCode.C))
+/*        if (!canAttack2 && Time.time - lastAttack2Time >= 1f)
         {
+            stop = false;
+        }*/
+
+        if (canAttack && canAttack3 && Input.GetKeyDown(KeyCode.C))
+        {
+            canAttack = false;
+            lastAttack = Time.time;
             anim.SetTrigger("attack4");
             attack4.Explosion(attackImprovement);
             soundAttack2.Play();
@@ -192,16 +206,23 @@ public class FelixController : PlayerController
             Imageattack3.color = Color.red;
             Imageattack30.color = Color.red;
         }
+
         if (!canAttack3 && Time.time - lastAttack3Time >= 1f)
         {
-            canAttack3 = true;
             stop = false;
+        }
+
+        if (!canAttack3 && Time.time - lastAttack3Time >= 2f)
+        {
+            canAttack3 = true;
             Imageattack3.color = Color.white;
             Imageattack30.color = Color.white;
         }
 
-        if (canAttack4 && Input.GetKeyDown(KeyCode.X))
+        if (canAttack && canAttack4 && Input.GetKeyDown(KeyCode.X))
         {
+            canAttack = false;
+            lastAttack = Time.time;
             anim.SetTrigger("attack6");
             soundAttack1.Play();
             attack6.Explosion(attackImprovement);

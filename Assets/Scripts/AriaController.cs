@@ -87,6 +87,9 @@ public class AriaController : PlayerController
     private float lastAttack5Time;
     private AriaAttack5 attack5;
 
+    private bool canAttack = true;
+    private float lastAttack;
+
     void Start()
     {
         Vector3 scale = mainSlider.transform.localScale;
@@ -122,8 +125,15 @@ public class AriaController : PlayerController
     {
         onGround = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));
 
-        if (canAttack1 && Input.GetKeyDown(KeyCode.Z))
+        if (!canAttack &&  Time.time - lastAttack >= 0.5f)
         {
+            canAttack = true;
+        }
+
+        if (canAttack && canAttack1 && Input.GetKeyDown(KeyCode.Z))
+        {
+            canAttack = false;
+            lastAttack = Time.time;
             anim.SetTrigger("Attack1");
             soundAttack3.Play();
             attack1.Blade(attackImprovement);
@@ -141,8 +151,10 @@ public class AriaController : PlayerController
             Imageattack10.color = Color.white;
         }
 
-        if (canAttack2 && Input.GetKeyDown(KeyCode.X))
+        if (canAttack &&  canAttack2 && Input.GetKeyDown(KeyCode.X))
         {
+            canAttack = false;
+            lastAttack = Time.time;
             stop = true;
             anim.SetTrigger("Attack2");
             soundAttack2.Play();
@@ -165,8 +177,10 @@ public class AriaController : PlayerController
             stop = false;
         }
 
-        if (canAttack3 && Input.GetKeyDown(KeyCode.V))
+        if (canAttack && canAttack3 && Input.GetKeyDown(KeyCode.V))
         {
+            canAttack = false;
+            lastAttack = Time.time;
             anim.SetTrigger("Attack5");
             soundAttack1.Play();
             attack5.Blade(attackImprovement);
@@ -187,8 +201,10 @@ public class AriaController : PlayerController
             stop = false;
         }
 
-        if (canAttack4 && Input.GetKeyDown(KeyCode.C))
+        if (canAttack && canAttack4 && Input.GetKeyDown(KeyCode.C))
         {
+            canAttack = false;
+            lastAttack = Time.time;
             anim.SetTrigger("Attack4");
             soundAttack2.Play();
             attack4.Blade(attackImprovement);
