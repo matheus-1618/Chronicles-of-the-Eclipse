@@ -14,6 +14,7 @@ public class PauseMenu : MonoBehaviour
     public static float size1 = 0.5f;
     public static float size2 = 0.5f;
     public static float size3 = 0.5f;
+    public AudioSource upgrade;
     void Start()
     {
         mainSlider1.value = 0;
@@ -56,6 +57,7 @@ public class PauseMenu : MonoBehaviour
     {
         if (player.GetRingCount() >= 5 && mainSlider1.size < 1f)
         {
+            upgrade.Play();
             player.SetattackImprovement(5);
             player.SetRings(5);
             size1 += 0.1f;
@@ -65,6 +67,7 @@ public class PauseMenu : MonoBehaviour
 
     public void AddMaxHealth() {
         if (player.GetRingCount() >= 5  && mainSlider2.size < 1f) {
+            upgrade.Play();
             player.SetMaxHealth(100);
             player.SetRings(5);
             size2 += 0.1f;
@@ -76,6 +79,7 @@ public class PauseMenu : MonoBehaviour
     {
         if (player.GetRingCount() >= 5 && mainSlider3.size < 1f)
         {
+            upgrade.Play();
             player.SetRings(5);
             player.SetDodgeTime(0.2f);
             size3 += 0.1f;

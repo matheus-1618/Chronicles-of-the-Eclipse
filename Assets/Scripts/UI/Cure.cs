@@ -6,6 +6,7 @@ public class Cure : MonoBehaviour
 {
     private float time;
     private bool direction = false;
+    public AudioSource sound;
     void Start()
     {
         time = Time.time;
@@ -33,6 +34,7 @@ public class Cure : MonoBehaviour
         PlayerController player = other.GetComponent<PlayerController>();
         if (player != null)
         {
+            sound.Play();
             player.GetCure();
             Destroy(gameObject);
         }

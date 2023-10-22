@@ -98,6 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48f3caf9db358b843b3888c0cd58a22d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sound: {fileID: 432807459020647351, guid: 07fbc9a34189fb64fae04a9592ea30ad, type: 3}
 --- !u!61 &8801005740779740339
 BoxCollider2D:
   m_ObjectHideFlags: 0

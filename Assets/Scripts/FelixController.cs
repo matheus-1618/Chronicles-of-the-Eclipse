@@ -10,6 +10,7 @@ using UnityEngine.UI;
 public class FelixController : PlayerController
 {
     // Start is called before the first frame update
+    public GameObject upgradeD;
     public GameObject DeathScene;
     public GameObject BlackFade;
     public GameObject ScenarioName;
@@ -139,7 +140,14 @@ public class FelixController : PlayerController
     void Update()
     {
         onGround = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));
-
+        if (rings >= 5)
+        {
+            upgradeD.SetActive(true);
+        }
+        else
+        {
+            upgradeD.SetActive(false);
+        }
         if (!canAttack && Time.time - lastAttack >= 0.5f)
         {
             canAttack = true;
