@@ -10,6 +10,7 @@ using UnityEngine.UI;
 public class FelixController : PlayerController
 {
     // Start is called before the first frame update
+    public DynamicJoystick joystick;
     public GameObject upgradeD;
     public GameObject DeathScene;
     public GameObject BlackFade;
@@ -287,7 +288,8 @@ public class FelixController : PlayerController
 
     private void FixedUpdate()
     {
-        float h = Input.GetAxisRaw("Horizontal");
+        //float h = Input.GetAxisRaw("Horizontal");
+        float h = joystick.Horizontal;
 
         if (canDamage)
         {
