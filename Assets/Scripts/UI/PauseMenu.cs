@@ -29,18 +29,6 @@ public class PauseMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape)) {
-            if (pauseMenu.gameObject.activeSelf)
-            {
-                pauseMenu.gameObject.SetActive(false);
-                Time.timeScale = 1;
-            }
-            else
-            {
-                pauseMenu.gameObject.SetActive(true);
-                Time.timeScale = 0;
-            }
-        }
         if (Input.GetKeyDown(KeyCode.A)) {
             AddAttackExtra();
         }
@@ -53,6 +41,19 @@ public class PauseMenu : MonoBehaviour
 
     }
 
+    public void ToPause()
+    {
+        if (pauseMenu.gameObject.activeSelf)
+        {
+            pauseMenu.gameObject.SetActive(false);
+            Time.timeScale = 1;
+        }
+        else
+        {
+            pauseMenu.gameObject.SetActive(true);
+            Time.timeScale = 0;
+        }
+    }
     public void AddAttackExtra()
     {
         if (player.GetRingCount() >= 5 && mainSlider1.size < 1f)
