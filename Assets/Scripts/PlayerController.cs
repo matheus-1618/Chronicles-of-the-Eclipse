@@ -15,6 +15,8 @@ public abstract class PlayerController : MonoBehaviour
     public abstract void GetCure();
 
     public abstract void SetMaxHealth(int health);
+
+    public abstract void ImproveMana(int manaExtra);
     public abstract void SetattackImprovement(int extra);
     public abstract void SetDodgeTime(float minus);
 

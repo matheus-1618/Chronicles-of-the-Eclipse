@@ -23,8 +23,9 @@ public class FelixController : PlayerController
     public static float healthSize = 1f;
     public static float dodgeTime = 2f;
     public static int attackImprovement = 0;
+    public static int Maxmana = 500;
     public static int Maxhealth = 500;
-    public static int rings = 50;
+    public static int rings = 0;
     public static int cures = 0;
     public TextMeshProUGUI CureCount;
     public TextMeshProUGUI RingCount;
@@ -33,18 +34,10 @@ public class FelixController : PlayerController
     public Transform groundCheck;
     public float jumpForce;
     public Scrollbar mainSlider;
-    public Image Imageattack1;
-    public Image Imageattack10;
-    public Image Imageattack2;
-    public Image Imageattack20;
-    public Image Imageattack3;
-    public Image Imageattack30;
-    public Image Imageattack4;
-    public Image Imageattack40;
-    public Image Dodge;
-    public Image Dodge0;
+    public Scrollbar ManaSlider;
     private bool canDamage = true;
     private int health;
+    private int mana;
 
     private Rigidbody2D rb;
     private float speed;
@@ -123,7 +116,10 @@ public class FelixController : PlayerController
         rb = GetComponent<Rigidbody2D>();
         mainSlider.value = 0;
         mainSlider.size = 1;
+        ManaSlider.value = 0;
+        ManaSlider.size = 0;
         health = Maxhealth;
+        mana = 0;
         speed = maxSpeed;
         anim = GetComponent<Animator>();
         attack1 = GetComponentInChildren<Attack1>();
@@ -154,7 +150,7 @@ public class FelixController : PlayerController
             canAttack = true;
         }
 
-        if (canAttack && canAttack1 && Input.GetKeyDown(KeyCode.Z))
+      /*  if (canAttack && canAttack1 && Input.GetKeyDown(KeyCode.Z))
         {
             canAttack = false;
             lastAttack = Time.time;
@@ -164,18 +160,14 @@ public class FelixController : PlayerController
             canAttack1 = false;
             lastAttack1Time = Time.time;
             stop = true;
-            Imageattack1.color = Color.red;
-            Imageattack10.color = Color.red;
-        }
+        }*/
         if (!canAttack1 && Time.time - lastAttack1Time >= 0.5f)
         {
             canAttack1 = true;
             stop = false;
-            Imageattack1.color = Color.white;
-            Imageattack10.color = Color.white;
         }
 
-        if (canAttack && canAttack2 && Input.GetKeyDown(KeyCode.V))
+       /* if (canAttack && canAttack2 && Input.GetKeyDown(KeyCode.V))
         {
             canAttack = false;
             lastAttack = Time.time;
@@ -186,23 +178,15 @@ public class FelixController : PlayerController
             newAttack2.MagicBall(direction, attackImprovement);
             canAttack2 = false;
             lastAttack2Time = Time.time;
-            Imageattack4.color = Color.red;
-            Imageattack40.color = Color.red;
-        }
+        }*/
 
         if (!canAttack2 && Time.time - lastAttack2Time >= 1f)
         {
             canAttack2 = true;
-            Imageattack4.color = Color.white;
-            Imageattack40.color = Color.white;
             stop = false;
         }
-/*        if (!canAttack2 && Time.time - lastAttack2Time >= 1f)
-        {
-            stop = false;
-        }*/
 
-        if (canAttack && canAttack3 && Input.GetKeyDown(KeyCode.C))
+        /*if (canAttack && canAttack3 && Input.GetKeyDown(KeyCode.C))
         {
             canAttack = false;
             lastAttack = Time.time;
@@ -212,9 +196,7 @@ public class FelixController : PlayerController
             canAttack3 = false;
             lastAttack3Time = Time.time;
             stop = true;
-            Imageattack3.color = Color.red;
-            Imageattack30.color = Color.red;
-        }
+        }*/
 
         if (!canAttack3 && Time.time - lastAttack3Time >= 1f)
         {
@@ -224,11 +206,9 @@ public class FelixController : PlayerController
         if (!canAttack3 && Time.time - lastAttack3Time >= 2f)
         {
             canAttack3 = true;
-            Imageattack3.color = Color.white;
-            Imageattack30.color = Color.white;
         }
 
-        if (canAttack && canAttack4 && Input.GetKeyDown(KeyCode.X))
+       /* if (canAttack && canAttack4 && Input.GetKeyDown(KeyCode.X))
         {
             canAttack = false;
             lastAttack = Time.time;
@@ -238,15 +218,11 @@ public class FelixController : PlayerController
             canAttack4 = false;
             lastAttack4Time = Time.time;
             stop = true;
-            Imageattack2.color = Color.red;
-            Imageattack20.color = Color.red;
-        }
+        }*/
         if (!canAttack4 && Time.time - lastAttack4Time >= 0.7f)
         {
             canAttack4 = true;
             stop = false;
-            Imageattack2.color = Color.white;
-            Imageattack20.color = Color.white;
         }
         if (cures > 0 && Input.GetKeyDown(KeyCode.E))
         {
@@ -258,20 +234,16 @@ public class FelixController : PlayerController
             StartCoroutine(CureCoroutine());
         }
 
-        if (onGround && roll && Input.GetKeyDown(KeyCode.F))
+/*        if (onGround && roll && Input.GetKeyDown(KeyCode.F))
         {
             anim.SetTrigger("Roll");
             roll = false;
             canRoll = true;
             lastRollTime = Time.time;
-            Dodge.color = Color.red;
-            Dodge0.color = Color.red;
-        }
+        }*/
         if (!roll && Time.time - lastRollTime > dodgeTime)
         {
             roll = true;
-            Dodge.color = Color.white;
-            Dodge0.color = Color.white;
 
         }
         if (transform.position.y < -5)
@@ -280,9 +252,84 @@ public class FelixController : PlayerController
             StartCoroutine(RecarregaCena());
         }
 
-        if (Input.GetButtonDown("Jump") && (onGround))
+/*        if (Input.GetButtonDown("Jump") && (onGround))
         {
             jump = true;
+        }*/
+    }
+
+    public void RollFunction()
+    {
+        if (onGround && roll)
+        {
+            anim.SetTrigger("Roll");
+            roll = false;
+            canRoll = true;
+            lastRollTime = Time.time;
+        }
+    }
+    public void JumpFunction()
+    {
+        if ((onGround))
+        {
+            jump = true;
+        }
+    }
+    public void Attack1Function()
+    {
+        if (canAttack && canAttack1)
+        {
+            canAttack = false;
+            lastAttack = Time.time;
+            anim.SetTrigger("attack5");
+            soundAttack1.Play();
+            attack5.Explosion(attackImprovement);
+            canAttack1 = false;
+            lastAttack1Time = Time.time;
+            stop = true;
+        }
+    }
+    public void Attack2Function()
+    {
+        if (canAttack && canAttack4)
+        {
+            canAttack = false;
+            lastAttack = Time.time;
+            anim.SetTrigger("attack6");
+            soundAttack1.Play();
+            attack6.Explosion(attackImprovement);
+            canAttack4 = false;
+            lastAttack4Time = Time.time;
+            stop = true;
+        }
+    }
+    public void Attack3Function()
+    {
+        if (canAttack && canAttack3)
+        {
+            canAttack = false;
+            lastAttack = Time.time;
+            anim.SetTrigger("attack4");
+            attack4.Explosion(attackImprovement);
+            soundAttack2.Play();
+            canAttack3 = false;
+            lastAttack3Time = Time.time;
+            stop = true;
+        }
+    }
+    public void Attack4Function()
+    {
+        if (canAttack && canAttack2)
+        {
+            canAttack = false;
+            lastAttack = Time.time;
+            stop = true;
+            anim.SetTrigger("attack2");
+            soundAttack2.Play();
+            Attack2 newAttack2 = Instantiate(attack2, attack2.transform.position, Quaternion.identity);
+            newAttack2.MagicBall(direction, attackImprovement);
+            canAttack2 = false;
+            lastAttack2Time = Time.time;
         }
     }
 
@@ -389,10 +436,15 @@ public class FelixController : PlayerController
     {
         health += 100;
         Maxhealth += healthExtra;
-        //Vector3 scale = mainSlider.transform.localScale;
-        //healthSize = scale.x * 1.1f;
-        // scale.x = healthSize;
-        //mainSlider.transform.localScale = scale;
+    }
+
+    public override void ImproveMana(int manaExtra)
+    {
+        if (mana < manaExtra)
+        {
+           mana += manaExtra;
+           ManaSlider.size = (float)mana / Maxmana;
+        }
     }
     public override void SetattackImprovement(int extra)
     {

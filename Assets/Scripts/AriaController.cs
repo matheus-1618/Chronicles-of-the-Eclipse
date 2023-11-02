@@ -33,6 +33,8 @@ public class AriaController : PlayerController
     public Transform groundCheck;
     public float jumpForce;
     public Scrollbar mainSlider;
+    public Scrollbar ManaSlider;
+    public static int Maxmana = 500;
     public Image Imageattack1;
     public Image Imageattack10;
     public Image Imageattack2;
@@ -46,6 +48,7 @@ public class AriaController : PlayerController
     private bool canDamage = true;
     private bool doubleJump;
     private int health;
+    private int mana;
 
     private Rigidbody2D rb;
     private float speed;
@@ -96,7 +99,8 @@ public class AriaController : PlayerController
         Vector3 scale = mainSlider.transform.localScale;
         scale.x = healthSize;
         mainSlider.transform.localScale = scale;
-
+        ManaSlider.value = 0;
+        ManaSlider.size = 0;
         StartCoroutine(ScenarioRoutine());
         soudtrack.Play();
         damageSound.Stop();
@@ -112,6 +116,7 @@ public class AriaController : PlayerController
         rb = GetComponent<Rigidbody2D>();
         health = Maxhealth;
         speed = maxSpeed;
+        mana = 0;
         anim = GetComponent<Animator>();
         attack1 = GetComponentInChildren<AriaAttack1>();
         attack2 = GetComponentInChildren<AriaAttack2>();
@@ -391,7 +396,14 @@ public class AriaController : PlayerController
         }
     }
 
-    
+    public override void ImproveMana(int manaExtra)
+    {
+        if (mana < manaExtra)
+        {
+            mana += manaExtra;
+            ManaSlider.size = (float)mana / Maxmana;
+        }
+    }
     public override void SetRings(int minus) {
         rings -= minus;
         RingCount.text = rings.ToString();
