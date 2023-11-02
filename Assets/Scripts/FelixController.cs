@@ -24,7 +24,7 @@ public class FelixController : PlayerController
     public static float dodgeTime = 2f;
     public static int attackImprovement = 0;
     public static int Maxhealth = 500;
-    public static int rings = 0;
+    public static int rings = 50;
     public static int cures = 0;
     public TextMeshProUGUI CureCount;
     public TextMeshProUGUI RingCount;
@@ -389,10 +389,10 @@ public class FelixController : PlayerController
     {
         health += 100;
         Maxhealth += healthExtra;
-        Vector3 scale = mainSlider.transform.localScale;
-        healthSize = scale.x * 1.1f;
-        scale.x = healthSize;
-        mainSlider.transform.localScale = scale;
+        //Vector3 scale = mainSlider.transform.localScale;
+        //healthSize = scale.x * 1.1f;
+        // scale.x = healthSize;
+        //mainSlider.transform.localScale = scale;
     }
     public override void SetattackImprovement(int extra)
     {

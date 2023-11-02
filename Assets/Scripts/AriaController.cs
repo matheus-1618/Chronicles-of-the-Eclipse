@@ -374,10 +374,10 @@ public class AriaController : PlayerController
     public override void SetMaxHealth(int healthExtra) {
         health += 100;
         Maxhealth += healthExtra;
-        Vector3 scale = mainSlider.transform.localScale;
-        healthSize = scale.x * 1.1f;
-        scale.x = healthSize;
-        mainSlider.transform.localScale = scale;
+        //Vector3 scale = mainSlider.transform.localScale;
+        //healthSize = scale.x * 1.1f;
+        // scale.x = healthSize;
+        //mainSlider.transform.localScale = scale;
     }
     public override void SetattackImprovement(int extra)
     {

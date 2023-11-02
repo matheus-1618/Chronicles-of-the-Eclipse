@@ -20,6 +20,7 @@ public class PauseButton : MonoBehaviour
             Time.timeScale = 0;
         }
     }
+
     void Start()
     {
         
