@@ -10,6 +10,9 @@ using UnityEngine.UI;
 public class FelixController : PlayerController
 {
     // Start is called before the first frame update
+    public GameObject button1;
+    public GameObject button2;
+
     public DynamicJoystick joystick;
     public GameObject upgradeD;
     public GameObject DeathScene;
@@ -137,6 +140,23 @@ public class FelixController : PlayerController
     void Update()
     {
         onGround = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));
+        if (mana >= 500)
+        {
+            button2.SetActive(true);
+        }
+        else
+        {
+            button2.SetActive(false);
+        }
+        if (mana>= 150)
+        {
+            button1.SetActive(true);
+        }
+        else
+        {
+            button1.SetActive(false);
+        }
+
         if (rings >= 5)
         {
             upgradeD.SetActive(true);
@@ -307,6 +327,8 @@ public class FelixController : PlayerController
     {
         if (canAttack && canAttack3)
         {
+            mana -= 500;
+            ManaSlider.size = (float)mana / Maxmana;
             canAttack = false;
             lastAttack = Time.time;
             anim.SetTrigger("attack4");
@@ -321,6 +343,8 @@ public class FelixController : PlayerController
     {
         if (canAttack && canAttack2)
         {
+            mana -= 150;
+            ManaSlider.size = (float)mana / Maxmana;
             canAttack = false;
             lastAttack = Time.time;
             stop = true;
@@ -440,7 +464,7 @@ public class FelixController : PlayerController
 
     public override void ImproveMana(int manaExtra)
     {
-        if (mana < manaExtra)
+        if (mana < Maxmana)
         {
            mana += manaExtra;
            ManaSlider.size = (float)mana / Maxmana;
