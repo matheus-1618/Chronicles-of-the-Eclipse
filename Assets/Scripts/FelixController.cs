@@ -113,7 +113,7 @@ public class FelixController : PlayerController
         soundAttack1.Stop();
         soundAttack2.Stop();
         jumpSound.Stop();
-        CureCount.text = cures.ToString() + "x";
+        CureCount.text = cures.ToString();
         RingCount.text = rings.ToString();
         RingCountPause.text = rings.ToString();
         rb = GetComponent<Rigidbody2D>();
@@ -416,7 +416,7 @@ public class FelixController : PlayerController
     public override void GetCure()
     {
         cures += 1;
-        CureCount.text = cures.ToString() + "x";
+        CureCount.text = cures.ToString();
     }
 
 
