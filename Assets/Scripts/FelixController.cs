@@ -10,6 +10,7 @@ using UnityEngine.UI;
 public class FelixController : PlayerController
 {
     // Start is called before the first frame update
+    public GameObject aura;
     public GameObject button1;
     public GameObject button2;
 
@@ -140,6 +141,17 @@ public class FelixController : PlayerController
     void Update()
     {
         onGround = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));
+        Renderer auraRenderer = aura.GetComponent<Renderer>();
+        if (auraRenderer != null)
+        {
+         
+            Material auraMaterial = auraRenderer.material;
+
+            Color color = auraMaterial.color;
+            color.a = (float) mana / Maxmana;
+            auraMaterial.color = color;
+        }
+
         if (mana >= 500)
         {
             button2.SetActive(true);
