@@ -57,6 +57,9 @@ public class AriaAttack2 : MonoBehaviour
         Enemy enemy = other.GetComponent<Enemy>();
         if (enemy != null)
         {
+            GameObject playercontroller = GameObject.FindWithTag("Player");
+            PlayerController player = playercontroller.GetComponent<PlayerController>();
+            player.ImproveMana(50);
             enemy.TakeDamage(damage);
             Destroy(gameObject);
         }

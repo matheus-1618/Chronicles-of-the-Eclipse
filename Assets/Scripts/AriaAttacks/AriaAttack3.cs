@@ -33,6 +33,8 @@ public class AriaAttack3 : MonoBehaviour
         Enemy enemy = other.GetComponent<Enemy>();
         if (enemy != null)
         {
+            PlayerController player = GetComponentInParent<PlayerController>();
+            player.ImproveMana(50);
             enemy.TakeDamage(damage);
         }
 

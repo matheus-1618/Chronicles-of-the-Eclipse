@@ -13,7 +13,6 @@ public class FelixController : PlayerController
     public GameObject aura;
     public GameObject button1;
     public GameObject button2;
-
     public DynamicJoystick joystick;
     public GameObject upgradeD;
     public GameObject DeathScene;
@@ -182,53 +181,17 @@ public class FelixController : PlayerController
             canAttack = true;
         }
 
-      /*  if (canAttack && canAttack1 && Input.GetKeyDown(KeyCode.Z))
-        {
-            canAttack = false;
-            lastAttack = Time.time;
-            anim.SetTrigger("attack5");
-            soundAttack1.Play();
-            attack5.Explosion(attackImprovement);
-            canAttack1 = false;
-            lastAttack1Time = Time.time;
-            stop = true;
-        }*/
         if (!canAttack1 && Time.time - lastAttack1Time >= 0.5f)
         {
             canAttack1 = true;
             stop = false;
         }
 
-       /* if (canAttack && canAttack2 && Input.GetKeyDown(KeyCode.V))
-        {
-            canAttack = false;
-            lastAttack = Time.time;
-            stop = true;
-            anim.SetTrigger("attack2");
-            soundAttack2.Play();
-            Attack2 newAttack2 = Instantiate(attack2, attack2.transform.position, Quaternion.identity);
-            newAttack2.MagicBall(direction, attackImprovement);
-            canAttack2 = false;
-            lastAttack2Time = Time.time;
-        }*/
-
         if (!canAttack2 && Time.time - lastAttack2Time >= 1f)
         {
             canAttack2 = true;
             stop = false;
         }
-
-        /*if (canAttack && canAttack3 && Input.GetKeyDown(KeyCode.C))
-        {
-            canAttack = false;
-            lastAttack = Time.time;
-            anim.SetTrigger("attack4");
-            attack4.Explosion(attackImprovement);
-            soundAttack2.Play();
-            canAttack3 = false;
-            lastAttack3Time = Time.time;
-            stop = true;
-        }*/
 
         if (!canAttack3 && Time.time - lastAttack3Time >= 1f)
         {
@@ -240,17 +203,6 @@ public class FelixController : PlayerController
             canAttack3 = true;
         }
 
-       /* if (canAttack && canAttack4 && Input.GetKeyDown(KeyCode.X))
-        {
-            canAttack = false;
-            lastAttack = Time.time;
-            anim.SetTrigger("attack6");
-            soundAttack1.Play();
-            attack6.Explosion(attackImprovement);
-            canAttack4 = false;
-            lastAttack4Time = Time.time;
-            stop = true;
-        }*/
         if (!canAttack4 && Time.time - lastAttack4Time >= 0.7f)
         {
             canAttack4 = true;
@@ -266,13 +218,6 @@ public class FelixController : PlayerController
             StartCoroutine(CureCoroutine());
         }
 
-/*        if (onGround && roll && Input.GetKeyDown(KeyCode.F))
-        {
-            anim.SetTrigger("Roll");
-            roll = false;
-            canRoll = true;
-            lastRollTime = Time.time;
-        }*/
         if (!roll && Time.time - lastRollTime > dodgeTime)
         {
             roll = true;
@@ -283,11 +228,6 @@ public class FelixController : PlayerController
             anim.SetTrigger("Dead");
             StartCoroutine(RecarregaCena());
         }
-
-/*        if (Input.GetButtonDown("Jump") && (onGround))
-        {
-            jump = true;
-        }*/
     }
 
     public void RollFunction()
@@ -447,7 +387,6 @@ public class FelixController : PlayerController
             if (health <= 0)
             {
                 anim.SetTrigger("Dead");
-                StartCoroutine(RecarregaCena());
             }
             else
             {
@@ -456,6 +395,11 @@ public class FelixController : PlayerController
 
             }
         }
+    }
+
+    public void Death()
+    {
+        StartCoroutine(RecarregaCena());
     }
 
     public override void SetRings(int minus)
