@@ -283,8 +283,9 @@ public class FelixController : PlayerController
             ManaSlider.size = (float)mana / Maxmana;
             canAttack = false;
             lastAttack = Time.time;
-            anim.SetTrigger("attack4");
-            attack4.Explosion(attackImprovement);
+            anim.SetTrigger("attack8");
+            attack8.Explosion(attackImprovement);
+            
             soundAttack2.Play();
             canAttack3 = false;
             lastAttack3Time = Time.time;
@@ -300,10 +301,12 @@ public class FelixController : PlayerController
             canAttack = false;
             lastAttack = Time.time;
             stop = true;
-            anim.SetTrigger("attack2");
+            anim.SetTrigger("attack4");
+            attack4.Explosion(attackImprovement);
+            //anim.SetTrigger("attack2");
             soundAttack2.Play();
-            Attack2 newAttack2 = Instantiate(attack2, attack2.transform.position, Quaternion.identity);
-            newAttack2.MagicBall(direction, attackImprovement);
+            //Attack2 newAttack2 = Instantiate(attack2, attack2.transform.position, Quaternion.identity);
+            //newAttack2.MagicBall(direction, attackImprovement);
             canAttack2 = false;
             lastAttack2Time = Time.time;
         }

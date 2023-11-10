@@ -124,15 +124,12 @@ public class AriaController : PlayerController
     void Update()
     {
         onGround = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));
-        Renderer auraRenderer = aura.GetComponent<Renderer>();
-        if (auraRenderer != null)
+        Transform auraTransform = aura.GetComponent<Transform>();
+        if (auraTransform != null)
         {
-
-            Material auraMaterial = auraRenderer.material;
-
-            Color color = auraMaterial.color;
-            color.a = (float)mana / Maxmana;
-            auraMaterial.color = color;
+            Vector3 scale1 = auraTransform.localScale;
+            scale1.x =(float)2.5f*mana / Maxmana; 
+            auraTransform.localScale = scale1;
         }
         if (mana >= 500)
         {
@@ -351,6 +348,7 @@ public class AriaController : PlayerController
     {
         if (canAttack && canAttack3)
         {
+            mana -= 500;
             canAttack = false;
             lastAttack = Time.time;
             anim.SetTrigger("Attack5");
@@ -365,6 +363,7 @@ public class AriaController : PlayerController
     {
         if (canAttack && canAttack4)
         {
+            mana -= 150;
             canAttack = false;
             lastAttack = Time.time;
             anim.SetTrigger("Attack4");
