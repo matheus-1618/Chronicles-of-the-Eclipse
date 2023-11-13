@@ -128,7 +128,7 @@ public class AriaController : PlayerController
         if (auraTransform != null)
         {
             Vector3 scale1 = auraTransform.localScale;
-            scale1.x =(float)2.5f*mana / Maxmana; 
+            scale1.x =(float)1.5f*mana / Maxmana; 
             auraTransform.localScale = scale1;
         }
         if (mana >= 500)
