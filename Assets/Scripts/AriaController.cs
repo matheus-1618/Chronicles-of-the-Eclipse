@@ -10,6 +10,7 @@ using TMPro;
 public class AriaController : PlayerController
 {
     // Start is called before the first frame update
+    public GameObject buttonCure;
     public GameObject aura;
     public GameObject button1;
     public GameObject button2;
@@ -130,6 +131,14 @@ public class AriaController : PlayerController
             Vector3 scale1 = auraTransform.localScale;
             scale1.x =(float)1.5f*mana / Maxmana; 
             auraTransform.localScale = scale1;
+        }
+        if (cures > 0)
+        {
+            buttonCure.SetActive(true);
+        }
+        else
+        {
+            buttonCure.SetActive(false);
         }
         if (mana >= 500)
         {
@@ -259,16 +268,6 @@ public class AriaController : PlayerController
             roll = true;
         }
 
-        if (cures > 0 && Input.GetKeyDown(KeyCode.E))
-        {
-            cures -= 1;
-            CureCount.text = cures.ToString();
-            anim.SetTrigger("Potion");
-            health += 200;
-            mainSlider.size = (float)health / Maxhealth;
-            StartCoroutine(CureCoroutine());
-        }
-
         if (transform.position.y < -5)
         {
             anim.SetTrigger("Dead");
@@ -372,6 +371,18 @@ public class AriaController : PlayerController
             canAttack4 = false;
             lastAttack4Time = Time.time;
             stop = true;
+        }
+    }
+    public void CureFunction()
+    {
+        if (cures > 0)
+        {
+            cures -= 1;
+            CureCount.text = cures.ToString();
+            anim.SetTrigger("Potion");
+            health += 200;
+            mainSlider.size = (float)health / Maxhealth;
+            StartCoroutine(CureCoroutine());
         }
     }
 

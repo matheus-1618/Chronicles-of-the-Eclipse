@@ -10,6 +10,7 @@ using UnityEngine.UI;
 public class FelixController : PlayerController
 {
     // Start is called before the first frame update
+    public GameObject buttonCure;
     public GameObject aura;
     public GameObject button1;
     public GameObject button2;
@@ -151,6 +152,15 @@ public class FelixController : PlayerController
             auraMaterial.color = color;
         }
 
+        if (cures > 0)
+        {
+            buttonCure.SetActive(true);
+        }
+        else
+        {
+            buttonCure.SetActive(false);
+        }
+
         if (mana >= 500)
         {
             button2.SetActive(true);
@@ -207,15 +217,6 @@ public class FelixController : PlayerController
         {
             canAttack4 = true;
             stop = false;
-        }
-        if (cures > 0 && Input.GetKeyDown(KeyCode.E))
-        {
-            cures -= 1;
-            CureCount.text = cures.ToString() + "x";
-            anim.SetTrigger("Potion");
-            health += 200;
-            mainSlider.size = (float)health / Maxhealth;
-            StartCoroutine(CureCoroutine());
         }
 
         if (!roll && Time.time - lastRollTime > dodgeTime)
@@ -309,6 +310,19 @@ public class FelixController : PlayerController
             //newAttack2.MagicBall(direction, attackImprovement);
             canAttack2 = false;
             lastAttack2Time = Time.time;
+        }
+    }
+
+    public void CureFunction()
+    {
+        if (cures > 0)
+        {
+            cures -= 1;
+            CureCount.text = cures.ToString();
+            anim.SetTrigger("Potion");
+            health += 200;
+            mainSlider.size = (float)health / Maxhealth;
+            StartCoroutine(CureCoroutine());
         }
     }
 
