@@ -26,6 +26,7 @@ public class ChangeSvene : MonoBehaviour
     }
     public void fadeComplete()
     {
+        gameObject.SetActive(false);
         Selection.SetActive(true);
         //SceneManager.LoadScene("Scenes/MenuSelection");
     }
