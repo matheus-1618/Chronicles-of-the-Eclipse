@@ -7,6 +7,7 @@ public class Soldier : Enemy
     // Start is called before the first frame update
     public AudioSource deathSound;
     public GameObject collectible;
+    public float distance = 1.5f;
     public int health = 400;
     public int damage = 20;
     private Transform player;
@@ -42,7 +43,7 @@ public class Soldier : Enemy
             {
                 rb.velocity = new Vector2(3f * (playerDistance.x) / Mathf.Abs(playerDistance.x), rb.velocity.y);
                 anim.SetFloat("Speed", Mathf.Abs(rb.velocity.x));
-                if (Mathf.Abs(playerDistance.x) < 1.5f)
+                if (Mathf.Abs(playerDistance.x) < distance)
                 {
                     //anim.SetFloat("Speed", 0f);
                     ChangeState();
