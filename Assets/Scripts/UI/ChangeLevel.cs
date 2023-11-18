@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 public class ChangeLevel : MonoBehaviour
 {
     // Start is called before the first frame update
+    public GameObject afterLevel;
     public string SceneChanger;
     void Start()
     {
@@ -15,6 +16,11 @@ public class ChangeLevel : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void OpenAfterLevel()
+    {
+        afterLevel.SetActive(true);
     }
     public void Change()
     {
