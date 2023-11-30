@@ -1,8 +1,10 @@
 # Chronicles of Eclipse
 
 <div align="center" style="max-width:68rem;">
-  
-### [The game can be played  here](https://matheus-1618.itch.io/chronicles-of-eclipse)
+
+### [MOBILE VERSION](https://play.google.com/store/apps/details?id=com.NishioEnterprise.ChroniclesofEclipse)
+
+### [WEB VERSION](https://matheus-1618.itch.io/chronicles-of-eclipse)
 
 </div>
 
@@ -79,6 +81,16 @@ https://sanctumpixel.itch.io/
 https://pimen.itch.io/thunder-spell-effect-02
 
 https://pimen.itch.io/thunder-spell-effect-01
+
+https://ansimuz.itch.io/terryble-knight-assets
+
+https://pimen.itch.io/
+
+https://creativekind.itch.io/
+
+https://rili-xl.itch.io/cultist-priest-pack
+
+https://chierit.itch.io/elementals-water-priestess
 
 Images and GIFS
 
