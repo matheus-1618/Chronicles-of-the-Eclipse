@@ -462,6 +462,7 @@ public class AriaController : PlayerController
             if (health <= 0)
             {
                 anim.SetTrigger("Dead");
+                StartCoroutine(RecarregaCena());
             }
             else
             {

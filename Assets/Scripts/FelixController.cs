@@ -404,6 +404,7 @@ public class FelixController : PlayerController
             if (health <= 0)
             {
                 anim.SetTrigger("Dead");
+                StartCoroutine(RecarregaCena());
             }
             else
             {

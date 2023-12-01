@@ -32632,11 +32632,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8135886326569738822, guid: 56fae09712773584fb63896d473a98ee, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.31782085
+      value: 0.3878208
       objectReference: {fileID: 0}
     - target: {fileID: 8135886326569738822, guid: 56fae09712773584fb63896d473a98ee, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.31782085
+      value: 0.3678208
       objectReference: {fileID: 0}
     - target: {fileID: 8135886326569738822, guid: 56fae09712773584fb63896d473a98ee, type: 3}
       propertyPath: m_LocalScale.z
@@ -43024,11 +43024,11 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1523033417}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -4, y: -331}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: -4.0000167, y: 0.5999985}
   m_SizeDelta: {x: 654, y: 142}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1278751502
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54463,7 +54463,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1398707294}
         m_TargetAssemblyTypeName: Interstitial, Assembly-CSharp
-        m_MethodName: ShowAd
+        m_MethodName: LoadAd
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
